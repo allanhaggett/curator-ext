@@ -1,0 +1,6 @@
+"Step","Title","URL","Description","Context","Type","Sort Order"
+"General Government Info","Ministries - Province of British Columbia","https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries","Introduction to the Ministries in the BC Public Service","Yeah this is important.","required",""
+"Platforms","LSApp - Learning Support Admin Application","https://gww.bcpublicservice.gov.bc.ca/lsapp/","Main admin site for CLB","All the info on our courses.","required",""
+"Platforms","Home | LearningHUB","https://learningcentre.gww.gov.bc.ca/learninghub/","LearningHUB is all the courses all the time.","You gotta just gotta.","required","1"
+"Platforms","Corporate Learning","https://learningcentre.gww.gov.bc.ca/","The main CLB site.","You'll want to refer to this for stuff CLB related.","required","2"
+"Accessibility","Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora","https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode","Quora is OK.","Good info contained within.","Bonus",""
