@@ -181,6 +181,15 @@
             "type": "Required",
             "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise",
             "sortOrder": 1
+          },
+          {
+            "added": 1746401020370,
+            "context": "We use this for Moodle and it should be preferred solution for SSO.",
+            "description": "The request process workflow tool for the RedHat SSO Dev Exchange service",
+            "title": "Common Hosted Single Sign-on (CSS)",
+            "type": "Required",
+            "url": "https://bcgov.github.io/sso-requests/",
+            "sortOrder": 2
           }
         ],
         "name": "Platforms",
@@ -218,6 +227,21 @@
         ],
         "name": "Misc",
         "objective": "Random links related to dev but not dev directly."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746400948324,
+            "context": "We don't use this but it's important to know that it can do it.",
+            "description": "You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.",
+            "title": "External database enrolment - MoodleDocs",
+            "type": "Required",
+            "url": "https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Moodle",
+        "objective": "Know all the things Moodle as it's our primary virtual learning delivery environment."
       }
     ]
   },
