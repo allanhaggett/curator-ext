@@ -1,0 +1,71 @@
+[
+  {
+    "description": "All the good links for PSA CLB",
+    "name": "PSA Corporate Learning Branch",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746160537589,
+            "context": "Yeah this is important.",
+            "description": "Introduction to the Ministries in the BC Public Service",
+            "title": "Ministries - Province of British Columbia",
+            "type": "required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
+            "sortOrder": 0
+          }
+        ],
+        "name": "General Government Info",
+        "objective": "Familiarize yourself with how gov works."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746160450869,
+            "context": "All the info on our courses.",
+            "description": "Main admin site for CLB",
+            "title": "LSApp - Learning Support Admin Application",
+            "type": "required",
+            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746159718346,
+            "context": "You gotta just gotta.",
+            "description": "LearningHUB is all the courses all the time.",
+            "title": "Home | LearningHUB",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746160363905,
+            "context": "You'll want to refer to this for stuff CLB related.",
+            "description": "The main CLB site.",
+            "title": "Corporate Learning",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the places"
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746398280893,
+            "context": "Good info contained within.",
+            "description": "Quora is OK.",
+            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
+            "type": "Bonus",
+            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Accessibility",
+        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
+      }
+    ]
+  }
+]
