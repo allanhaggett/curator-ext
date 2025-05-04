@@ -1,0 +1,366 @@
+[
+  {
+    "description": "All the good links for PSA CLB",
+    "name": "PSA Corporate Learning Branch",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746160537589,
+            "context": "Yeah this is important.",
+            "description": "Introduction to the Ministries in the BC Public Service",
+            "title": "Ministries - Province of British Columbia",
+            "type": "required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
+            "sortOrder": 0
+          }
+        ],
+        "name": "General Government Info",
+        "objective": "Familiarize yourself with how gov works."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746160450869,
+            "context": "All the info on our courses.",
+            "description": "Main admin site for CLB",
+            "title": "LSApp - Learning Support Admin Application",
+            "type": "required",
+            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746159718346,
+            "context": "You gotta just gotta.",
+            "description": "LearningHUB is all the courses all the time.",
+            "title": "Home | LearningHUB",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746160363905,
+            "context": "You'll want to refer to this for stuff CLB related.",
+            "description": "The main CLB site.",
+            "title": "Corporate Learning",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the places"
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746398280893,
+            "context": "Good info contained within.",
+            "description": "Quora is OK.",
+            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
+            "type": "Bonus",
+            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Accessibility",
+        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
+      }
+    ]
+  },
+  {
+    "created": 1746391996332,
+    "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
+    "name": "Full Stack Developer",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746161516590,
+            "context": "Fun stuff.",
+            "description": "htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext\n\n    htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible & has reduced code base sizes by 67% when compared with react",
+            "title": "</> htmx - high power tools for html",
+            "type": "required",
+            "url": "https://htmx.org/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746163355452,
+            "context": "Performance is king.",
+            "description": "Font loading can slow page load times significantly. This article shows you how to reduce the impact.",
+            "title": "10 ways to speed up web font loading",
+            "type": "required",
+            "url": "https://byteofdev.com/posts/speed-up-font-loading/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746391518775,
+            "context": "We don't use this but it's pretty popular.",
+            "description": "Svelte is a UI framework that uses a compiler to let you write breathtakingly concise components that do minimal work in the browser, using languages you already know — HTML, CSS and JavaScript. It’s a love letter to web development.",
+            "title": "Svelte • Web development for the rest of us",
+            "type": "bonus",
+            "url": "https://svelte.dev/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Front End",
+        "objective": "All the client things. HTML, CSS, Javascript"
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746159900862,
+            "context": "Foo mistake",
+            "description": "This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.",
+            "title": "How to Prevent WordPress Users from Creating New Tags - PublishPress",
+            "type": "required",
+            "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746161431955,
+            "context": "",
+            "description": "This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.",
+            "title": "How to Set Up Nginx, MariaDB, and PHP with Docker Compose",
+            "type": "required",
+            "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746163525801,
+            "context": "Meh we don't use it but YMMV",
+            "description": "This design system documents the styles, components and templates available to use on your website.\n\nFind out how to get started.\n\nHow the front end assets (CSS and JavaScript) are organised and compiled is discussed below.",
+            "title": "Welcome to the W3C design system - W3C Design System",
+            "type": "bonus",
+            "url": "https://design-system.w3.org/",
+            "sortOrder": 2
+          },
+          {
+            "added": 1746246004914,
+            "context": "I have no idea why but here it is.",
+            "description": "Your source for Terrestrial and Aquatic Species and Habitat Inventory Information",
+            "title": "Discover BiodiversityHub BC - BioHub BC & SIMS - Confluence",
+            "type": "bonus",
+            "url": "https://apps.nrs.gov.bc.ca/int/confluence/display/TASHIS/Discover+BiodiversityHub+BC",
+            "sortOrder": 3
+          }
+        ],
+        "name": "Back End",
+        "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746162080667,
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "title": "Diceware Passphrase Home",
+            "type": "required",
+            "url": "https://theworld.com/~reinhold/diceware.html",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746159181235,
+            "context": "It's not the only game in town.",
+            "description": "Main registration platform for courses.",
+            "title": "PSA Learning System Homepage",
+            "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746398560688,
+            "context": "Do yourself a favor and know this stuff.",
+            "description": "The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.",
+            "title": "BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub",
+            "type": "Required",
+            "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise",
+            "sortOrder": 1
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the different platforms where courses are hosted."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746386026764,
+            "context": "You might be asked to track how much time you're spending on different projects.",
+            "description": "Open source IDE plugins for programmers.",
+            "title": "WakaTime - Dashboards for developers",
+            "type": "required",
+            "url": "https://wakatime.com/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746386963340,
+            "context": "It doesn't matter how good your system is for taking backups if you never try to restore from those backups.",
+            "description": "Archivematica: open-source digital preservation system",
+            "title": "Archivematica: open-source digital preservation system",
+            "type": "required",
+            "url": "https://www.archivematica.org/en/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746387326104,
+            "context": "Because iut's good.",
+            "description": "Principles to help you write unique and compelling UX Design case studies for your portfolio.",
+            "title": "5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools",
+            "type": "required",
+            "url": "https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Misc",
+        "objective": "Random links related to dev but not dev directly."
+      }
+    ]
+  },
+  {
+    "created": 1746165855980,
+    "description": "Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.",
+    "name": "Anti-Racism in the BC Public Service",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746166005415,
+            "context": "",
+            "description": "Key Definitions for Anti-Racism in the BCPS",
+            "title": "Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid",
+            "type": "required",
+            "url": "https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/key-definitions.html",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746166028699,
+            "context": "",
+            "description": "In this extract from his 2019 book How To Be an Antiracist, historian Ibram X. Kendi breaks down exactly what the term means – and why clear language is a vital first step in the battle against prejudice.",
+            "title": "Ibram X. Kendi defines what it means to be an antiracist",
+            "type": "required",
+            "url": "https://www.penguin.co.uk/discover/articles/ibram-x-kendi-definition-of-antiracist",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746166145466,
+            "context": "",
+            "description": "Introduction to Unlearning & Undoing White Supremacy and Racism in the Office of the Provincial Health Officer",
+            "title": "Introduction to Unlearning & Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia",
+            "type": "required",
+            "url": "https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project",
+            "sortOrder": 2
+          },
+          {
+            "added": 1746166160166,
+            "context": "",
+            "description": "Anti-China sentiments — and political posturing — have led to racism against Asian Canadians.",
+            "title": "White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee",
+            "type": "required",
+            "url": "https://thetyee.ca/Opinion/2020/06/10/White-Supremacy-BC-China-Syndrome/",
+            "sortOrder": 3
+          }
+        ],
+        "name": "Contextualize Racism and Anti-Racism",
+        "objective": "Understand the context in which racism exists. Learn about anti-racism and why simply being “not racist” isn't enough."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746166183483,
+            "context": "",
+            "description": "A history of racism in British Columbia.",
+            "title": "Challenging Racist British Columbia",
+            "type": "required",
+            "url": "https://www.challengeracistbc.ca/video-series.html",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746166196533,
+            "context": "",
+            "description": "Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.",
+            "title": "British Columbia: An Untold History | Knowledge.ca",
+            "type": "required",
+            "url": "https://www.knowledge.ca/program/british-columbia-untold-history",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746166298366,
+            "context": "",
+            "description": "Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.",
+            "title": "Racism in Canada: Words to tell wrongs | Radio-Canada.ca",
+            "type": "bonus",
+            "url": "https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs",
+            "sortOrder": 2
+          }
+        ],
+        "name": "History of Racism in Canada",
+        "objective": "Learn about the history of racism in Canada to better understand the current context. \"Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias & Feagin, 2020, p. 21)."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746166355083,
+            "context": "",
+            "description": "Participate in the investigation into Indigenous-specific discrimination in the health system in BC.",
+            "title": "Addressing Racism in BC Health Care",
+            "type": "required",
+            "url": "https://engage.gov.bc.ca/addressingracism/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746166378332,
+            "context": "",
+            "description": "To the uninitiated, Canada may have a reputation for friendly and folksy charm. For Black and Indigenous peoples of the 'Great White North,' this veneer beli...",
+            "title": "Yes—Canada has anti-Black racism, too - YouTube",
+            "type": "required",
+            "url": "https://www.youtube.com/watch?v=fNk633ujvWk",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746166406917,
+            "context": "",
+            "description": "From hate to hope\nInquiry into hate in the COVID-19 pandemic\nIn August 2021, B.C.’s Human Rights Commissioner launched an inquiry into the rise of hate in B.C. during the COVID-19 pandemic. In March 2023, the Commissioner released her findings and recommendations.\n\nIllustrations by Paige Jung",
+            "title": "From hate to hope | BC's Office of the Human Rights Commissioner",
+            "type": "required",
+            "url": "https://bchumanrights.ca/inquiries-and-cases/inquiries/inquiry/inquiry-into-hate/",
+            "sortOrder": 2
+          },
+          {
+            "added": 1746166429251,
+            "context": "",
+            "description": "Rampant Islamophobia is costing Canadian Muslims their peace of mind, their physical well-being and even their lives.",
+            "title": "Combatting Hate: Islamophobia and its impact on Muslims in Canada",
+            "type": "required",
+            "url": "https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/",
+            "sortOrder": 3
+          },
+          {
+            "added": 1746166465433,
+            "context": "",
+            "description": "This Montreal Holocaust Museum report uncovers the history of Antisemitism that greatly affects the Jewish community in Canada.",
+            "title": "Brief History of Antisemitism in Canada",
+            "type": "required",
+            "url": "https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf",
+            "sortOrder": 4
+          },
+          {
+            "added": 1746166512604,
+            "context": "",
+            "description": "This 2019 survey of Canadian public opinion and experience by the Canadian Race Relations Foundation found that racialized people experienced racism both in the workplace and out on the streets more than in any other setting.",
+            "title": "Race Relations in Canada 2019: A survey of Canadian public opinion and experience",
+            "type": "bonus",
+            "url": "https://www.environicsinstitute.org/docs/default-source/project-documents/race-relations-2019-survey/race-relations-in-canada-2019-survey---final-report-english.pdf?sfvrsn=ef8d61e3_2",
+            "sortOrder": 5
+          }
+        ],
+        "name": "Colours of Racism in Canada",
+        "objective": "Understand the different types of racism and discrimination that Indigenous, Black, and other racialized and marginalized people experience in the Canadian context."
+      }
+    ]
+  }
+]
