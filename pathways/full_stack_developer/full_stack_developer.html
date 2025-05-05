@@ -81,16 +81,18 @@
     border: 1px solid #dee2e6;
     border-radius: 0.375rem;
     overflow: hidden;
+    transition: border-color 0.3s;
   }
   details.step summary {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    background-color: #f8f9fa;
+    background-color: rgba(0,0,0,0.03);
     border-bottom: 1px solid #dee2e6;
     cursor: pointer;
     font-weight: 500;
     font-size: 1.1rem;
+    transition: background-color 0.3s, border-color 0.3s;
   }
   details.step summary::marker {
     display: none;
@@ -109,11 +111,24 @@
     padding: 1rem;
   }
   details.step .step-objective {
-    background-color: #f8f9fa;
+    background-color: rgba(0,0,0,0.03);
     padding: 0.75rem;
     border-radius: 0.375rem;
     font-style: italic;
     margin-bottom: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  /* Dark mode overrides for steps */
+  [data-bs-theme="dark"] details.step {
+    border-color: #495057;
+  }
+  [data-bs-theme="dark"] details.step summary {
+    background-color: rgba(255,255,255,0.05);
+    border-bottom-color: #495057;
+  }
+  [data-bs-theme="dark"] details.step .step-objective {
+    background-color: rgba(255,255,255,0.05);
   }
 </style>
 </head>
@@ -132,7 +147,9 @@
     </div>
   </div>
 </div>
-<div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area.</div>
+
+
+<div class="lead mb-4"><p>Good links to all parts of the stack, even though that's a ridiculously large area.</p></div>
 
 <script>
   // Add event listeners for expand/collapse buttons
@@ -192,11 +209,11 @@
       <span>Front End</span>
       <div class="ms-auto">
         <span class="badge bg-primary me-1">4</span>
-        <span class="badge bg-info me-1">2</span>
+        <span class="badge bg-info me-1">3</span>
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">All the client things. HTML, CSS, Javascript</div>
+      <div class="step-objective"><p>All the client things. HTML, CSS, Javascript</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
@@ -210,10 +227,8 @@
               <a href="https://htmx.org/" class="bookmark-link fw-semibold">&lt;/&gt; htmx - high power tools for html</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
-
-    htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible &amp; has reduced code base sizes by 67% when compared with react</small><br>
-            <em>Fun stuff.</em>
+            <small><p>htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext</p><p>    htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible & has reduced code base sizes by 67% when compared with react</p></small><br>
+            <em><p>Fun stuff.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
           </li>
           <li class="list-group-item">
@@ -224,8 +239,8 @@
               <a href="https://byteofdev.com/posts/speed-up-font-loading/" class="bookmark-link fw-semibold">10 ways to speed up web font loading</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Font loading can slow page load times significantly. This article shows you how to reduce the impact.</small><br>
-            <em>Performance is king.</em>
+            <small><p>Font loading can slow page load times significantly. This article shows you how to reduce the impact.</p></small><br>
+            <em><p>Performance is king.</p></em>
             <div><small class="text-muted">Content Type: Watch | Sort Order: 1</small></div>
           </li>
           <li class="list-group-item">
@@ -236,8 +251,8 @@
               <a href="https://www.simplepie.org/wiki/" class="bookmark-link fw-semibold">SimplePie Documentation: Documentation</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>A super-fast, easy-to-use, RSS and Atom parser written in PHP.</small><br>
-            <em>More tetsing</em>
+            <small><p>A super-fast, easy-to-use, RSS and Atom parser written in PHP.</p></small><br>
+            <em><p>More tetsing</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
           </li>
           <li class="list-group-item">
@@ -248,8 +263,8 @@
               <a href="https://torquemag.io/2020/06/wordpresss-responsive-tables/" class="bookmark-link fw-semibold">The WordPress Developer&#039;s Guide to Creating Responsive Tables</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!</small><br>
-            <em>Nice looking tables are good.</em>
+            <small><p>Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!</p></small><br>
+            <em><p>Nice looking tables are good.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 3</small></div>
           </li>
       </ul>
@@ -267,8 +282,8 @@
                 <a href="https://svelte.dev/" class="bookmark-link fw-semibold">Svelte • Web development for the rest of us</a>
                 <span class="bonus-badge">Bonus</span>
               </div>
-              <small>Svelte is a UI framework that uses a compiler to let you write breathtakingly concise components that do minimal work in the browser, using languages you already know — HTML, CSS and JavaScript. It’s a love letter to web development.</small><br>
-              <em>We don&#039;t use this but it&#039;s pretty popular.</em>
+              <small><p>Svelte is a UI framework that uses a compiler to let you write breathtakingly concise components that do minimal work in the browser, using languages you already know — HTML, CSS and JavaScript. It’s a love letter to web development.</p></small><br>
+              <em><p>We don't use this but it's pretty popular.</p></em>
               <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
             <li class="list-group-item">
@@ -279,9 +294,21 @@
                 <a href="https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc" class="bookmark-link fw-semibold">Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium</a>
                 <span class="bonus-badge">Bonus</span>
               </div>
-              <small>Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…</small><br>
-              <em>BOO MEDIUM</em>
+              <small><p>Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…</p></small><br>
+              <em><p>BOO MEDIUM</p></em>
               <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
+            </li>
+            <li class="list-group-item">
+              <div>
+                <span class="content-type-badge content-type-read" title="Read">
+                  <i class="bi bi-book"></i>
+                </span>
+                <a href="https://sikulix.github.io/" class="bookmark-link fw-semibold">Hello from SikuliX | SikuliX</a>
+                <span class="bonus-badge">Bonus</span>
+              </div>
+              <small><p>Visual Automation and Testing</p></small><br>
+              <em><p>Have never used but it looks inetresting. YMV</p></em>
+              <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
             </li>
         </ul>
       </div>
@@ -296,7 +323,7 @@
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
+      <div class="step-objective"><p>Stuff for the backend from databases to ETL processes and basic OS stuff.</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
@@ -310,8 +337,8 @@
               <a href="https://publishpress.com/blog/permissions/stop-users-creating-new-tags/" class="bookmark-link fw-semibold">How to Prevent WordPress Users from Creating New Tags - PublishPress</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.</small><br>
-            <em>Foo mistake</em>
+            <small><p>This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.</p></small><br>
+            <em><p>Foo mistake</p></em>
             <div><small class="text-muted">Content Type: Listen | Sort Order: 0</small></div>
           </li>
           <li class="list-group-item">
@@ -322,7 +349,7 @@
               <a href="https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/" class="bookmark-link fw-semibold">How to Set Up Nginx, MariaDB, and PHP with Docker Compose</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.</small><br>
+            <small><p>This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.</p></small><br>
             <em></em>
             <div><small class="text-muted">Content Type: Participate | Sort Order: 1</small></div>
           </li>
@@ -334,9 +361,8 @@
               <a href="https://github.com/WordPress/gutenberg/pull/51290" class="bookmark-link fw-semibold">Query Loop: Add Page Order (menu_order) by brnhrst · Pull Request #51290 · WordPress/gutenberg · GitHub</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>What?
-This PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...</small><br>
-            <em>While we still use Wordpress this can be good info to know.</em>
+            <small><p>What?</p><p>This PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...</p></small><br>
+            <em><p>While we still use Wordpress this can be good info to know.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
           </li>
       </ul>
@@ -354,12 +380,8 @@ This PR adds the possibility to the query loop block to output pages according t
                 <a href="https://design-system.w3.org/" class="bookmark-link fw-semibold">Welcome to the W3C design system - W3C Design System</a>
                 <span class="bonus-badge">Bonus</span>
               </div>
-              <small>This design system documents the styles, components and templates available to use on your website.
-
-Find out how to get started.
-
-How the front end assets (CSS and JavaScript) are organised and compiled is discussed below.</small><br>
-              <em>Meh we don&#039;t use it but YMMV</em>
+              <small><p>This design system documents the styles, components and templates available to use on your website.</p><p>Find out how to get started.</p><p>How the front end assets (CSS and JavaScript) are organised and compiled is discussed below.</p></small><br>
+              <em><p>Meh we don't use it but YMMV</p></em>
               <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
             <li class="list-group-item">
@@ -370,8 +392,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
                 <a href="https://apps.nrs.gov.bc.ca/int/confluence/display/TASHIS/Discover+BiodiversityHub+BC" class="bookmark-link fw-semibold">Discover BiodiversityHub BC - BioHub BC &amp; SIMS - Confluence</a>
                 <span class="bonus-badge">Bonus</span>
               </div>
-              <small>Your source for Terrestrial and Aquatic Species and Habitat Inventory Information</small><br>
-              <em>I have no idea why but here it is.</em>
+              <small><p>Your source for Terrestrial and Aquatic Species and Habitat Inventory Information</p></small><br>
+              <em><p>I have no idea why but here it is.</p></em>
               <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
             </li>
         </ul>
@@ -387,7 +409,7 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">Stay safe.</div>
+      <div class="step-objective"><p>Stay safe.</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
@@ -401,8 +423,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://theworld.com/~reinhold/diceware.html" class="bookmark-link fw-semibold">Diceware Passphrase Home</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.</small><br>
-            <em>Good tool.</em>
+            <small><p>This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.</p></small><br>
+            <em><p>Good tool.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
           </li>
       </ul>
@@ -419,7 +441,7 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">All the different platforms where courses are hosted.</div>
+      <div class="step-objective"><p>All the different platforms where courses are hosted.</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
@@ -433,8 +455,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?" class="bookmark-link fw-semibold">PSA Learning System Homepage</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Main registration platform for courses.</small><br>
-            <em>It&#039;s not the only game in town.</em>
+            <small><p>Main registration platform for courses.</p></small><br>
+            <em><p>It's not the only game in town.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
           </li>
           <li class="list-group-item">
@@ -445,8 +467,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise" class="bookmark-link fw-semibold">BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.</small><br>
-            <em>Do yourself a favor and know this stuff.</em>
+            <small><p>The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.</p></small><br>
+            <em><p>Do yourself a favor and know this stuff.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
           </li>
           <li class="list-group-item">
@@ -457,8 +479,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://bcgov.github.io/sso-requests/" class="bookmark-link fw-semibold">Common Hosted Single Sign-on (CSS)</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>The request process workflow tool for the RedHat SSO Dev Exchange service</small><br>
-            <em>We use this for Moodle and it should be preferred solution for SSO.</em>
+            <small><p>The request process workflow tool for the RedHat SSO Dev Exchange service</p></small><br>
+            <em><p>We use this for Moodle and it should be preferred solution for SSO.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
           </li>
       </ul>
@@ -475,7 +497,7 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">Random links related to dev but not dev directly.</div>
+      <div class="step-objective"><p>Random links related to dev but not dev directly.</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
@@ -489,8 +511,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://wakatime.com/" class="bookmark-link fw-semibold">WakaTime - Dashboards for developers</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Open source IDE plugins for programmers.</small><br>
-            <em>You might be asked to track how much time you&#039;re spending on different projects.</em>
+            <small><p>Open source IDE plugins for programmers.</p></small><br>
+            <em><p>You might be asked to track how much time you're spending on different projects.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
           </li>
           <li class="list-group-item">
@@ -501,8 +523,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://www.archivematica.org/en/" class="bookmark-link fw-semibold">Archivematica: open-source digital preservation system</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Archivematica: open-source digital preservation system</small><br>
-            <em>It doesn&#039;t matter how good your system is for taking backups if you never try to restore from those backups.</em>
+            <small><p>Archivematica: open-source digital preservation system</p></small><br>
+            <em><p>It doesn't matter how good your system is for taking backups if you never try to restore from those backups.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
           </li>
           <li class="list-group-item">
@@ -513,8 +535,8 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" class="bookmark-link fw-semibold">5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>Principles to help you write unique and compelling UX Design case studies for your portfolio.</small><br>
-            <em>Because iut&#039;s good.</em>
+            <small><p>Principles to help you write unique and compelling UX Design case studies for your portfolio.</p></small><br>
+            <em><p>Because iut's good.</p></em>
             <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
           </li>
       </ul>
@@ -526,17 +548,29 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
     <summary>
       <span>Moodle</span>
       <div class="ms-auto">
-        <span class="badge bg-primary me-1">1</span>
+        <span class="badge bg-primary me-1">2</span>
         
       </div>
     </summary>
     <div class="step-content">
-      <div class="step-objective">Know all the things Moodle as it&#039;s our primary virtual learning delivery environment.</div>
+      <div class="step-objective"><p>Know all the things Moodle as it's our primary virtual learning delivery environment.</p></div>
       
       
       <h3 class="h6 mt-3">Required Resources</h3>
       <ul class="list-group mb-3">
         
+          <li class="list-group-item">
+            <div>
+              <span class="content-type-badge content-type-participate" title="Participate">
+                <i class="bi bi-person-workspace"></i>
+              </span>
+              <a href="https://moodle.academy/" class="bookmark-link fw-semibold">Home | Moodle Academy</a>
+              <span class="required-badge">Required</span>
+            </div>
+            <small><p>Learn all about Moodle with free online courses</p><p>Develop your career as a Moodle Educator, Administrator, Designer and Developer and learn all about online education with Moodle. </p><p>Attend webinars.</p><p>Complete courses.</p><p>Enrol in programs.</p><p>New to Moodle? Take the 1 hour Introduction to Moodle course to get started.</p></small><br>
+            <em><p>You should have graduated or not need to have graduated from this series of courses.</p></em>
+            <div><small class="text-muted">Content Type: Participate | Sort Order: 0</small></div>
+          </li>
           <li class="list-group-item">
             <div>
               <span class="content-type-badge content-type-read" title="Read">
@@ -545,13 +579,26 @@ How the front end assets (CSS and JavaScript) are organised and compiled is disc
               <a href="https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29" class="bookmark-link fw-semibold">External database enrolment - MoodleDocs</a>
               <span class="required-badge">Required</span>
             </div>
-            <small>You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.</small><br>
-            <em>We don&#039;t use this but it&#039;s important to know that it can do it.</em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
+            <small><p>You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.</p></small><br>
+            <em><p>We don't use this but it's important to know that it can do it.</p></em>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
           </li>
       </ul>
       
       
     </div>
   </details>
+
+
+<div class="card border-0 shadow-sm mb-4 mt-5">
+  <div class="card-header bg-body-tertiary">
+    <div class="d-flex align-items-center">
+      <i class="bi bi-award me-2"></i>
+      <h2 class="h5 mb-0">Acknowledgments</h2>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.</p><p>In particular, our sincere thanks go out to colleagues and partners at the following entities:</p><li>Policy & Legislation, BC Data Service, CITZ</li><li>Multiculturalism & Anti-Racism Branch, AG</li><li>PSA REDI, Policy and Employee Relations</li><li>SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course</li><li>BIPOC Employee Resource Group</li><li>Indigenous Employees Network</li>
+  </div>
+</div>
 </body></html>
