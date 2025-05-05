@@ -128,86 +128,43 @@
       {
         "bookmarks": [
           {
-            "added": 1746161516590,
-            "context": "Fun stuff.",
-            "description": "htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext\n\n    htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible & has reduced code base sizes by 67% when compared with react",
-            "title": "</> htmx - high power tools for html",
+            "added": 1746463075670,
+            "contentType": "Watch",
+            "context": "Watch this!",
+            "description": "We're a small team of developers and designers spread out all across the world, building tools that help other developers build better user interfaces. We cr...",
+            "sortOrder": 0,
+            "title": "Tailwind Labs - YouTube",
             "type": "Required",
-            "url": "https://htmx.org/",
-            "sortOrder": 0
+            "url": "https://www.youtube.com/channel/UCOe-8z68tgw9ioqVvYM4ddQ"
           },
           {
             "added": 1746163355452,
             "contentType": "Watch",
             "context": "Performance is king.",
             "description": "Font loading can slow page load times significantly. This article shows you how to reduce the impact.",
+            "sortOrder": 1,
             "title": "10 ways to speed up web font loading",
             "type": "Required",
-            "url": "https://byteofdev.com/posts/speed-up-font-loading/",
-            "sortOrder": 1
+            "url": "https://byteofdev.com/posts/speed-up-font-loading/"
           },
           {
             "added": 1746403654434,
             "contentType": "Read",
             "context": "More tetsing",
             "description": "A super-fast, easy-to-use, RSS and Atom parser written in PHP.",
+            "sortOrder": 2,
             "title": "SimplePie Documentation: Documentation",
             "type": "Required",
-            "url": "https://www.simplepie.org/wiki/",
-            "sortOrder": 2
+            "url": "https://www.simplepie.org/wiki/"
           },
           {
-            "added": 1746405843992,
-            "contentType": "Read",
-            "context": "Nice looking tables are good.",
-            "description": "Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!",
-            "lastChecked": 1746412042219,
-            "linkStatus": {
-              "available": false,
-              "checkError": "The message port closed before a response was received.",
-              "redirectUrl": null,
-              "status": null
-            },
-            "title": "The WordPress Developer's Guide to Creating Responsive Tables",
+            "added": 1746161516590,
+            "context": "Fun stuff.",
+            "description": "htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext\n\n    htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible & has reduced code base sizes by 67% when compared with react",
+            "sortOrder": 3,
+            "title": "</> htmx - high power tools for html",
             "type": "Required",
-            "url": "https://torquemag.io/2020/06/wordpresss-responsive-tables/",
-            "sortOrder": 3
-          },
-          {
-            "added": 1746406256001,
-            "contentType": "Read",
-            "context": "Have never used but it looks inetresting. YMV",
-            "description": "Visual Automation and Testing",
-            "title": "Hello from SikuliX | SikuliX",
-            "type": "Bonus",
-            "url": "https://sikulix.github.io/",
-            "sortOrder": 4
-          },
-          {
-            "added": 1746403822598,
-            "contentType": "Read",
-            "context": "BOO MEDIUM",
-            "description": "Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…",
-            "lastChecked": 1746412172251,
-            "linkStatus": {
-              "available": false,
-              "checkError": "Request timed out or port closed",
-              "redirectUrl": null,
-              "status": null
-            },
-            "title": "Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium",
-            "type": "Bonus",
-            "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
-            "sortOrder": 5
-          },
-          {
-            "added": 1746391518775,
-            "context": "We don't use this but it's pretty popular.",
-            "description": "Svelte is a UI framework that uses a compiler to let you write breathtakingly concise components that do minimal work in the browser, using languages you already know — HTML, CSS and JavaScript. It’s a love letter to web development.",
-            "title": "Svelte • Web development for the rest of us",
-            "type": "bonus",
-            "url": "https://svelte.dev/",
-            "sortOrder": 6
+            "url": "https://htmx.org/"
           }
         ],
         "name": "Front End",
@@ -216,61 +173,44 @@
       {
         "bookmarks": [
           {
+            "added": 1746246004100,
+            "contentType": "Listen",
+            "context": "Testing merging.",
+            "description": "Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.",
+            "sortOrder": 0,
+            "title": "Tutorial 0 - Get it RunningView",
+            "type": "Required",
+            "url": "https://postgrest.org/en/stable/tutorials/tut0.html"
+          },
+          {
             "added": 1746159900862,
             "contentType": "Listen",
             "context": "Foo mistake",
             "description": "This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.",
+            "sortOrder": 1,
             "title": "How to Prevent WordPress Users from Creating New Tags - PublishPress",
             "type": "Required",
-            "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/",
-            "sortOrder": 0
+            "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/"
           },
           {
             "added": 1746161431955,
             "contentType": "Participate",
             "context": "",
             "description": "This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.",
+            "sortOrder": 2,
             "title": "How to Set Up Nginx, MariaDB, and PHP with Docker Compose",
             "type": "Required",
-            "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/",
-            "sortOrder": 1
+            "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/"
           },
           {
             "added": 1746405809273,
             "contentType": "Read",
             "context": "While we still use Wordpress this can be good info to know.",
             "description": "What?\nThis PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...",
+            "sortOrder": 3,
             "title": "Query Loop: Add Page Order (menu_order) by brnhrst · Pull Request #51290 · WordPress/gutenberg · GitHub",
             "type": "Required",
-            "url": "https://github.com/WordPress/gutenberg/pull/51290",
-            "sortOrder": 2
-          },
-          {
-            "added": 1746246004914,
-            "context": "I have no idea why but here it is.",
-            "description": "Your source for Terrestrial and Aquatic Species and Habitat Inventory Information",
-            "title": "Discover BiodiversityHub BC - BioHub BC & SIMS - Confluence",
-            "type": "bonus",
-            "url": "https://apps.nrs.gov.bc.ca/int/confluence/display/TASHIS/Discover+BiodiversityHub+BC",
-            "sortOrder": 3
-          },
-          {
-            "added": 1746246004100,
-            "context": "Testing merging.",
-            "description": "Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.",
-            "sortOrder": 4,
-            "title": "Tutorial 0 - Get it RunningView",
-            "type": "bonus",
-            "url": "https://postgrest.org/en/stable/tutorials/tut0.html"
-          },
-          {
-            "added": 1746163525801,
-            "context": "Meh we don't use it but YMMV",
-            "description": "This design system documents the styles, components and templates available to use on your website.\n\nFind out how to get started.\n\nHow the front end assets (CSS and JavaScript) are organised and compiled is discussed below.",
-            "title": "Welcome to the W3C design system - W3C Design System",
-            "type": "bonus",
-            "url": "https://design-system.w3.org/",
-            "sortOrder": 5
+            "url": "https://github.com/WordPress/gutenberg/pull/51290"
           }
         ],
         "name": "Back End",
@@ -282,10 +222,10 @@
             "added": 1746162080667,
             "context": "Good tool.",
             "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "sortOrder": 0,
             "title": "Diceware Passphrase Home",
             "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html",
-            "sortOrder": 0
+            "url": "https://theworld.com/~reinhold/diceware.html"
           }
         ],
         "name": "Security",
@@ -297,28 +237,28 @@
             "added": 1746398560688,
             "context": "Do yourself a favor and know this stuff.",
             "description": "The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.",
+            "sortOrder": 0,
             "title": "BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub",
             "type": "Required",
-            "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise",
-            "sortOrder": 0
+            "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise"
           },
           {
             "added": 1746401020370,
             "context": "We use this for Moodle and it should be preferred solution for SSO.",
             "description": "The request process workflow tool for the RedHat SSO Dev Exchange service",
+            "sortOrder": 1,
             "title": "Common Hosted Single Sign-on (CSS)",
             "type": "Required",
-            "url": "https://bcgov.github.io/sso-requests/",
-            "sortOrder": 1
+            "url": "https://bcgov.github.io/sso-requests/"
           },
           {
             "added": 1746159181235,
             "context": "It's not the only game in town.",
             "description": "Main registration platform for courses.",
+            "sortOrder": 2,
             "title": "PSA Learning System Homepage",
             "type": "Required",
-            "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?",
-            "sortOrder": 2
+            "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?"
           }
         ],
         "name": "Platforms",
@@ -330,77 +270,42 @@
             "added": 1746387326104,
             "context": "Because iut's good.",
             "description": "Principles to help you write unique and compelling UX Design case studies for your portfolio.",
+            "sortOrder": 0,
             "title": "5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools",
             "type": "Required",
-            "url": "https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/",
-            "sortOrder": 0
+            "url": "https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/"
           },
           {
             "added": 1746386963340,
             "context": "It doesn't matter how good your system is for taking backups if you never try to restore from those backups.",
             "description": "Archivematica: open-source digital preservation system",
+            "sortOrder": 1,
             "title": "Archivematica: open-source digital preservation system",
             "type": "Required",
-            "url": "https://www.archivematica.org/en/",
-            "sortOrder": 1
+            "url": "https://www.archivematica.org/en/"
           },
           {
             "added": 1746386026764,
             "context": "You might be asked to track how much time you're spending on different projects.",
             "description": "Open source IDE plugins for programmers.",
+            "sortOrder": 2,
             "title": "WakaTime - Dashboards for developers",
             "type": "Required",
-            "url": "https://wakatime.com/",
-            "sortOrder": 2
+            "url": "https://wakatime.com/"
           },
           {
             "added": 1746419388430,
             "contentType": "Read",
             "context": "Basics! Gotta learn it.",
             "description": "Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.",
+            "sortOrder": 3,
             "title": "Linux: An Introduction to User Management - The New Stack",
             "type": "Required",
-            "url": "https://thenewstack.io/linux-an-introduction-to-user-management/",
-            "sortOrder": 3
+            "url": "https://thenewstack.io/linux-an-introduction-to-user-management/"
           }
         ],
         "name": "Misc",
         "objective": "Random links related to dev but not dev directly."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746400948324,
-            "context": "We don't use this but it's important to know that it can do it.",
-            "description": "You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.",
-            "title": "External database enrolment - MoodleDocs",
-            "type": "Required",
-            "url": "https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29",
-            "sortOrder": 0
-          },
-          {
-            "added": 1746415615548,
-            "contentType": "Read",
-            "context": "You should look into learning this.",
-            "description": "H5P empowers everyone to create, share and reuse interactive content - all you need is a web browser and a web site that supports H5P.",
-            "title": "H5P – Create and Share Rich HTML5 Content and Applications",
-            "type": "Required",
-            "url": "https://h5p.org/",
-            "sortOrder": 1
-          },
-          {
-            "added": 1746406400834,
-            "contentType": "Participate",
-            "context": "You should have graduated or not need to have graduated from this series of courses.",
-            "description": "Learn all about Moodle with free online courses\nDevelop your career as a Moodle Educator, Administrator, Designer and Developer and learn all about online education with Moodle. \n\nAttend webinars.\nComplete courses.\nEnrol in programs.\n\nNew to Moodle? Take the 1 hour Introduction to Moodle course to get started.",
-            "title": "Home | Moodle Academy",
-            "type": "Required",
-            "url": "https://moodle.academy/",
-            "sortOrder": 2
-          }
-        ],
-        "name": "Moodle",
-        "objective": "Know all the things Moodle as it's our primary virtual learning delivery environment."
       }
     ]
   },
