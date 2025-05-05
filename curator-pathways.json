@@ -90,7 +90,7 @@
   },
   {
     "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
-    "contentWarning": "",
+    "contentWarning": "WARNING: This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. Please basically ignore this pathway.",
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
     "name": "Full Stack Developer",
