@@ -9,6 +9,13 @@
             "added": 1746160537589,
             "context": "Yeah this is important.",
             "description": "Introduction to the Ministries in the BC Public Service",
+            "lastChecked": 1746412855092,
+            "linkStatus": {
+              "available": false,
+              "checkError": "Request timed out or port closed",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "Ministries - Province of British Columbia",
             "type": "required",
             "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
@@ -19,6 +26,13 @@
             "contentType": "Read",
             "context": "",
             "description": "The public contact directory for PSA CLB Ops and Tech",
+            "lastChecked": 1746413420973,
+            "linkStatus": {
+              "available": false,
+              "checkError": "Request timed out or port closed",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "BC Government Directory, PSA - Operations and Technology",
             "type": "Required",
             "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
@@ -85,6 +99,22 @@
         ],
         "name": "Accessibility",
         "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746413792665,
+            "contentType": "Read",
+            "context": "Just because it's awesome.",
+            "description": "The A11Y Project is a community-driven effort to make digital accessibility easier.",
+            "title": "Home - The A11Y Project",
+            "type": "Required",
+            "url": "https://www.a11yproject.com/",
+            "sortOrder": 0
+          }
+        ],
+        "name": "General",
+        "objective": "No objective"
       }
     ]
   },
@@ -523,6 +553,11 @@
         "bookmarks": [],
         "name": "Performance",
         "objective": "Performance is an accessibility issue. If people can't access the content in the first place, other optimizations won't matter."
+      },
+      {
+        "bookmarks": [],
+        "name": "General",
+        "objective": "Non-specific links :)"
       }
     ]
   }
