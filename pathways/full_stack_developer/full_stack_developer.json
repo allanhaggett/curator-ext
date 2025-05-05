@@ -54,14 +54,14 @@
       {
         "bookmarks": [
           {
-            "added": 1746246004100,
-            "contentType": "Listen",
-            "context": "Testing merging.",
-            "description": "Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.",
+            "added": 1746477862754,
+            "contentType": "Read",
+            "context": "SSO DIY",
+            "description": "Contribute to bcgov/sso-keycloak development by creating an account on GitHub.",
             "sortOrder": 0,
-            "title": "Tutorial 0 - Get it RunningView",
+            "title": "GitHub - bcgov/sso-keycloak",
             "type": "Required",
-            "url": "https://postgrest.org/en/stable/tutorials/tut0.html"
+            "url": "https://github.com/bcgov/sso-keycloak#specifying-an-idp-to-bypass-the-keycloak-login-page"
           },
           {
             "added": 1746159900862,
@@ -84,14 +84,14 @@
             "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/"
           },
           {
-            "added": 1746405809273,
-            "contentType": "Read",
-            "context": "While we still use Wordpress this can be good info to know.",
-            "description": "What?\nThis PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...",
+            "added": 1746246004100,
+            "contentType": "Listen",
+            "context": "Testing merging.",
+            "description": "Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.",
             "sortOrder": 3,
-            "title": "Query Loop: Add Page Order (menu_order) by brnhrst · Pull Request #51290 · WordPress/gutenberg · GitHub",
+            "title": "Tutorial 0 - Get it RunningView",
             "type": "Required",
-            "url": "https://github.com/WordPress/gutenberg/pull/51290"
+            "url": "https://postgrest.org/en/stable/tutorials/tut0.html"
           }
         ],
         "name": "Back End",
