@@ -1,5 +1,7 @@
 [
   {
+    "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
+    "contentWarning": "",
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
     "name": "Full Stack Developer",
@@ -49,6 +51,13 @@
             "contentType": "Read",
             "context": "BOO MEDIUM",
             "description": "Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…",
+            "lastChecked": 1746412172251,
+            "linkStatus": {
+              "available": false,
+              "checkError": "Request timed out or port closed",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium",
             "type": "Bonus",
             "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
@@ -59,10 +68,27 @@
             "contentType": "Read",
             "context": "Nice looking tables are good.",
             "description": "Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!",
+            "lastChecked": 1746412042219,
+            "linkStatus": {
+              "available": false,
+              "checkError": "The message port closed before a response was received.",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "The WordPress Developer's Guide to Creating Responsive Tables",
             "type": "Required",
             "url": "https://torquemag.io/2020/06/wordpresss-responsive-tables/",
             "sortOrder": 5
+          },
+          {
+            "added": 1746406256001,
+            "contentType": "Read",
+            "context": "Have never used but it looks inetresting. YMV",
+            "description": "Visual Automation and Testing",
+            "title": "Hello from SikuliX | SikuliX",
+            "type": "Bonus",
+            "url": "https://sikulix.github.io/",
+            "sortOrder": 6
           }
         ],
         "name": "Front End",
@@ -205,13 +231,23 @@
       {
         "bookmarks": [
           {
+            "added": 1746406400834,
+            "contentType": "Participate",
+            "context": "You should have graduated or not need to have graduated from this series of courses.",
+            "description": "Learn all about Moodle with free online courses\nDevelop your career as a Moodle Educator, Administrator, Designer and Developer and learn all about online education with Moodle. \n\nAttend webinars.\nComplete courses.\nEnrol in programs.\n\nNew to Moodle? Take the 1 hour Introduction to Moodle course to get started.",
+            "title": "Home | Moodle Academy",
+            "type": "Required",
+            "url": "https://moodle.academy/",
+            "sortOrder": 0
+          },
+          {
             "added": 1746400948324,
             "context": "We don't use this but it's important to know that it can do it.",
             "description": "You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.",
             "title": "External database enrolment - MoodleDocs",
             "type": "Required",
             "url": "https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29",
-            "sortOrder": 0
+            "sortOrder": 1
           }
         ],
         "name": "Moodle",
