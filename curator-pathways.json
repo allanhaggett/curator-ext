@@ -1,5 +1,96 @@
 [
   {
+    "description": "All the good links for PSA CLB",
+    "name": "PSA Corporate Learning Branch",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746160537589,
+            "context": "Yeah this is important.",
+            "description": "Introduction to the Ministries in the BC Public Service",
+            "title": "Ministries - Province of British Columbia",
+            "type": "required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746404105066,
+            "contentType": "Read",
+            "context": "",
+            "description": "The public contact directory for PSA CLB Ops and Tech",
+            "title": "BC Government Directory, PSA - Operations and Technology",
+            "type": "Required",
+            "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746405439380,
+            "contentType": "Read",
+            "context": "Might want this?",
+            "description": "Course descriptions and available dates for emergency management training for emergency operations centres.",
+            "title": "Online emergency management training - Province of British Columbia",
+            "type": "Bonus",
+            "url": "https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar",
+            "sortOrder": 2
+          }
+        ],
+        "name": "General Government Info",
+        "objective": "Familiarize yourself with how gov works."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746160450869,
+            "context": "All the info on our courses.",
+            "description": "Main admin site for CLB",
+            "title": "LSApp - Learning Support Admin Application",
+            "type": "required",
+            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746159718346,
+            "context": "You gotta just gotta.",
+            "description": "LearningHUB is all the courses all the time.",
+            "title": "Home | LearningHUB",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746160363905,
+            "context": "You'll want to refer to this for stuff CLB related.",
+            "description": "The main CLB site.",
+            "title": "Corporate Learning",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the places"
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746398280893,
+            "context": "Good info contained within.",
+            "description": "Quora is OK.",
+            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
+            "type": "Bonus",
+            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Accessibility",
+        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
+      }
+    ]
+  },
+  {
+    "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
+    "contentWarning": "",
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
     "name": "Full Stack Developer",
@@ -49,6 +140,13 @@
             "contentType": "Read",
             "context": "BOO MEDIUM",
             "description": "Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…",
+            "lastChecked": 1746412172251,
+            "linkStatus": {
+              "available": false,
+              "checkError": "Request timed out or port closed",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium",
             "type": "Bonus",
             "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
@@ -59,6 +157,13 @@
             "contentType": "Read",
             "context": "Nice looking tables are good.",
             "description": "Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!",
+            "lastChecked": 1746412042219,
+            "linkStatus": {
+              "available": false,
+              "checkError": "The message port closed before a response was received.",
+              "redirectUrl": null,
+              "status": null
+            },
             "title": "The WordPress Developer's Guide to Creating Responsive Tables",
             "type": "Required",
             "url": "https://torquemag.io/2020/06/wordpresss-responsive-tables/",
@@ -240,95 +345,6 @@
     ]
   },
   {
-    "description": "All the good links for PSA CLB",
-    "name": "PSA Corporate Learning Branch",
-    "steps": [
-      {
-        "bookmarks": [
-          {
-            "added": 1746160537589,
-            "context": "Yeah this is important.",
-            "description": "Introduction to the Ministries in the BC Public Service",
-            "title": "Ministries - Province of British Columbia",
-            "type": "required",
-            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
-            "sortOrder": 0
-          },
-          {
-            "added": 1746404105066,
-            "contentType": "Read",
-            "context": "",
-            "description": "The public contact directory for PSA CLB Ops and Tech",
-            "title": "BC Government Directory, PSA - Operations and Technology",
-            "type": "Required",
-            "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
-            "sortOrder": 1
-          },
-          {
-            "added": 1746405439380,
-            "contentType": "Read",
-            "context": "Might want this?",
-            "description": "Course descriptions and available dates for emergency management training for emergency operations centres.",
-            "title": "Online emergency management training - Province of British Columbia",
-            "type": "Bonus",
-            "url": "https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar",
-            "sortOrder": 2
-          }
-        ],
-        "name": "General Government Info",
-        "objective": "Familiarize yourself with how gov works."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746160450869,
-            "context": "All the info on our courses.",
-            "description": "Main admin site for CLB",
-            "title": "LSApp - Learning Support Admin Application",
-            "type": "required",
-            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
-            "sortOrder": 0
-          },
-          {
-            "added": 1746159718346,
-            "context": "You gotta just gotta.",
-            "description": "LearningHUB is all the courses all the time.",
-            "title": "Home | LearningHUB",
-            "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
-            "sortOrder": 1
-          },
-          {
-            "added": 1746160363905,
-            "context": "You'll want to refer to this for stuff CLB related.",
-            "description": "The main CLB site.",
-            "title": "Corporate Learning",
-            "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/",
-            "sortOrder": 2
-          }
-        ],
-        "name": "Platforms",
-        "objective": "All the places"
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746398280893,
-            "context": "Good info contained within.",
-            "description": "Quora is OK.",
-            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
-            "type": "Bonus",
-            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
-            "sortOrder": 0
-          }
-        ],
-        "name": "Accessibility",
-        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
-      }
-    ]
-  },
-  {
     "created": 1746165855980,
     "description": "Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.",
     "name": "Anti-Racism in the BC Public Service",
@@ -467,6 +483,46 @@
         ],
         "name": "Colours of Racism in Canada",
         "objective": "Understand the different types of racism and discrimination that Indigenous, Black, and other racialized and marginalized people experience in the Canadian context."
+      }
+    ]
+  },
+  {
+    "acknowledgments": "",
+    "contentWarning": "",
+    "created": 1746409634608,
+    "description": "All the things you need to be an A11Y.",
+    "name": "Accessibility in the BCPS",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746409760763,
+            "contentType": "Read",
+            "context": "Doesn't cover many of our use cases yet, but the web components bits are interesting to this curator.",
+            "description": "Standards for creating high quality web content for the B.C. government",
+            "title": "Web Style Guide - Province of British Columbia",
+            "type": "Required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/services-for-government/service-experience-digital-delivery/web-content-development-guides/web-style-guide",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Design Systems",
+        "objective": "Learn what design systems are and what's available to us."
+      },
+      {
+        "bookmarks": [],
+        "name": "Web",
+        "objective": "Web pages and applications have distinct accessibility challenges."
+      },
+      {
+        "bookmarks": [],
+        "name": "MS Office",
+        "objective": "The MS Office suite of applications including Word, Excel, etc."
+      },
+      {
+        "bookmarks": [],
+        "name": "Performance",
+        "objective": "Performance is an accessibility issue. If people can't access the content in the first place, other optimizations won't matter."
       }
     ]
   }
