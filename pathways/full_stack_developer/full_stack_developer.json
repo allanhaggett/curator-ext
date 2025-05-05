@@ -17,10 +17,11 @@
           },
           {
             "added": 1746163355452,
+            "contentType": "Watch",
             "context": "Performance is king.",
             "description": "Font loading can slow page load times significantly. This article shows you how to reduce the impact.",
             "title": "10 ways to speed up web font loading",
-            "type": "required",
+            "type": "Required",
             "url": "https://byteofdev.com/posts/speed-up-font-loading/",
             "sortOrder": 1
           },
@@ -32,6 +33,36 @@
             "type": "bonus",
             "url": "https://svelte.dev/",
             "sortOrder": 2
+          },
+          {
+            "added": 1746403654434,
+            "contentType": "Read",
+            "context": "More tetsing",
+            "description": "A super-fast, easy-to-use, RSS and Atom parser written in PHP.",
+            "title": "SimplePie Documentation: Documentation",
+            "type": "Required",
+            "url": "https://www.simplepie.org/wiki/",
+            "sortOrder": 3
+          },
+          {
+            "added": 1746403822598,
+            "contentType": "Read",
+            "context": "BOO MEDIUM",
+            "description": "Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…",
+            "title": "Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium",
+            "type": "Bonus",
+            "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
+            "sortOrder": 4
+          },
+          {
+            "added": 1746405843992,
+            "contentType": "Read",
+            "context": "Nice looking tables are good.",
+            "description": "Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!",
+            "title": "The WordPress Developer's Guide to Creating Responsive Tables",
+            "type": "Required",
+            "url": "https://torquemag.io/2020/06/wordpresss-responsive-tables/",
+            "sortOrder": 5
           }
         ],
         "name": "Front End",
@@ -41,19 +72,21 @@
         "bookmarks": [
           {
             "added": 1746159900862,
+            "contentType": "Listen",
             "context": "Foo mistake",
             "description": "This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.",
             "title": "How to Prevent WordPress Users from Creating New Tags - PublishPress",
-            "type": "required",
+            "type": "Required",
             "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/",
             "sortOrder": 0
           },
           {
             "added": 1746161431955,
+            "contentType": "Participate",
             "context": "",
             "description": "This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.",
             "title": "How to Set Up Nginx, MariaDB, and PHP with Docker Compose",
-            "type": "required",
+            "type": "Required",
             "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/",
             "sortOrder": 1
           },
@@ -74,6 +107,16 @@
             "type": "bonus",
             "url": "https://apps.nrs.gov.bc.ca/int/confluence/display/TASHIS/Discover+BiodiversityHub+BC",
             "sortOrder": 3
+          },
+          {
+            "added": 1746405809273,
+            "contentType": "Read",
+            "context": "While we still use Wordpress this can be good info to know.",
+            "description": "What?\nThis PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...",
+            "title": "Query Loop: Add Page Order (menu_order) by brnhrst · Pull Request #51290 · WordPress/gutenberg · GitHub",
+            "type": "Required",
+            "url": "https://github.com/WordPress/gutenberg/pull/51290",
+            "sortOrder": 4
           }
         ],
         "name": "Back End",
