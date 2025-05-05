@@ -1,74 +1,5 @@
 [
   {
-    "description": "All the good links for PSA CLB",
-    "name": "PSA Corporate Learning Branch",
-    "steps": [
-      {
-        "bookmarks": [
-          {
-            "added": 1746160537589,
-            "context": "Yeah this is important.",
-            "description": "Introduction to the Ministries in the BC Public Service",
-            "title": "Ministries - Province of British Columbia",
-            "type": "required",
-            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
-            "sortOrder": 0
-          }
-        ],
-        "name": "General Government Info",
-        "objective": "Familiarize yourself with how gov works."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746160450869,
-            "context": "All the info on our courses.",
-            "description": "Main admin site for CLB",
-            "title": "LSApp - Learning Support Admin Application",
-            "type": "required",
-            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
-            "sortOrder": 0
-          },
-          {
-            "added": 1746159718346,
-            "context": "You gotta just gotta.",
-            "description": "LearningHUB is all the courses all the time.",
-            "title": "Home | LearningHUB",
-            "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
-            "sortOrder": 1
-          },
-          {
-            "added": 1746160363905,
-            "context": "You'll want to refer to this for stuff CLB related.",
-            "description": "The main CLB site.",
-            "title": "Corporate Learning",
-            "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/",
-            "sortOrder": 2
-          }
-        ],
-        "name": "Platforms",
-        "objective": "All the places"
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746398280893,
-            "context": "Good info contained within.",
-            "description": "Quora is OK.",
-            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
-            "type": "Bonus",
-            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
-            "sortOrder": 0
-          }
-        ],
-        "name": "Accessibility",
-        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
-      }
-    ]
-  },
-  {
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
     "name": "Full Stack Developer",
@@ -86,10 +17,11 @@
           },
           {
             "added": 1746163355452,
+            "contentType": "Watch",
             "context": "Performance is king.",
             "description": "Font loading can slow page load times significantly. This article shows you how to reduce the impact.",
             "title": "10 ways to speed up web font loading",
-            "type": "required",
+            "type": "Required",
             "url": "https://byteofdev.com/posts/speed-up-font-loading/",
             "sortOrder": 1
           },
@@ -101,6 +33,26 @@
             "type": "bonus",
             "url": "https://svelte.dev/",
             "sortOrder": 2
+          },
+          {
+            "added": 1746403654434,
+            "contentType": "Read",
+            "context": "More tetsing",
+            "description": "A super-fast, easy-to-use, RSS and Atom parser written in PHP.",
+            "title": "SimplePie Documentation: Documentation",
+            "type": "Required",
+            "url": "https://www.simplepie.org/wiki/",
+            "sortOrder": 3
+          },
+          {
+            "added": 1746403822598,
+            "contentType": "Read",
+            "context": "BOO MEDIUM",
+            "description": "Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…",
+            "title": "Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium",
+            "type": "Bonus",
+            "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
+            "sortOrder": 4
           }
         ],
         "name": "Front End",
@@ -110,19 +62,21 @@
         "bookmarks": [
           {
             "added": 1746159900862,
+            "contentType": "Listen",
             "context": "Foo mistake",
             "description": "This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.",
             "title": "How to Prevent WordPress Users from Creating New Tags - PublishPress",
-            "type": "required",
+            "type": "Required",
             "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/",
             "sortOrder": 0
           },
           {
             "added": 1746161431955,
+            "contentType": "Participate",
             "context": "",
             "description": "This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.",
             "title": "How to Set Up Nginx, MariaDB, and PHP with Docker Compose",
-            "type": "required",
+            "type": "Required",
             "url": "https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/",
             "sortOrder": 1
           },
@@ -242,6 +196,85 @@
         ],
         "name": "Moodle",
         "objective": "Know all the things Moodle as it's our primary virtual learning delivery environment."
+      }
+    ]
+  },
+  {
+    "description": "All the good links for PSA CLB",
+    "name": "PSA Corporate Learning Branch",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746160537589,
+            "context": "Yeah this is important.",
+            "description": "Introduction to the Ministries in the BC Public Service",
+            "title": "Ministries - Province of British Columbia",
+            "type": "required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746404105066,
+            "contentType": "Read",
+            "context": "",
+            "description": "The public contact directory for PSA CLB Ops and Tech",
+            "title": "BC Government Directory, PSA - Operations and Technology",
+            "type": "Required",
+            "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
+            "sortOrder": 1
+          }
+        ],
+        "name": "General Government Info",
+        "objective": "Familiarize yourself with how gov works."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746160450869,
+            "context": "All the info on our courses.",
+            "description": "Main admin site for CLB",
+            "title": "LSApp - Learning Support Admin Application",
+            "type": "required",
+            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746159718346,
+            "context": "You gotta just gotta.",
+            "description": "LearningHUB is all the courses all the time.",
+            "title": "Home | LearningHUB",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
+            "sortOrder": 1
+          },
+          {
+            "added": 1746160363905,
+            "context": "You'll want to refer to this for stuff CLB related.",
+            "description": "The main CLB site.",
+            "title": "Corporate Learning",
+            "type": "required",
+            "url": "https://learningcentre.gww.gov.bc.ca/",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the places"
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746398280893,
+            "context": "Good info contained within.",
+            "description": "Quora is OK.",
+            "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
+            "type": "Bonus",
+            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Accessibility",
+        "objective": "The links you should have handy for accessibility as it relates to your work in BCPSA."
       }
     ]
   },
