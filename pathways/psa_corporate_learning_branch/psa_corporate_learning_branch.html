@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html><html lang="en" data-bs-theme="light"><head><meta charset="utf-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 <title>PSA Corporate Learning Branch</title>
@@ -27,6 +27,31 @@
     padding-top: 0.5rem;
   }
   
+  /* Content type badges */
+  .content-type-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 0.5rem;
+    color: white;
+  }
+  .content-type-read {
+    background-color: #198754; /* bg-success */
+  }
+  .content-type-watch {
+    background-color: #dc3545; /* bg-danger */
+  }
+  .content-type-listen {
+    background-color: #ffc107; /* bg-warning */
+    color: #212529;
+  }
+  .content-type-participate {
+    background-color: #0dcaf0; /* bg-info */
+  }
+  
   /* Visited link badge */
   .bookmark-link:visited::before {
     content: "Launched";
@@ -41,22 +66,33 @@
     font-weight: normal;
   }
   
+  /* Dark mode transitions */
+  body {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card, .list-group-item {
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
   /* Step styles */
   details.step {
     margin-bottom: 1.5rem;
     border: 1px solid #dee2e6;
     border-radius: 0.375rem;
     overflow: hidden;
+    transition: border-color 0.3s;
   }
   details.step summary {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    background-color: #f8f9fa;
+    background-color: rgba(0,0,0,0.03);
     border-bottom: 1px solid #dee2e6;
     cursor: pointer;
     font-weight: 500;
     font-size: 1.1rem;
+    transition: background-color 0.3s, border-color 0.3s;
   }
   details.step summary::marker {
     display: none;
@@ -75,22 +111,44 @@
     padding: 1rem;
   }
   details.step .step-objective {
-    background-color: #f8f9fa;
+    background-color: rgba(0,0,0,0.03);
     padding: 0.75rem;
     border-radius: 0.375rem;
     font-style: italic;
     margin-bottom: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  /* Dark mode overrides for steps */
+  [data-bs-theme="dark"] details.step {
+    border-color: #495057;
+  }
+  [data-bs-theme="dark"] details.step summary {
+    background-color: rgba(255,255,255,0.05);
+    border-bottom-color: #495057;
+  }
+  [data-bs-theme="dark"] details.step .step-objective {
+    background-color: rgba(255,255,255,0.05);
   }
 </style>
 </head>
 <body class="container py-4">
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="border-bottom pb-2 mb-0">PSA Corporate Learning Branch</h1>
-  <div class="btn-group ms-3">
-    <button id="expandAll" class="btn btn-sm btn-outline-primary">Expand All</button>
-    <button id="collapseAll" class="btn btn-sm btn-outline-primary">Collapse All</button>
+  <h1 class="border-bottom pb-2 mb-0">
+    <i class="bi bi-collection me-2"></i>PSA Corporate Learning Branch
+  </h1>
+  <div class="d-flex gap-2 align-items-center">
+    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary" title="Toggle Dark Mode">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+    <div class="btn-group ms-2">
+      <button id="expandAll" class="btn btn-sm btn-outline-primary">Expand All</button>
+      <button id="collapseAll" class="btn btn-sm btn-outline-primary">Collapse All</button>
+    </div>
   </div>
 </div>
+
+
 <div class="lead mb-4">All the good links for PSA CLB</div>
 
 <script>
@@ -106,6 +164,43 @@
       detail.removeAttribute('open');
     });
   });
+  
+  // Theme toggling
+  function getPreferredTheme() {
+    // Check if user has already set a preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      return storedTheme;
+    }
+    
+    // Otherwise, respect OS preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // Update the icon
+    const themeIcon = document.getElementById('theme-toggle').querySelector('i');
+    if (theme === 'dark') {
+      themeIcon.classList.remove('bi-moon-stars-fill');
+      themeIcon.classList.add('bi-sun-fill');
+    } else {
+      themeIcon.classList.remove('bi-sun-fill');
+      themeIcon.classList.add('bi-moon-stars-fill');
+    }
+  }
+  
+  // Set initial theme
+  setTheme(getPreferredTheme());
+  
+  // Add theme toggle handler
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
 </script>
 
 
@@ -113,8 +208,8 @@
     <summary>
       <span>General Government Info</span>
       <div class="ms-auto">
-        <span class="badge bg-primary me-1">1</span>
-        
+        <span class="badge bg-primary me-1">2</span>
+        <span class="badge bg-info me-1">1</span>
       </div>
     </summary>
     <div class="step-content">
@@ -125,15 +220,50 @@
       <ul class="list-group mb-3">
         
           <li class="list-group-item">
-            <a href="https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries" class="bookmark-link fw-semibold">Ministries - Province of British Columbia</a>
-            <span class="required-badge">Required</span><br>
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries" class="bookmark-link fw-semibold">Ministries - Province of British Columbia</a>
+              <span class="required-badge">Required</span>
+            </div>
             <small>Introduction to the Ministries in the BC Public Service</small><br>
             <em>Yeah this is important.</em>
-            <div><small class="text-muted">Sort Order: 0</small></div>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
+          </li>
+          <li class="list-group-item">
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT" class="bookmark-link fw-semibold">BC Government Directory, PSA - Operations and Technology</a>
+              <span class="required-badge">Required</span>
+            </div>
+            <small>The public contact directory for PSA CLB Ops and Tech</small><br>
+            <em></em>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
           </li>
       </ul>
       
       
+      <div class="bonus-section">
+        <h3 class="h6 mt-3">Bonus Resources</h3>
+        <ul class="list-group mb-3">
+          
+            <li class="list-group-item">
+              <div>
+                <span class="content-type-badge content-type-read" title="Read">
+                  <i class="bi bi-book"></i>
+                </span>
+                <a href="https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar" class="bookmark-link fw-semibold">Online emergency management training - Province of British Columbia</a>
+                <span class="bonus-badge">Bonus</span>
+              </div>
+              <small>Course descriptions and available dates for emergency management training for emergency operations centres.</small><br>
+              <em>Might want this?</em>
+              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
+            </li>
+        </ul>
+      </div>
     </div>
   </details>
   <details class="step">
@@ -152,25 +282,40 @@
       <ul class="list-group mb-3">
         
           <li class="list-group-item">
-            <a href="https://gww.bcpublicservice.gov.bc.ca/lsapp/" class="bookmark-link fw-semibold">LSApp - Learning Support Admin Application</a>
-            <span class="required-badge">Required</span><br>
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://gww.bcpublicservice.gov.bc.ca/lsapp/" class="bookmark-link fw-semibold">LSApp - Learning Support Admin Application</a>
+              <span class="required-badge">Required</span>
+            </div>
             <small>Main admin site for CLB</small><br>
             <em>All the info on our courses.</em>
-            <div><small class="text-muted">Sort Order: 0</small></div>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
           </li>
           <li class="list-group-item">
-            <a href="https://learningcentre.gww.gov.bc.ca/learninghub/" class="bookmark-link fw-semibold">Home | LearningHUB</a>
-            <span class="required-badge">Required</span><br>
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://learningcentre.gww.gov.bc.ca/learninghub/" class="bookmark-link fw-semibold">Home | LearningHUB</a>
+              <span class="required-badge">Required</span>
+            </div>
             <small>LearningHUB is all the courses all the time.</small><br>
             <em>You gotta just gotta.</em>
-            <div><small class="text-muted">Sort Order: 1</small></div>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
           </li>
           <li class="list-group-item">
-            <a href="https://learningcentre.gww.gov.bc.ca/" class="bookmark-link fw-semibold">Corporate Learning</a>
-            <span class="required-badge">Required</span><br>
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://learningcentre.gww.gov.bc.ca/" class="bookmark-link fw-semibold">Corporate Learning</a>
+              <span class="required-badge">Required</span>
+            </div>
             <small>The main CLB site.</small><br>
             <em>You&#039;ll want to refer to this for stuff CLB related.</em>
-            <div><small class="text-muted">Sort Order: 2</small></div>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
           </li>
       </ul>
       
@@ -196,14 +341,53 @@
         <ul class="list-group mb-3">
           
             <li class="list-group-item">
-              <a href="https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode" class="bookmark-link fw-semibold">Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora</a>
-              <span class="bonus-badge">Bonus</span><br>
+              <div>
+                <span class="content-type-badge content-type-read" title="Read">
+                  <i class="bi bi-book"></i>
+                </span>
+                <a href="https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode" class="bookmark-link fw-semibold">Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora</a>
+                <span class="bonus-badge">Bonus</span>
+              </div>
               <small>Quora is OK.</small><br>
               <em>Good info contained within.</em>
-              <div><small class="text-muted">Sort Order: 0</small></div>
+              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
         </ul>
       </div>
     </div>
   </details>
+  <details class="step">
+    <summary>
+      <span>General</span>
+      <div class="ms-auto">
+        <span class="badge bg-primary me-1">1</span>
+        
+      </div>
+    </summary>
+    <div class="step-content">
+      <div class="step-objective">No objective</div>
+      
+      
+      <h3 class="h6 mt-3">Required Resources</h3>
+      <ul class="list-group mb-3">
+        
+          <li class="list-group-item">
+            <div>
+              <span class="content-type-badge content-type-read" title="Read">
+                <i class="bi bi-book"></i>
+              </span>
+              <a href="https://www.a11yproject.com/" class="bookmark-link fw-semibold">Home - The A11Y Project</a>
+              <span class="required-badge">Required</span>
+            </div>
+            <small>The A11Y Project is a community-driven effort to make digital accessibility easier.</small><br>
+            <em>Just because it&#039;s awesome.</em>
+            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
+          </li>
+      </ul>
+      
+      
+    </div>
+  </details>
+
+
 </body></html>
