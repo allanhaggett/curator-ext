@@ -53,6 +53,26 @@
             "type": "Bonus",
             "url": "https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc",
             "sortOrder": 4
+          },
+          {
+            "added": 1746405843992,
+            "contentType": "Read",
+            "context": "Nice looking tables are good.",
+            "description": "Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!",
+            "title": "The WordPress Developer's Guide to Creating Responsive Tables",
+            "type": "Required",
+            "url": "https://torquemag.io/2020/06/wordpresss-responsive-tables/",
+            "sortOrder": 5
+          },
+          {
+            "added": 1746406256001,
+            "contentType": "Read",
+            "context": "Have never used but it looks inetresting. YMV",
+            "description": "Visual Automation and Testing",
+            "title": "Hello from SikuliX | SikuliX",
+            "type": "Bonus",
+            "url": "https://sikulix.github.io/",
+            "sortOrder": 6
           }
         ],
         "name": "Front End",
@@ -97,6 +117,16 @@
             "type": "bonus",
             "url": "https://apps.nrs.gov.bc.ca/int/confluence/display/TASHIS/Discover+BiodiversityHub+BC",
             "sortOrder": 3
+          },
+          {
+            "added": 1746405809273,
+            "contentType": "Read",
+            "context": "While we still use Wordpress this can be good info to know.",
+            "description": "What?\nThis PR adds the possibility to the query loop block to output pages according to the order set in the backend (menu_order). For this purpose a new option is added to the existing dropdown me...",
+            "title": "Query Loop: Add Page Order (menu_order) by brnhrst · Pull Request #51290 · WordPress/gutenberg · GitHub",
+            "type": "Required",
+            "url": "https://github.com/WordPress/gutenberg/pull/51290",
+            "sortOrder": 4
           }
         ],
         "name": "Back End",
@@ -185,13 +215,23 @@
       {
         "bookmarks": [
           {
+            "added": 1746406400834,
+            "contentType": "Participate",
+            "context": "You should have graduated or not need to have graduated from this series of courses.",
+            "description": "Learn all about Moodle with free online courses\nDevelop your career as a Moodle Educator, Administrator, Designer and Developer and learn all about online education with Moodle. \n\nAttend webinars.\nComplete courses.\nEnrol in programs.\n\nNew to Moodle? Take the 1 hour Introduction to Moodle course to get started.",
+            "title": "Home | Moodle Academy",
+            "type": "Required",
+            "url": "https://moodle.academy/",
+            "sortOrder": 0
+          },
+          {
             "added": 1746400948324,
             "context": "We don't use this but it's important to know that it can do it.",
             "description": "You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.",
             "title": "External database enrolment - MoodleDocs",
             "type": "Required",
             "url": "https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29",
-            "sortOrder": 0
+            "sortOrder": 1
           }
         ],
         "name": "Moodle",
@@ -223,6 +263,16 @@
             "type": "Required",
             "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
             "sortOrder": 1
+          },
+          {
+            "added": 1746405439380,
+            "contentType": "Read",
+            "context": "Might want this?",
+            "description": "Course descriptions and available dates for emergency management training for emergency operations centres.",
+            "title": "Online emergency management training - Province of British Columbia",
+            "type": "Bonus",
+            "url": "https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar",
+            "sortOrder": 2
           }
         ],
         "name": "General Government Info",
