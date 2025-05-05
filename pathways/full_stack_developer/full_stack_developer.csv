@@ -1,3 +1,19 @@
+"Pathway Name","Full Stack Developer"
+"Pathway Description","Good links to all parts of the stack, even though that's a ridiculously large area."
+"Content Warning",""
+"Acknowledgments","The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.
+
+In particular, our sincere thanks go out to colleagues and partners at the following entities:
+
+* Policy & Legislation, BC Data Service, CITZ
+* Multiculturalism & Anti-Racism Branch, AG
+* PSA REDI, Policy and Employee Relations
+* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course
+* BIPOC Employee Resource Group
+* Indigenous Employees Network"
+"Created Date","2025-05-04T20:53:16.332Z"
+"Total Steps","6"
+""
 "Step","Title","URL","Description","Context","Type","Content Type","Sort Order"
 "Front End","</> htmx - high power tools for html","https://htmx.org/","htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
 
@@ -7,6 +23,7 @@
 "Front End","SimplePie Documentation: Documentation","https://www.simplepie.org/wiki/","A super-fast, easy-to-use, RSS and Atom parser written in PHP.","More tetsing","Required","Read","3"
 "Front End","Scrollspy with ‘just JavaScript’. Bootstrap has an awesome feature baked… | by P1xt | P1xt’s Blog | Medium","https://medium.com/p1xts-blog/scrollspy-with-just-javascript-3131c114abdc","Bootstrap has an awesome feature baked into it for highlighting the ‘active’ item in a page’s navbar based on what section of the page a user is currently viewing — as the user scrolls down the page…","BOO MEDIUM","Bonus","Read","4"
 "Front End","The WordPress Developer's Guide to Creating Responsive Tables","https://torquemag.io/2020/06/wordpresss-responsive-tables/","Creating responsive tables in WordPress can be tricky, but there are several ways you can go about it. In this post, we break down the best approaches!","Nice looking tables are good.","Required","Read","5"
+"Front End","Hello from SikuliX | SikuliX","https://sikulix.github.io/","Visual Automation and Testing","Have never used but it looks inetresting. YMV","Bonus","Read","6"
 "Back End","How to Prevent WordPress Users from Creating New Tags - PublishPress","https://publishpress.com/blog/permissions/stop-users-creating-new-tags/","This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.","Foo mistake","Required","Listen",""
 "Back End","How to Set Up Nginx, MariaDB, and PHP with Docker Compose","https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/","This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.","","Required","Participate","1"
 "Back End","Welcome to the W3C design system - W3C Design System","https://design-system.w3.org/","This design system documents the styles, components and templates available to use on your website.
@@ -24,4 +41,12 @@ This PR adds the possibility to the query loop block to output pages according t
 "Misc","WakaTime - Dashboards for developers","https://wakatime.com/","Open source IDE plugins for programmers.","You might be asked to track how much time you're spending on different projects.","required","Read",""
 "Misc","Archivematica: open-source digital preservation system","https://www.archivematica.org/en/","Archivematica: open-source digital preservation system","It doesn't matter how good your system is for taking backups if you never try to restore from those backups.","required","Read","1"
 "Misc","5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools","https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/","Principles to help you write unique and compelling UX Design case studies for your portfolio.","Because iut's good.","required","Read","2"
-"Moodle","External database enrolment - MoodleDocs","https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29","You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.","We don't use this but it's important to know that it can do it.","Required","Read",""
+"Moodle","Home | Moodle Academy","https://moodle.academy/","Learn all about Moodle with free online courses
+Develop your career as a Moodle Educator, Administrator, Designer and Developer and learn all about online education with Moodle. 
+
+Attend webinars.
+Complete courses.
+Enrol in programs.
+
+New to Moodle? Take the 1 hour Introduction to Moodle course to get started.","You should have graduated or not need to have graduated from this series of courses.","Required","Participate",""
+"Moodle","External database enrolment - MoodleDocs","https://docs.moodle.org/400/en/External_database_enrolment#Setting_up_enrolment_sync_.28How_to.29","You may use an external database (of nearly any kind) to control your enrolments. It is assumed your external database contains a field containing a course ID, a field containing a user ID, and optionally a field containing a role. These are compared against fields that you choose in the local course, user tables, and role tables.","We don't use this but it's important to know that it can do it.","Required","Read","1"
