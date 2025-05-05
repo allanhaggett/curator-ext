@@ -1,0 +1,47 @@
+[
+  {
+    "acknowledgments": "",
+    "contentWarning": "",
+    "created": 1746409634608,
+    "description": "All the things you need to be an A11Y.",
+    "name": "Accessibility in the BCPS",
+    "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746409760763,
+            "contentType": "Read",
+            "context": "Doesn't cover many of our use cases yet, but the web components bits are interesting to this curator.",
+            "description": "Standards for creating high quality web content for the B.C. government",
+            "title": "Web Style Guide - Province of British Columbia",
+            "type": "Required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/services-for-government/service-experience-digital-delivery/web-content-development-guides/web-style-guide",
+            "sortOrder": 0
+          }
+        ],
+        "name": "Design Systems",
+        "objective": "Learn what design systems are and what's available to us."
+      },
+      {
+        "bookmarks": [],
+        "name": "Web",
+        "objective": "Web pages and applications have distinct accessibility challenges."
+      },
+      {
+        "bookmarks": [],
+        "name": "MS Office",
+        "objective": "The MS Office suite of applications including Word, Excel, etc."
+      },
+      {
+        "bookmarks": [],
+        "name": "Performance",
+        "objective": "Performance is an accessibility issue. If people can't access the content in the first place, other optimizations won't matter."
+      },
+      {
+        "bookmarks": [],
+        "name": "General",
+        "objective": "Non-specific links :)"
+      }
+    ]
+  }
+]
