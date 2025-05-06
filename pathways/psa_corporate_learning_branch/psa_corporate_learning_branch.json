@@ -7,46 +7,62 @@
         "bookmarks": [
           {
             "added": 1746160537589,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "context": "Yeah this is important.",
             "description": "Introduction to the Ministries in the BC Public Service",
-            "lastChecked": 1746412855092,
+            "lastChecked": 1746489793230,
             "linkStatus": {
               "available": false,
               "checkError": "Request timed out or port closed",
               "redirectUrl": null,
               "status": null
             },
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
             "title": "Ministries - Province of British Columbia",
             "type": "required",
-            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries",
-            "sortOrder": 0
+            "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries"
           },
           {
             "added": 1746404105066,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "contentType": "Read",
             "context": "",
             "description": "The public contact directory for PSA CLB Ops and Tech",
-            "lastChecked": 1746413420973,
+            "lastChecked": 1746489794447,
             "linkStatus": {
               "available": false,
               "checkError": "Request timed out or port closed",
               "redirectUrl": null,
               "status": null
             },
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
             "title": "BC Government Directory, PSA - Operations and Technology",
             "type": "Required",
-            "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT",
-            "sortOrder": 1
+            "url": "https://dir.gov.bc.ca/gtds.cgi?show=Branch&organizationCode=PSA&organizationalUnitCode=OT"
           },
           {
             "added": 1746405439380,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "contentType": "Read",
             "context": "Might want this?",
             "description": "Course descriptions and available dates for emergency management training for emergency operations centres.",
+            "lastChecked": 1746489795635,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
             "title": "Online emergency management training - Province of British Columbia",
             "type": "Bonus",
-            "url": "https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar",
-            "sortOrder": 2
+            "url": "https://www2.gov.bc.ca/gov/content/safety/emergency-management/local-emergency-programs/em-training-program/course-calendar"
           }
         ],
         "name": "General Government Info",
@@ -56,30 +72,49 @@
         "bookmarks": [
           {
             "added": 1746160450869,
+            "authSuccess": false,
+            "available": false,
+            "checkError": "Authentication failed: 401",
+            "checkMethod": "auth-failed",
             "context": "All the info on our courses.",
             "description": "Main admin site for CLB",
+            "lastChecked": 1746489796670,
+            "requiresAuth": true,
+            "sortOrder": 0,
+            "status": 401,
             "title": "LSApp - Learning Support Admin Application",
             "type": "required",
-            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/",
-            "sortOrder": 0
+            "url": "https://gww.bcpublicservice.gov.bc.ca/lsapp/"
           },
           {
             "added": 1746159718346,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "context": "You gotta just gotta.",
             "description": "LearningHUB is all the courses all the time.",
+            "lastChecked": 1746489798203,
+            "redirectUrl": "https://logon7.gov.bc.ca/clp-mp/ntlm.cgi?flags=1000:1,0&TYPE=33554433&REALMOID=06-e3e4d3f2-7f69-41be-aee1-876c70e5d660&GUID=&SMAUTHREASON=0&METHOD=HEAD&SMAGENTNAME=$SM$%2bMiFTVco2AseG3UowN11Tb8lc95Meei%2fZ%2faNY3zLYNAA8L0KvKBit75CrVUdInpa&TARGET=$SM$HTTPS%3a%2f%2fsfs7%2egov%2ebc%2eca%2faffwebservices%2fredirectjsp%2fcompass%2fredirect%2ejsp%3fSAMLRequest%3dfVJNb$%2BIwFLzzK6LcyQcppDwBElu2LRKFqNAe9rKyjU0tJbbr50D779cO7LY9bK1c$%2FDIzb2aSCZKmNjBv3Yt65K8tR9eLoremVgjdq2ncWgWaoERQpOEIjsF2$%2FrCCQZKBsdpppuv4C$%2Bl7DkHk1kmtAmm5mMab9c$%2FV5m65$%2Fl2O82F$%2BnY1KIpgYEVEUOSkKMb6idMwySq4pvSLDQRmIz9yi15jGXjLco6iy$%2Bij33K79xmm8rSLnw3Q7EFu$%2BVOiIch6fDYb9zD$%2BjXZZBVkBe$%2FgqohUdLRVwn$%2BuKcQUhTFFgmB31MKEsYSYkQJ069$%2FaNkHFPT0lqyNEQeIOqgUl0K$%2BSHVXqrD903QMwjhfrer$%2BtVmuwsS87$%2F93GiFbcPt9rzv6XH1YYzpxvgik8Pp9Nkfw3jWlTEJpqBLbmfBAyNAGRBjwMPhQp$%2Bkn2EfRAOhxOWi0j7fezcP51bbhrj$%2FZ8qTvJvIfV90UGgVGs6kkHwf$%2F5OZ17U$%2B3VhOnP9OzrY8jtJZr3c28$%2FVfnP0B%26RelayState%3dhttps$%3A$%2F$%2Flearningcentre%2egww%2egov%2ebc%2eca$%2Flearninghub$%2F%26SMPORTALURL%3dhttps$%3A$%2F$%2Fsfs7%2egov%2ebc%2eca$%2Faffwebservices$%2Fpublic$%2Fsaml2sso%26SAMLTRANSACTIONID%3d1ed7c588-87e50b6e-aac2450f-c4f93ecd-ff1b2cb5-b05",
+            "sortOrder": 1,
+            "status": 200,
             "title": "Home | LearningHUB",
             "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/",
-            "sortOrder": 1
+            "url": "https://learningcentre.gww.gov.bc.ca/learninghub/"
           },
           {
             "added": 1746160363905,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "context": "You'll want to refer to this for stuff CLB related.",
             "description": "The main CLB site.",
+            "lastChecked": 1746489799472,
+            "redirectUrl": "https://logon7.gov.bc.ca/clp-mp/ntlm.cgi?flags=1000:1,0&TYPE=33554433&REALMOID=06-e3e4d3f2-7f69-41be-aee1-876c70e5d660&GUID=&SMAUTHREASON=0&METHOD=HEAD&SMAGENTNAME=$SM$%2bMiFTVco2AseG3UowN11Tb8lc95Meei%2fZ%2faNY3zLYNAA8L0KvKBit75CrVUdInpa&TARGET=$SM$HTTPS%3a%2f%2fsfs7%2egov%2ebc%2eca%2faffwebservices%2fredirectjsp%2fcompass%2fredirect%2ejsp%3fSAMLRequest%3dfVLBctowFLzzFR7fsY0xNbwBZmhIWmYoeALJIZeOLD8RzdiSqydD$%2B$%2FeVTNokh0Tji5539$%2B2uPSfW1C2sOvus7vFXh2QHQfC7qRVB$%2F2oRdkaBZiQJFGuQwHI4rH5sIY0SaI22mus6fEf6nMOI0FiplSdt1otwv7vd7r9tdj$%2BzRIhpxjCdsVxMEcezrJqOxWSSsXySZzzHWVrxsvLERzTkNBahk$%2FT3ICiMPssKzc5tXISHIrAuTL$%2BDqMONIsuUdfgknQwT93w5JgkkYxjNnjxq7dBSMduLPlvbEsQxCcqjkz5HJY84i5kQFyyd$%2FbPkSHHblbXksY$%2BcEmmvUrwU8lWqSqrT502UVxDB9$%2BOxGBb7w9FLrP71c6MVdQ2aw3Xfw$%2F321RjXTeuKjE6Xy1t$%2FnMJlX8bcm4I$%2BuVl6D5xByYG1LTg4vNDn8VvYK7EFX$%2BJmXWiX708$%2F9$%2BdOm4bZjzONolE$%2FkdVQ9FDoFLXIpZBYhf9lVnWtLzcGmXXfyZoOwyBeDgZXM$%2B$%2F$%2FxeVf%26RelayState%3dhttps$%3A$%2F$%2Flearningcentre%2egww%2egov%2ebc%2eca$%2F%26SMPORTALURL%3dhttps$%3A$%2F$%2Fsfs7%2egov%2ebc%2eca$%2Faffwebservices$%2Fpublic$%2Fsaml2sso%26SAMLTRANSACTIONID%3d22032d08-26efbf26-705019de-1f1fce5a-3e7fda17-689",
+            "sortOrder": 2,
+            "status": 200,
             "title": "Corporate Learning",
             "type": "required",
-            "url": "https://learningcentre.gww.gov.bc.ca/",
-            "sortOrder": 2
+            "url": "https://learningcentre.gww.gov.bc.ca/"
           }
         ],
         "name": "Platforms",
@@ -89,12 +124,19 @@
         "bookmarks": [
           {
             "added": 1746398280893,
+            "available": true,
+            "checkError": "Requires authentication (403)",
+            "checkMethod": "fetch-direct",
             "context": "Good info contained within.",
             "description": "Quora is OK.",
+            "lastChecked": 1746489800640,
+            "redirectUrl": null,
+            "requiresAuth": true,
+            "sortOrder": 0,
+            "status": 403,
             "title": "Which is better for the eyes: a white background with black text, a black background with white text, or sepia mode? - Quora",
             "type": "Bonus",
-            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode",
-            "sortOrder": 0
+            "url": "https://www.quora.com/Which-is-better-for-the-eyes-a-white-background-with-black-text-a-black-background-with-white-text-or-sepia-mode"
           }
         ],
         "name": "Accessibility",
@@ -104,13 +146,19 @@
         "bookmarks": [
           {
             "added": 1746413792665,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
             "contentType": "Read",
             "context": "Just because it's awesome.",
             "description": "The A11Y Project is a community-driven effort to make digital accessibility easier.",
+            "lastChecked": 1746489801854,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
             "title": "Home - The A11Y Project",
             "type": "Required",
-            "url": "https://www.a11yproject.com/",
-            "sortOrder": 0
+            "url": "https://www.a11yproject.com/"
           }
         ],
         "name": "General",
