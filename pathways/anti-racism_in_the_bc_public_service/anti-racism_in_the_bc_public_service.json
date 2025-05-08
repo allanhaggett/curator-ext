@@ -9,6 +9,60 @@
       {
         "bookmarks": [
           {
+            "added": 1746166183483,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "",
+            "description": "A history of racism in British Columbia.",
+            "isExemptDomain": false,
+            "lastChecked": 1746650886136,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Challenging Racist British Columbia",
+            "type": "required",
+            "url": "https://www.challengeracistbc.ca/video-series.html"
+          },
+          {
+            "added": 1746166196533,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "",
+            "description": "Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.",
+            "isExemptDomain": false,
+            "lastChecked": 1746650886795,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "British Columbia: An Untold History | Knowledge.ca",
+            "type": "required",
+            "url": "https://www.knowledge.ca/program/british-columbia-untold-history"
+          },
+          {
+            "added": 1746166298366,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "",
+            "description": "Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.",
+            "isExemptDomain": false,
+            "lastChecked": 1746650887490,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Racism in Canada: Words to tell wrongs | Radio-Canada.ca",
+            "type": "bonus",
+            "url": "https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs"
+          }
+        ],
+        "name": "History of Racism in Canada",
+        "objective": "Learn about the history of racism in Canada to better understand the current context. \"Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias & Feagin, 2020, p. 21)."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746166005415,
             "authSuccess": false,
             "available": true,
@@ -167,60 +221,6 @@
         ],
         "name": "Contextualize Racism and Anti-Racism",
         "objective": "Understand the context in which racism exists. Learn about anti-racism and why simply being “not racist” isn't enough."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746166183483,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "",
-            "description": "A history of racism in British Columbia.",
-            "isExemptDomain": false,
-            "lastChecked": 1746650886136,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Challenging Racist British Columbia",
-            "type": "required",
-            "url": "https://www.challengeracistbc.ca/video-series.html"
-          },
-          {
-            "added": 1746166196533,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "",
-            "description": "Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.",
-            "isExemptDomain": false,
-            "lastChecked": 1746650886795,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "British Columbia: An Untold History | Knowledge.ca",
-            "type": "required",
-            "url": "https://www.knowledge.ca/program/british-columbia-untold-history"
-          },
-          {
-            "added": 1746166298366,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "",
-            "description": "Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.",
-            "isExemptDomain": false,
-            "lastChecked": 1746650887490,
-            "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
-            "title": "Racism in Canada: Words to tell wrongs | Radio-Canada.ca",
-            "type": "bonus",
-            "url": "https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs"
-          }
-        ],
-        "name": "History of Racism in Canada",
-        "objective": "Learn about the history of racism in Canada to better understand the current context. \"Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias & Feagin, 2020, p. 21)."
       },
       {
         "bookmarks": [
