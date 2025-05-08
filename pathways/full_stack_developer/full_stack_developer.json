@@ -1,11 +1,33 @@
 [
   {
     "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
-    "contentWarning": "WARNING: This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. Please basically ignore this pathway.",
+    "contentWarning": "!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. ",
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
     "name": "Full Stack Developer",
     "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746645848764,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe."
+      },
       {
         "bookmarks": [
           {
@@ -76,6 +98,21 @@
             "url": "https://htmx.org/"
           },
           {
+            "added": 1746675196588,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "Good words.",
+            "description": "Web dev at the end of the world, from Hveragerði, Iceland",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "What do I need to read to be a great at CSS?",
+            "type": "Bonus",
+            "url": "https://www.baldurbjarnason.com/2021/what-do-i-need-to-read-to-be-a-css-dev/",
+            "sortOrder": 4
+          },
+          {
             "added": 1746484614034,
             "available": false,
             "checkError": "HTTP error: 503",
@@ -87,7 +124,7 @@
             "lastChecked": 1746645841453,
             "redirectUrl": null,
             "requiresAuth": false,
-            "sortOrder": 4,
+            "sortOrder": 5,
             "status": 503,
             "title": "Testing dead link",
             "type": "Required",
@@ -106,7 +143,7 @@
             "title": "systemfontstack",
             "type": "Required",
             "url": "https://systemfontstack.com/",
-            "sortOrder": 5
+            "sortOrder": 6
           }
         ],
         "name": "Front End",
@@ -185,28 +222,6 @@
         ],
         "name": "Back End",
         "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746162080667,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645848764,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
-            "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
-          }
-        ],
-        "name": "Security",
-        "objective": "Stay safe."
       },
       {
         "bookmarks": [
