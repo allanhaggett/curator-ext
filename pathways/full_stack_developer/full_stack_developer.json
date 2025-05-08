@@ -272,6 +272,21 @@
             "title": "PSA Learning System Homepage",
             "type": "Required",
             "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?"
+          },
+          {
+            "added": 1746676699633,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "Just Ask! A github app to just ask for Github organization access",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Just Ask! for Github organization access",
+            "type": "Required",
+            "url": "https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/",
+            "sortOrder": 3
           }
         ],
         "name": "Platforms",
