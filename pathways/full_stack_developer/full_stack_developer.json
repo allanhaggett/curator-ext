@@ -9,6 +9,58 @@
       {
         "bookmarks": [
           {
+            "added": 1746682509164,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
+            "type": "Required",
+            "url": "https://proton.me/blog/anonymity-vs-privacy",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746645848764,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          },
+          {
+            "added": 1746683672525,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "List of Emojis HEX/HTML Codes - DEV Community",
+            "type": "Required",
+            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma",
+            "sortOrder": 2
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746463075670,
             "available": true,
             "checkError": null,
@@ -224,47 +276,40 @@
             "type": "Required",
             "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
             "sortOrder": 4
-          }
-        ],
-        "name": "Back End",
-        "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
-      },
-      {
-        "bookmarks": [
+          },
           {
-            "added": 1746682509164,
+            "added": 1746683612472,
             "available": null,
             "checkError": null,
             "contentType": "Read",
             "context": "",
-            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
+            "description": "Extension for Visual Studio Code - REST Client for Visual Studio Code",
             "lastChecked": null,
             "redirectUrl": null,
             "status": null,
-            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
+            "title": "REST Client - Visual Studio Marketplace",
             "type": "Required",
-            "url": "https://proton.me/blog/anonymity-vs-privacy",
-            "sortOrder": 0
+            "url": "https://marketplace.visualstudio.com/items?itemName=humao.rest-client",
+            "sortOrder": 5
           },
           {
-            "added": 1746162080667,
-            "available": true,
+            "added": 1746683651756,
+            "available": null,
             "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645848764,
+            "contentType": "Read",
+            "context": "",
+            "description": "nginx (\"engine x\") is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server. Originally written by Igor Sysoev and distributed under the 2-clause BSD License. Enterprise distributions, commercial support and training are available from F5, Inc.",
+            "lastChecked": null,
             "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
+            "status": null,
+            "title": "nginx",
             "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
+            "url": "https://nginx.org/",
+            "sortOrder": 6
           }
         ],
-        "name": "Security",
-        "objective": "Stay safe."
+        "name": "Back End",
+        "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
       },
       {
         "bookmarks": [
