@@ -9,28 +9,6 @@
       {
         "bookmarks": [
           {
-            "added": 1746162080667,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645848764,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
-            "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
-          }
-        ],
-        "name": "Security",
-        "objective": "Stay safe."
-      },
-      {
-        "bookmarks": [
-          {
             "added": 1746463075670,
             "available": true,
             "checkError": null,
@@ -144,6 +122,21 @@
             "type": "Required",
             "url": "https://systemfontstack.com/",
             "sortOrder": 6
+          },
+          {
+            "added": 1746677161447,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "Unlock Your Web Development Potential with this Beginner's Guide to HTML, CSS, and JavaScript! Learn the Fundamentals and Create Stunning Websites.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "A Beginner's Guide to HTML, CSS, and JavaScript | HackerNoon",
+            "type": "Required",
+            "url": "https://hackernoon.com/a-beginners-guide-to-html-css-and-javascript",
+            "sortOrder": 7
           }
         ],
         "name": "Front End",
@@ -204,20 +197,18 @@
           },
           {
             "added": 1746246004100,
-            "available": true,
+            "available": null,
             "checkError": null,
-            "checkMethod": "fetch-direct",
             "contentType": "Listen",
             "context": "Testing merging.",
             "description": "Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645847253,
+            "lastChecked": null,
             "redirectUrl": null,
-            "sortOrder": 3,
-            "status": 200,
+            "status": null,
             "title": "Tutorial 0 - Get it RunningView",
-            "type": "Required",
-            "url": "https://postgrest.org/en/stable/tutorials/tut0.html"
+            "type": "Bonus",
+            "url": "https://postgrest.org/en/stable/tutorials/tut0.html",
+            "sortOrder": 3
           }
         ],
         "name": "Back End",
@@ -291,6 +282,28 @@
         ],
         "name": "Platforms",
         "objective": "All the different platforms where courses are hosted."
+      },
+      {
+        "bookmarks": [
+          {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746645848764,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe."
       },
       {
         "bookmarks": [
