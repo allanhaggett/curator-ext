@@ -1,7 +1,9 @@
 [
   {
+    "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
+    "contentWarning": "",
     "created": 1746165855980,
-    "description": "Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.",
+    "description": "TESTING PUBLISHING Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.",
     "name": "Anti-Racism in the BC Public Service",
     "steps": [
       {
@@ -223,22 +225,6 @@
       {
         "bookmarks": [
           {
-            "added": 1746166355083,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "",
-            "description": "Participate in the investigation into Indigenous-specific discrimination in the health system in BC.",
-            "isExemptDomain": false,
-            "lastChecked": 1746650887682,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Addressing Racism in BC Health Care",
-            "type": "required",
-            "url": "https://engage.gov.bc.ca/addressingracism/"
-          },
-          {
             "added": 1746166378332,
             "available": true,
             "checkError": null,
@@ -248,7 +234,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746650888521,
             "redirectUrl": null,
-            "sortOrder": 1,
+            "sortOrder": 0,
             "status": 200,
             "title": "Yes—Canada has anti-Black racism, too - YouTube",
             "type": "required",
@@ -264,7 +250,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746650891507,
             "redirectUrl": null,
-            "sortOrder": 2,
+            "sortOrder": 1,
             "status": 200,
             "title": "From hate to hope | BC's Office of the Human Rights Commissioner",
             "type": "required",
@@ -280,11 +266,27 @@
             "isExemptDomain": false,
             "lastChecked": 1746650891952,
             "redirectUrl": null,
-            "sortOrder": 3,
+            "sortOrder": 2,
             "status": 200,
             "title": "Combatting Hate: Islamophobia and its impact on Muslims in Canada",
             "type": "required",
             "url": "https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/"
+          },
+          {
+            "added": 1746166355083,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "",
+            "description": "Participate in the investigation into Indigenous-specific discrimination in the health system in BC.",
+            "isExemptDomain": false,
+            "lastChecked": 1746650887682,
+            "redirectUrl": null,
+            "sortOrder": 3,
+            "status": 200,
+            "title": "Addressing Racism in BC Health Care",
+            "type": "required",
+            "url": "https://engage.gov.bc.ca/addressingracism/"
           },
           {
             "added": 1746166465433,
@@ -301,40 +303,6 @@
             "title": "Brief History of Antisemitism in Canada",
             "type": "required",
             "url": "https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf"
-          },
-          {
-            "added": 1746166512604,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "",
-            "description": "This 2019 survey of Canadian public opinion and experience by the Canadian Race Relations Foundation found that racialized people experienced racism both in the workplace and out on the streets more than in any other setting.",
-            "isExemptDomain": false,
-            "lastChecked": 1746650892424,
-            "redirectUrl": null,
-            "sortOrder": 5,
-            "status": 200,
-            "title": "Race Relations in Canada 2019: A survey of Canadian public opinion and experience",
-            "type": "bonus",
-            "url": "https://www.environicsinstitute.org/docs/default-source/project-documents/race-relations-2019-survey/race-relations-in-canada-2019-survey---final-report-english.pdf?sfvrsn=ef8d61e3_2"
-          },
-          {
-            "added": 1746580406950,
-            "available": false,
-            "checkError": "HTTP error: 405",
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "While research has identified racial trauma in other contexts, it is often overlooked amongst Canadian society. Racial trauma occurs as a result of an event of racism or cumulative events over time whereby an individual experiences stress and ...",
-            "isExemptDomain": false,
-            "lastChecked": 1746650892704,
-            "redirectUrl": null,
-            "requiresAuth": false,
-            "status": 405,
-            "title": "The Traumatizing Impact of Racism in Canadians of Colour - PMC",
-            "type": "Bonus",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8943361/",
-            "sortOrder": 6
           }
         ],
         "name": "Colours of Racism in Canada",
@@ -342,6 +310,21 @@
       },
       {
         "bookmarks": [
+          {
+            "added": 1746657481923,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "The BC General Employees Union (BCGEU) webpage also has various resources on anti-racism for membership.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "BCGEU Anti-Racism Resources",
+            "type": "Required",
+            "url": "https://www.bcgeu.ca/antiracismresources",
+            "sortOrder": 0
+          },
           {
             "added": 1746657323040,
             "available": null,
@@ -355,7 +338,7 @@
             "title": "Anti-Racist \"Zones\" Infographic",
             "type": "Required",
             "url": "https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/becoming-anti-racist-infographic.html",
-            "sortOrder": 0
+            "sortOrder": 1
           },
           {
             "added": 1746657395788,
@@ -370,7 +353,7 @@
             "title": "What You Can Do to Create an Anti-Racist Organization",
             "type": "Required",
             "url": "https://www.hbs.edu/recruiting/insights-and-advice/blog/post/building-organizations-cultures-awareness-accountability",
-            "sortOrder": 1
+            "sortOrder": 2
           },
           {
             "added": 1746657432704,
@@ -385,7 +368,7 @@
             "title": "Resilience BC",
             "type": "Required",
             "url": "https://www.resiliencebc.ca/learn-more-about-racism/anti-racism-tools/",
-            "sortOrder": 2
+            "sortOrder": 3
           },
           {
             "added": 1746657509054,
@@ -400,21 +383,6 @@
             "title": "Anti-discrimination policies and addressing complaints",
             "type": "Required",
             "url": "https://bchumanrights.ca/wp-content/uploads/Infosheet_discrimination-and-complaint-resolution.pdf",
-            "sortOrder": 3
-          },
-          {
-            "added": 1746657481923,
-            "available": null,
-            "checkError": null,
-            "contentType": "Read",
-            "context": "",
-            "description": "The BC General Employees Union (BCGEU) webpage also has various resources on anti-racism for membership.",
-            "lastChecked": null,
-            "redirectUrl": null,
-            "status": null,
-            "title": "BCGEU Anti-Racism Resources",
-            "type": "Required",
-            "url": "https://www.bcgeu.ca/antiracismresources",
             "sortOrder": 4
           }
         ],
