@@ -9,6 +9,75 @@
       {
         "bookmarks": [
           {
+            "added": 1746676699633,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "",
+            "description": "Just Ask! A github app to just ask for Github organization access",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Just Ask! for Github organization access",
+            "type": "Required",
+            "url": "https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/",
+            "sortOrder": 0
+          },
+          {
+            "added": 1746398560688,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Do yourself a favor and know this stuff.",
+            "description": "The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.",
+            "isExemptDomain": false,
+            "lastChecked": 1746645849907,
+            "redirectUrl": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/",
+            "sortOrder": 1,
+            "status": 200,
+            "title": "BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub",
+            "type": "Required",
+            "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise"
+          },
+          {
+            "added": 1746401020370,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "We use this for Moodle and it should be preferred solution for SSO.",
+            "description": "The request process workflow tool for the RedHat SSO Dev Exchange service",
+            "isExemptDomain": false,
+            "lastChecked": 1746645851138,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Common Hosted Single Sign-on (CSS)",
+            "type": "Required",
+            "url": "https://bcgov.github.io/sso-requests/"
+          },
+          {
+            "added": 1746159181235,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "It's not the only game in town.",
+            "description": "Main registration platform for courses.",
+            "isExemptDomain": false,
+            "lastChecked": 1746645852766,
+            "redirectUrl": "https://logon7.gov.bc.ca/clp-cgi/int/logon.cgi?flags=1000:1,0&partner=fed50&TYPE=33554433&REALMOID=06-eb45be98-e81a-497b-adb0-fa7979b354a3&GUID=&SMAUTHREASON=0&METHOD=HEAD&SMAGENTNAME=$SM$opFtztG2LwiPGPi5mV8yhh%2fbCQNrqfUm0dlQqCfPyxUXUDW%2bEeu%2fR71ORPvl%2fVLD&TARGET=$SM$https%3a%2f%2flearning%2egov%2ebc%2eca%2fpsc%2fCHIPSPLM%2fEMPLOYEE%2fELM%2fc%2fNUI_FRAMEWORK%2ePT_LANDINGPAGE%2eGBL%3f",
+            "sortOrder": 3,
+            "status": 200,
+            "title": "PSA Learning System Homepage",
+            "type": "Required",
+            "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?"
+          }
+        ],
+        "name": "Platforms",
+        "objective": "All the different platforms where courses are hosted."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746463075670,
             "available": true,
             "checkError": null,
@@ -228,75 +297,6 @@
         ],
         "name": "Back End",
         "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746398560688,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Do yourself a favor and know this stuff.",
-            "description": "The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645849907,
-            "redirectUrl": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/",
-            "sortOrder": 0,
-            "status": 200,
-            "title": "BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub",
-            "type": "Required",
-            "url": "https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise"
-          },
-          {
-            "added": 1746401020370,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "We use this for Moodle and it should be preferred solution for SSO.",
-            "description": "The request process workflow tool for the RedHat SSO Dev Exchange service",
-            "isExemptDomain": false,
-            "lastChecked": 1746645851138,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "Common Hosted Single Sign-on (CSS)",
-            "type": "Required",
-            "url": "https://bcgov.github.io/sso-requests/"
-          },
-          {
-            "added": 1746159181235,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "It's not the only game in town.",
-            "description": "Main registration platform for courses.",
-            "isExemptDomain": false,
-            "lastChecked": 1746645852766,
-            "redirectUrl": "https://logon7.gov.bc.ca/clp-cgi/int/logon.cgi?flags=1000:1,0&partner=fed50&TYPE=33554433&REALMOID=06-eb45be98-e81a-497b-adb0-fa7979b354a3&GUID=&SMAUTHREASON=0&METHOD=HEAD&SMAGENTNAME=$SM$opFtztG2LwiPGPi5mV8yhh%2fbCQNrqfUm0dlQqCfPyxUXUDW%2bEeu%2fR71ORPvl%2fVLD&TARGET=$SM$https%3a%2f%2flearning%2egov%2ebc%2eca%2fpsc%2fCHIPSPLM%2fEMPLOYEE%2fELM%2fc%2fNUI_FRAMEWORK%2ePT_LANDINGPAGE%2eGBL%3f",
-            "sortOrder": 2,
-            "status": 200,
-            "title": "PSA Learning System Homepage",
-            "type": "Required",
-            "url": "https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?"
-          },
-          {
-            "added": 1746676699633,
-            "available": null,
-            "checkError": null,
-            "contentType": "Read",
-            "context": "",
-            "description": "Just Ask! A github app to just ask for Github organization access",
-            "lastChecked": null,
-            "redirectUrl": null,
-            "status": null,
-            "title": "Just Ask! for Github organization access",
-            "type": "Required",
-            "url": "https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/",
-            "sortOrder": 3
-          }
-        ],
-        "name": "Platforms",
-        "objective": "All the different platforms where courses are hosted."
       },
       {
         "bookmarks": [
