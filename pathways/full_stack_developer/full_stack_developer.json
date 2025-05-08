@@ -209,6 +209,21 @@
             "type": "Bonus",
             "url": "https://postgrest.org/en/stable/tutorials/tut0.html",
             "sortOrder": 3
+          },
+          {
+            "added": 1746677617532,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "Should be in it's own step practivally.",
+            "description": "Learn the basics of GitHub Actions, including core concepts and essential terminology.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Understanding GitHub Actions - GitHub Docs",
+            "type": "Required",
+            "url": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+            "sortOrder": 4
           }
         ],
         "name": "Back End",
