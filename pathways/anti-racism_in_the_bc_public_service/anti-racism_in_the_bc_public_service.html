@@ -1,677 +1,500 @@
-<!doctype html><html lang="en" data-bs-theme="light"><head><meta charset="utf-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<title>Anti-Racism in the BC Public Service</title>
-<style>
-  /* Badge styles */
-  .required-badge { 
-    display: inline-block;
-    background-color: #0d6efd; 
-    color: white; 
-    padding: 0.2rem 0.5rem; 
-    border-radius: 0.25rem; 
-    font-size: 0.75rem;
-    margin-left: 0.5rem;
-  }
-  .bonus-badge { 
-    display: inline-block;
-    background-color: #0dcaf0; 
-    color: white; 
-    padding: 0.2rem 0.5rem; 
-    border-radius: 0.25rem; 
-    font-size: 0.75rem;
-    margin-left: 0.5rem;
-  }
-  .bonus-section { 
-    margin-top: 1rem; 
-    padding-top: 0.5rem;
-  }
-  
-  /* Content type badges */
-  .content-type-badge {
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 28px;
-    margin-right: 0.5rem;
-    color: white;
-  }
-  .content-type-read {
-    background-color: #198754; /* bg-success */
-  }
-  .content-type-watch {
-    background-color: #dc3545; /* bg-danger */
-  }
-  .content-type-listen {
-    background-color: #ffc107; /* bg-warning */
-    color: #212529;
-  }
-  .content-type-participate {
-    background-color: #0dcaf0; /* bg-info */
-  }
-  
-  /* Visited link badge */
-  .bookmark-link:visited::before {
-    content: "Launched";
-    display: inline-block;
-    background-color: #0d6efd;
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.1rem 0.4rem;
-    border-radius: 0.25rem;
-    margin-right: 0.5rem;
-    vertical-align: middle;
-    font-weight: normal;
-  }
-  
-  /* Dark mode transitions */
-  body {
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .card, .list-group-item {
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  /* Step styles */
-  details.step {
-    margin-bottom: 1.5rem;
-    border: 1px solid #dee2e6;
-    border-radius: 0.375rem;
-    overflow: hidden;
-    transition: border-color 0.3s;
-  }
-  details.step summary {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    background-color: rgba(0,0,0,0.03);
-    border-bottom: 1px solid #dee2e6;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  details.step summary::marker {
-    display: none;
-  }
-  details.step summary::before {
-    content: "▶";
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-    transition: transform 0.2s;
-  }
-  details.step[open] summary::before {
-    content: "▼";
-    transform: rotate(0deg);
-  }
-  details.step .step-content {
-    padding: 1rem;
-  }
-  details.step .step-objective {
-    background-color: rgba(0,0,0,0.03);
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    font-style: italic;
-    margin-bottom: 1rem;
-    transition: background-color 0.3s;
-  }
-  
-  /* Dark mode overrides for steps */
-  [data-bs-theme="dark"] details.step {
-    border-color: #495057;
-  }
-  [data-bs-theme="dark"] details.step summary {
-    background-color: rgba(255,255,255,0.05);
-    border-bottom-color: #495057;
-  }
-  [data-bs-theme="dark"] details.step .step-objective {
-    background-color: rgba(255,255,255,0.05);
-  }
-</style>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anti-Racism in the BC Public Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles for Curator pathways in Moodle */
+    /* Nori Sinclair, Corporate Learning branch, February 2025 */
+    /* Based on existing Moodle styles with Bootstrap 4.7 and Font Awesome 6 */
+
+    .moodlecurator {
+      font-size: 1rem;
+      --gov-primary-blue: #234075;
+      --gov-primary-yellow: #e3a82b;
+      --sagegreen: #bfd5cf;
+      --sagedark: #29735E;
+      --bluegreen: #2F6173;
+    }
+
+    .moodlecurator .bg-blue { background-color: var(--gov-primary-blue); }
+    .moodlecurator .bg-sagegreen { background-color: var(--sagegreen); }
+    .moodlecurator .bg-sagedark { background-color: var(--sagedark); }
+
+    .required-badge {
+      display: inline-block;
+      background-color: #0d6efd;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+    }
+
+    .bonus-badge {
+      display: inline-block;
+      background-color: #0dcaf0;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+    }
+
+    .bonus-section {
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .content-type-badge {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      margin-right: 0.5rem;
+      color: white;
+    }
+
+    .content-type-read { background-color: #198754; }
+    .content-type-watch { background-color: #dc3545; }
+    .content-type-listen { background-color: #ffc107; color: #212529; }
+    .content-type-participate { background-color: #0dcaf0; }
+  </style>
 </head>
-<body class="container py-4">
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="border-bottom pb-2 mb-0">
-    <i class="bi bi-collection me-2"></i>Anti-Racism in the BC Public Service
-  </h1>
-  <div class="d-flex gap-2 align-items-center">
-    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary" title="Toggle Dark Mode">
-      <i class="bi bi-moon-stars-fill"></i>
-    </button>
-    <div class="btn-group ms-2">
-      <button id="expandAll" class="btn btn-sm btn-outline-primary">Expand All</button>
-      <button id="collapseAll" class="btn btn-sm btn-outline-primary">Collapse All</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="lead mb-4">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.</div>
-
-<script>
-  // Add event listeners for expand/collapse buttons
-  document.getElementById('expandAll').addEventListener('click', function() {
-    document.querySelectorAll('details.step').forEach(function(detail) {
-      detail.setAttribute('open', '');
-    });
-  });
-  
-  document.getElementById('collapseAll').addEventListener('click', function() {
-    document.querySelectorAll('details.step').forEach(function(detail) {
-      detail.removeAttribute('open');
-    });
-  });
-  
-  // Theme toggling
-  function getPreferredTheme() {
-    // Check if user has already set a preference
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      return storedTheme;
-    }
+<body class="moodlecurator">
+  <main class="container my-5">
+    <h1>Anti-Racism in the BC Public Service</h1>
+    <p class="lead">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.</p>
     
-    // Otherwise, respect OS preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-    localStorage.setItem('theme', theme);
-    
-    // Update the icon
-    const themeIcon = document.getElementById('theme-toggle').querySelector('i');
-    if (theme === 'dark') {
-      themeIcon.classList.remove('bi-moon-stars-fill');
-      themeIcon.classList.add('bi-sun-fill');
-    } else {
-      themeIcon.classList.remove('bi-sun-fill');
-      themeIcon.classList.add('bi-moon-stars-fill');
-    }
-  }
-  
-  // Set initial theme
-  setTheme(getPreferredTheme());
-  
-  // Add theme toggle handler
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  });
-</script>
-
-
-  <details class="step">
-    <summary>
-      <span>Contextualize Racism and Anti-Racism</span>
-      <div class="ms-auto">
-        <span class="badge bg-primary me-1">7</span>
-        <span class="badge bg-info me-1">3</span>
-      </div>
-    </summary>
-    <div class="step-content">
-      <div class="step-objective">Understand the context in which racism exists. Learn about anti-racism and why simply being “not racist” isn&#039;t enough.</div>
-      
-      
-      <h3 class="h6 mt-3">Required Resources</h3>
-      <ul class="list-group mb-3">
-        
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/key-definitions.html" class="bookmark-link fw-semibold">Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Key Definitions for Anti-Racism in the BCPS</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www.penguin.co.uk/discover/articles/ibram-x-kendi-definition-of-antiracist" class="bookmark-link fw-semibold">Ibram X. Kendi defines what it means to be an antiracist</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>In this extract from his 2019 book How To Be an Antiracist, historian Ibram X. Kendi breaks down exactly what the term means – and why clear language is a vital first step in the battle against prejudice.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project" class="bookmark-link fw-semibold">Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://thetyee.ca/Opinion/2020/06/10/White-Supremacy-BC-China-Syndrome/" class="bookmark-link fw-semibold">White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Anti-China sentiments — and political posturing — have led to racism against Asian Canadians.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 3</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-watch" title="Watch">
-                <i class="bi bi-play-btn"></i>
-              </span>
-              <a href="https://www.whitesupremacyculture.info/what-is-it.html" class="bookmark-link fw-semibold">What is White Supremacy Culture?</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>This website describes white supremacy culture as a framework for understanding racism. It allows us to explore the power structure and its imbalances in society.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Watch | Sort Order: 4</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-watch" title="Watch">
-                <i class="bi bi-play-btn"></i>
-              </span>
-              <a href="https://www.youtube.com/watch?v=ydJDNcQOcbA" class="bookmark-link fw-semibold">Nice Racism &amp; White Fragility with Robin DiAngelo - YouTube</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>In this talk, Robin DiAngelo explains how racism is at play in white people and how to bring awareness to our condition and own racism to make a change and stop living a segregated life.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Watch | Sort Order: 5</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://web.archive.org/web/20240302075842/https://www.nytimes.com/article/what-is-critical-race-theory.html" class="bookmark-link fw-semibold">What Is Critical Race Theory? A Brief History Explained - The New York Times</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>This New York times article introduces readers to the history of critical race theory in conceptualizing a framework needed in anti-racism studies.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 6</small></div>
-          </li>
-      </ul>
-      
-      
-      <div class="bonus-section">
-        <h3 class="h6 mt-3">Bonus Resources</h3>
-        <ul class="list-group mb-3">
+      <section class="mt-4">
+        <h2>Contextualize Racism and Anti-Racism</h2>
+        <ul class="list-group">
           
             <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://ccdi.ca/media/4005/20230509-glossary-of-idea-terms-en.pdf" class="bookmark-link fw-semibold">Canadian Centre for Diversity and Inclusion (CCDI) Glossary of Terms</a>
-                <span class="bonus-badge">Bonus</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/key-definitions.html" target="_blank" class="fw-bold">Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid</a>
+                  <p class="mb-1">Key Definitions for Anti-Racism in the BCPS</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
               </div>
-              <small>This CCDI-developed comprehensive glossary of terms provides a reference for terminology used within the Equity, Diversity, and Inclusion (EDI) and Accessibility learning space.</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
-            <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-watch" title="Watch">
-                  <i class="bi bi-play-btn"></i>
-                </span>
-                <a href="https://www.youtube.com/watch?v=KCxbl5QgFZw" class="bookmark-link fw-semibold">The difference between being &quot;not racist&quot; and antiracist | Ibram X. Kendi - YouTube</a>
-                <span class="bonus-badge">Bonus</span>
-              </div>
-              <small>In this interview, Professor Ibram X. Kendi discusses how being “anti-racist” differs from being “not racist.”</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Watch | Sort Order: 1</small></div>
-            </li>
-            <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://crrf-fcrr.ca/glossary-of-terms/" class="bookmark-link fw-semibold">Glossary of Terms – Canadian Race Relations Foundation</a>
-                <span class="bonus-badge">Bonus</span>
-              </div>
-              <small>Glossary of Terms The Canadian Race Relations Foundation maintains a glossary with definitions of key concepts relevant to race relations, the promotion of Canadian identity, belonging and the mutuality of citizenship rights and responsibilities. About the glossary This list includes many of the terms commonly used in anti-racism and equity discourse today. They are gleaned […]</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </details>
-  <details class="step">
-    <summary>
-      <span>History of Racism in Canada</span>
-      <div class="ms-auto">
-        <span class="badge bg-primary me-1">2</span>
-        <span class="badge bg-info me-1">1</span>
-      </div>
-    </summary>
-    <div class="step-content">
-      <div class="step-objective">Learn about the history of racism in Canada to better understand the current context. &quot;Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias &amp; Feagin, 2020, p. 21).</div>
-      
-      
-      <h3 class="h6 mt-3">Required Resources</h3>
-      <ul class="list-group mb-3">
-        
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www.challengeracistbc.ca/video-series.html" class="bookmark-link fw-semibold">Challenging Racist British Columbia</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>A history of racism in British Columbia.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www.knowledge.ca/program/british-columbia-untold-history" class="bookmark-link fw-semibold">British Columbia: An Untold History | Knowledge.ca</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
-          </li>
-      </ul>
-      
-      
-      <div class="bonus-section">
-        <h3 class="h6 mt-3">Bonus Resources</h3>
-        <ul class="list-group mb-3">
           
             <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" class="bookmark-link fw-semibold">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</a>
-                <span class="bonus-badge">Bonus</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.penguin.co.uk/discover/articles/ibram-x-kendi-definition-of-antiracist" target="_blank" class="fw-bold">Ibram X. Kendi defines what it means to be an antiracist</a>
+                  <p class="mb-1">In this extract from his 2019 book How To Be an Antiracist, historian Ibram X. Kendi breaks down exactly what the term means – and why clear language is a vital first step in the battle against prejudice.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
               </div>
-              <small>Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project" target="_blank" class="fw-bold">Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia</a>
+                  <p class="mb-1">Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://thetyee.ca/Opinion/2020/06/10/White-Supremacy-BC-China-Syndrome/" target="_blank" class="fw-bold">White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee</a>
+                  <p class="mb-1">Anti-China sentiments — and political posturing — have led to racism against Asian Canadians.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.whitesupremacyculture.info/what-is-it.html" target="_blank" class="fw-bold">What is White Supremacy Culture?</a>
+                  <p class="mb-1">This website describes white supremacy culture as a framework for understanding racism. It allows us to explore the power structure and its imbalances in society.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Watch</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.youtube.com/watch?v=ydJDNcQOcbA" target="_blank" class="fw-bold">Nice Racism &amp; White Fragility with Robin DiAngelo - YouTube</a>
+                  <p class="mb-1">In this talk, Robin DiAngelo explains how racism is at play in white people and how to bring awareness to our condition and own racism to make a change and stop living a segregated life.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Watch</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://web.archive.org/web/20240302075842/https://www.nytimes.com/article/what-is-critical-race-theory.html" target="_blank" class="fw-bold">What Is Critical Race Theory? A Brief History Explained - The New York Times</a>
+                  <p class="mb-1">This New York times article introduces readers to the history of critical race theory in conceptualizing a framework needed in anti-racism studies.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://ccdi.ca/media/4005/20230509-glossary-of-idea-terms-en.pdf" target="_blank" class="fw-bold">Canadian Centre for Diversity and Inclusion (CCDI) Glossary of Terms</a>
+                  <p class="mb-1">This CCDI-developed comprehensive glossary of terms provides a reference for terminology used within the Equity, Diversity, and Inclusion (EDI) and Accessibility learning space.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.youtube.com/watch?v=KCxbl5QgFZw" target="_blank" class="fw-bold">The difference between being &quot;not racist&quot; and antiracist | Ibram X. Kendi - YouTube</a>
+                  <p class="mb-1">In this interview, Professor Ibram X. Kendi discusses how being “anti-racist” differs from being “not racist.”</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Watch</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://crrf-fcrr.ca/glossary-of-terms/" target="_blank" class="fw-bold">Glossary of Terms – Canadian Race Relations Foundation</a>
+                  <p class="mb-1">Glossary of Terms The Canadian Race Relations Foundation maintains a glossary with definitions of key concepts relevant to race relations, the promotion of Canadian identity, belonging and the mutuality of citizenship rights and responsibilities. About the glossary This list includes many of the terms commonly used in anti-racism and equity discourse today. They are gleaned […]</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
         </ul>
-      </div>
-    </div>
-  </details>
-  <details class="step">
-    <summary>
-      <span>Colours of Racism in Canada</span>
-      <div class="ms-auto">
-        <span class="badge bg-primary me-1">5</span>
-        <span class="badge bg-info me-1">2</span>
-      </div>
-    </summary>
-    <div class="step-content">
-      <div class="step-objective">Understand the different types of racism and discrimination that Indigenous, Black, and other racialized and marginalized people experience in the Canadian context.</div>
-      
-      
-      <h3 class="h6 mt-3">Required Resources</h3>
-      <ul class="list-group mb-3">
-        
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://engage.gov.bc.ca/addressingracism/" class="bookmark-link fw-semibold">Addressing Racism in BC Health Care</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Participate in the investigation into Indigenous-specific discrimination in the health system in BC.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www.youtube.com/watch?v=fNk633ujvWk" class="bookmark-link fw-semibold">Yes—Canada has anti-Black racism, too - YouTube</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>To the uninitiated, Canada may have a reputation for friendly and folksy charm. For Black and Indigenous peoples of the &#039;Great White North,&#039; this veneer beli...</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://bchumanrights.ca/inquiries-and-cases/inquiries/inquiry/inquiry-into-hate/" class="bookmark-link fw-semibold">From hate to hope | BC&#039;s Office of the Human Rights Commissioner</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>From hate to hope
+      </section>
+    
+      <section class="mt-4">
+        <h2>History of Racism in Canada</h2>
+        <ul class="list-group">
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.challengeracistbc.ca/video-series.html" target="_blank" class="fw-bold">Challenging Racist British Columbia</a>
+                  <p class="mb-1">A history of racism in British Columbia.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.knowledge.ca/program/british-columbia-untold-history" target="_blank" class="fw-bold">British Columbia: An Untold History | Knowledge.ca</a>
+                  <p class="mb-1">Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" target="_blank" class="fw-bold">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</a>
+                  <p class="mb-1">Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+        </ul>
+      </section>
+    
+      <section class="mt-4">
+        <h2>Colours of Racism in Canada</h2>
+        <ul class="list-group">
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://engage.gov.bc.ca/addressingracism/" target="_blank" class="fw-bold">Addressing Racism in BC Health Care</a>
+                  <p class="mb-1">Participate in the investigation into Indigenous-specific discrimination in the health system in BC.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.youtube.com/watch?v=fNk633ujvWk" target="_blank" class="fw-bold">Yes—Canada has anti-Black racism, too - YouTube</a>
+                  <p class="mb-1">To the uninitiated, Canada may have a reputation for friendly and folksy charm. For Black and Indigenous peoples of the &#039;Great White North,&#039; this veneer beli...</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://bchumanrights.ca/inquiries-and-cases/inquiries/inquiry/inquiry-into-hate/" target="_blank" class="fw-bold">From hate to hope | BC&#039;s Office of the Human Rights Commissioner</a>
+                  <p class="mb-1">From hate to hope
 Inquiry into hate in the COVID-19 pandemic
 In August 2021, B.C.’s Human Rights Commissioner launched an inquiry into the rise of hate in B.C. during the COVID-19 pandemic. In March 2023, the Commissioner released her findings and recommendations.
 
-Illustrations by Paige Jung</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/" class="bookmark-link fw-semibold">Combatting Hate: Islamophobia and its impact on Muslims in Canada</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>Rampant Islamophobia is costing Canadian Muslims their peace of mind, their physical well-being and even their lives.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 3</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf" class="bookmark-link fw-semibold">Brief History of Antisemitism in Canada</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>This Montreal Holocaust Museum report uncovers the history of Antisemitism that greatly affects the Jewish community in Canada.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 4</small></div>
-          </li>
-      </ul>
-      
-      
-      <div class="bonus-section">
-        <h3 class="h6 mt-3">Bonus Resources</h3>
-        <ul class="list-group mb-3">
+Illustrations by Paige Jung</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
           
             <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://www.environicsinstitute.org/docs/default-source/project-documents/race-relations-2019-survey/race-relations-in-canada-2019-survey---final-report-english.pdf?sfvrsn=ef8d61e3_2" class="bookmark-link fw-semibold">Race Relations in Canada 2019: A survey of Canadian public opinion and experience</a>
-                <span class="bonus-badge">Bonus</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/" target="_blank" class="fw-bold">Combatting Hate: Islamophobia and its impact on Muslims in Canada</a>
+                  <p class="mb-1">Rampant Islamophobia is costing Canadian Muslims their peace of mind, their physical well-being and even their lives.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
               </div>
-              <small>This 2019 survey of Canadian public opinion and experience by the Canadian Race Relations Foundation found that racialized people experienced racism both in the workplace and out on the streets more than in any other setting.</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
-            <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8943361/" class="bookmark-link fw-semibold">The Traumatizing Impact of Racism in Canadians of Colour - PMC</a>
-                <span class="bonus-badge">Bonus</span>
-              </div>
-              <small>While research has identified racial trauma in other contexts, it is often overlooked amongst Canadian society. Racial trauma occurs as a result of an event of racism or cumulative events over time whereby an individual experiences stress and ...</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </details>
-  <details class="step">
-    <summary>
-      <span>Existing Legislation, Policies and Strategies</span>
-      <div class="ms-auto">
-        <span class="badge bg-primary me-1">8</span>
-        <span class="badge bg-info me-1">2</span>
-      </div>
-    </summary>
-    <div class="step-content">
-      <div class="step-objective">This module emphasizes on the relevant legislations and policies available in British Columbia.</div>
-      
-      
-      <h3 class="h6 mt-3">Required Resources</h3>
-      <ul class="list-group mb-3">
-        
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-watch" title="Watch">
-                <i class="bi bi-play-btn"></i>
-              </span>
-              <a href="https://bchumanrights.ca/human-rights/human-rights-in-bc/" class="bookmark-link fw-semibold">Human rights in B.C. | BC&#039;s Office of the Human Rights Commissioner</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>The Human Rights Code helps protect people against discrimination in B.C. based on parts of their identity.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Watch | Sort Order: 0</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://antiracism.gov.bc.ca/data-act/" class="bookmark-link fw-semibold">The Anti-Racism Data Act -</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>On May 2, 2022, we introduced the Anti-Racism Data Act. Its one of the first pieces of legislation to be co-developed with Indigenous Peoples under the Declaration on the Rights of Indigenous Peoples Act.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf" class="bookmark-link fw-semibold">Declaration on the Rights of Indigenous Peoples Act Action Plan</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>The Action Plan outlines goals and outcomes for ending Indigenous-specific racism and discrimination in British Columbia.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 2</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/hr_policy_11_discrimination_bullying_and_harassment_in_the_workplace.pdf" class="bookmark-link fw-semibold">HR Policy 11 – Discrimination, Bullying and Harassment in the Workplace</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>The purpose of this policy is to promote safe, healthy BC Public Service workplaces, free from discrimination, bullying and harassment. This policy covers individual behaviours and accountability. The BC Public Service, in cooperation with its unions and associations, is committed to promoting respectful behaviour. Respectful behaviour reflects BC Public Service corporate ethics and values, supports diversity and inclusion and promotes positive communication and collaborative working relationships – all essential to fostering public trust and confidence in the BC Public Service.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 3</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/09_standards_conduct_policy.pdf" class="bookmark-link fw-semibold">HR Policy 09 – Standards of Conduct for BC Public Service Employees</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>This policy statement applies to all persons and organizations covered by the Public Service Act. The policy statement supports the core policy objective that “public service employees exhibit the highest standards of conduct.”</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 4</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/about-the-bc-public-service/diversity-inclusion/diversity-inclusion-strategy#di_strategy" class="bookmark-link fw-semibold">Equity, Diversity &amp; Inclusion Strategy for the BC Public Service - Province of British Columbia</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>The BC Public Service is an inclusive employer representative of the people of British Columbia. Everyone belongs. This page outlines Where We All Belong, the three-year diversity and inclusion strategy for the BC Public Service.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 5</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/assets/gov/careers/about-the-bc-public-service/corporate-digital/corporateplan_2023.pdf" class="bookmark-link fw-semibold">2023 Corporate HR Plan</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>The corporate HR plan sets the strategic vision and guiding direction for the BC Public Service.</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 6</small></div>
-          </li>
-          <li class="list-group-item">
-            <div>
-              <span class="content-type-badge content-type-read" title="Read">
-                <i class="bi bi-book"></i>
-              </span>
-              <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/working-with-others/address-a-respectful-workplace-issue" class="bookmark-link fw-semibold">Address a respectful workplace issue - Province of British Columbia</a>
-              <span class="required-badge">Required</span>
-            </div>
-            <small>How to address a workplace conflict</small><br>
-            <em></em>
-            <div><small class="text-muted">Content Type: Read | Sort Order: 7</small></div>
-          </li>
-      </ul>
-      
-      
-      <div class="bonus-section">
-        <h3 class="h6 mt-3">Bonus Resources</h3>
-        <ul class="list-group mb-3">
           
             <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://laws.justice.gc.ca/eng/Const/page-12.html" class="bookmark-link fw-semibold">Charter of Rights and Freedoms</a>
-                <span class="bonus-badge">Bonus</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf" target="_blank" class="fw-bold">Brief History of Antisemitism in Canada</a>
+                  <p class="mb-1">This Montreal Holocaust Museum report uncovers the history of Antisemitism that greatly affects the Jewish community in Canada.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
               </div>
-              <small>Among others, section 15 of the Charter of Rights addresses our right to be free from discrimination based on race, national or ethnic origin, colour, religion, sex, age and mental or physical disability.</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 0</small></div>
             </li>
+          
             <li class="list-group-item">
-              <div>
-                <span class="content-type-badge content-type-read" title="Read">
-                  <i class="bi bi-book"></i>
-                </span>
-                <a href="https://peopleforeducation.ca/wp-content/uploads/2023/01/PFE-AntiRacismReport-EN-2023-v1d.pdf" class="bookmark-link fw-semibold">A Progress Report on Anti-Racism Policy Across Canada</a>
-                <span class="bonus-badge">Bonus</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.environicsinstitute.org/docs/default-source/project-documents/race-relations-2019-survey/race-relations-in-canada-2019-survey---final-report-english.pdf?sfvrsn=ef8d61e3_2" target="_blank" class="fw-bold">Race Relations in Canada 2019: A survey of Canadian public opinion and experience</a>
+                  <p class="mb-1">This 2019 survey of Canadian public opinion and experience by the Canadian Race Relations Foundation found that racialized people experienced racism both in the workplace and out on the streets more than in any other setting.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
               </div>
-              <small>This Report examines the development of anti-racism legislation in three Canadian provinces and underscores the existing Pan-Canadian gaps.</small><br>
-              <em></em>
-              <div><small class="text-muted">Content Type: Read | Sort Order: 1</small></div>
             </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8943361/" target="_blank" class="fw-bold">The Traumatizing Impact of Racism in Canadians of Colour - PMC</a>
+                  <p class="mb-1">While research has identified racial trauma in other contexts, it is often overlooked amongst Canadian society. Racial trauma occurs as a result of an event of racism or cumulative events over time whereby an individual experiences stress and ...</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
         </ul>
-      </div>
-    </div>
-  </details>
-
-
-</body></html>
+      </section>
+    
+      <section class="mt-4">
+        <h2>Becoming Anti-Racist in BC Public Service</h2>
+        <ul class="list-group">
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/becoming-anti-racist-infographic.html" target="_blank" class="fw-bold">Anti-Racist &quot;Zones&quot; Infographic</a>
+                  <p class="mb-1">Becoming Anti-Racist Infographic describes the different zones an individual progresses through on their journey to being Anti-Racist.</p>
+                  <small class="text-muted">A picture is worth 1000 words.</small>
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.hbs.edu/recruiting/insights-and-advice/blog/post/building-organizations-cultures-awareness-accountability" target="_blank" class="fw-bold">What You Can Do to Create an Anti-Racist Organization</a>
+                  <p class="mb-1">This opinion piece presents three critical elements for creating a roadmap that helps individuals learn how to be actively anti-racist.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.resiliencebc.ca/learn-more-about-racism/anti-racism-tools/" target="_blank" class="fw-bold">Resilience BC</a>
+                  <p class="mb-1">Resilience BCs Anti-Racism Network provides tools to help you make a future free of racism and hate a reality.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://bchumanrights.ca/wp-content/uploads/Infosheet_discrimination-and-complaint-resolution.pdf" target="_blank" class="fw-bold">Anti-discrimination policies and addressing complaints</a>
+                  <p class="mb-1">The toolkit was created by BCs Office of the Human Rights Commissioner (BCOHRC) to help employers learn how to improve employment equity within their businesses and organizations.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www.bcgeu.ca/antiracismresources" target="_blank" class="fw-bold">BCGEU Anti-Racism Resources</a>
+                  <p class="mb-1">The BC General Employees Union (BCGEU) webpage also has various resources on anti-racism for membership.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+        </ul>
+      </section>
+    
+      <section class="mt-4">
+        <h2>Existing Legislation, Policies and Strategies</h2>
+        <ul class="list-group">
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://bchumanrights.ca/human-rights/human-rights-in-bc/" target="_blank" class="fw-bold">Human rights in B.C. | BC&#039;s Office of the Human Rights Commissioner</a>
+                  <p class="mb-1">The Human Rights Code helps protect people against discrimination in B.C. based on parts of their identity.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Watch</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://antiracism.gov.bc.ca/data-act/" target="_blank" class="fw-bold">The Anti-Racism Data Act -</a>
+                  <p class="mb-1">On May 2, 2022, we introduced the Anti-Racism Data Act. Its one of the first pieces of legislation to be co-developed with Indigenous Peoples under the Declaration on the Rights of Indigenous Peoples Act.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf" target="_blank" class="fw-bold">Declaration on the Rights of Indigenous Peoples Act Action Plan</a>
+                  <p class="mb-1">The Action Plan outlines goals and outcomes for ending Indigenous-specific racism and discrimination in British Columbia.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/hr_policy_11_discrimination_bullying_and_harassment_in_the_workplace.pdf" target="_blank" class="fw-bold">HR Policy 11 – Discrimination, Bullying and Harassment in the Workplace</a>
+                  <p class="mb-1">The purpose of this policy is to promote safe, healthy BC Public Service workplaces, free from discrimination, bullying and harassment. This policy covers individual behaviours and accountability. The BC Public Service, in cooperation with its unions and associations, is committed to promoting respectful behaviour. Respectful behaviour reflects BC Public Service corporate ethics and values, supports diversity and inclusion and promotes positive communication and collaborative working relationships – all essential to fostering public trust and confidence in the BC Public Service.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/09_standards_conduct_policy.pdf" target="_blank" class="fw-bold">HR Policy 09 – Standards of Conduct for BC Public Service Employees</a>
+                  <p class="mb-1">This policy statement applies to all persons and organizations covered by the Public Service Act. The policy statement supports the core policy objective that “public service employees exhibit the highest standards of conduct.”</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/about-the-bc-public-service/diversity-inclusion/diversity-inclusion-strategy#di_strategy" target="_blank" class="fw-bold">Equity, Diversity &amp; Inclusion Strategy for the BC Public Service - Province of British Columbia</a>
+                  <p class="mb-1">The BC Public Service is an inclusive employer representative of the people of British Columbia. Everyone belongs. This page outlines Where We All Belong, the three-year diversity and inclusion strategy for the BC Public Service.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/assets/gov/careers/about-the-bc-public-service/corporate-digital/corporateplan_2023.pdf" target="_blank" class="fw-bold">2023 Corporate HR Plan</a>
+                  <p class="mb-1">The corporate HR plan sets the strategic vision and guiding direction for the BC Public Service.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/working-with-others/address-a-respectful-workplace-issue" target="_blank" class="fw-bold">Address a respectful workplace issue - Province of British Columbia</a>
+                  <p class="mb-1">How to address a workplace conflict</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://laws.justice.gc.ca/eng/Const/page-12.html" target="_blank" class="fw-bold">Charter of Rights and Freedoms</a>
+                  <p class="mb-1">Among others, section 15 of the Charter of Rights addresses our right to be free from discrimination based on race, national or ethnic origin, colour, religion, sex, age and mental or physical disability.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <a href="https://peopleforeducation.ca/wp-content/uploads/2023/01/PFE-AntiRacismReport-EN-2023-v1d.pdf" target="_blank" class="fw-bold">A Progress Report on Anti-Racism Policy Across Canada</a>
+                  <p class="mb-1">This Report examines the development of anti-racism legislation in three Canadian provinces and underscores the existing Pan-Canadian gaps.</p>
+                  
+                </div>
+                <span class="badge bg-secondary">Read</span>
+              </div>
+            </li>
+          
+        </ul>
+      </section>
+    
+  </main>
+</body>
+</html>
