@@ -253,7 +253,57 @@ details.step-container .step-content {
 /* Spacer for when controls become fixed */
 .controls-spacer {
     display: none;
-    height: 80px; /* Adjust to match control bar height */
+    height: 120px; /* Adjusted to match control bar height with the progress bar */
+}
+
+/* Progress bar styles */
+.progress-container {
+    background-color: transparent;
+}
+
+/* When in the control bar */
+.control-bar .progress-container {
+    padding: 0;
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.progress {
+    height: 24px;
+    border-radius: 12px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+/* Compact progress bar in control bar */
+.control-bar .progress {
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+
+.progress-bar {
+    background-color: var(--sagedark);
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) inset;
+}
+
+.progress-text {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.progress-container h5 {
+    color: var(--sagedark);
+    font-weight: 600;
+}
+
+.progress-container .badge {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
 }
 
     /* Custom search highlight styles */
@@ -272,6 +322,16 @@ details.step-container .step-content {
 
     /* Hide the badge initially */
     .launched-badge.d-none {
+      display: none !important;
+    }
+
+    /* Scroll to top button styles */
+    #scrollTopBtn {
+      margin-left: 0.5rem;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #scrollTopBtn.d-none {
       display: none !important;
     }
   </style>
@@ -299,6 +359,68 @@ details.step-container .step-content {
       }
     }
 
+    // Count total required bookmarks and launched required bookmarks
+    function updateProgressBar() {
+      const links = loadLaunchedLinks();
+      let totalRequired = 0;
+      let completedRequired = 0;
+
+      // Count all required bookmarks
+      document.querySelectorAll('.activity-container').forEach(container => {
+        // Check if this is a required bookmark (not bonus)
+        const badge = container.querySelector('.activity-badge');
+        if (badge && badge.textContent.trim() === 'Required') {
+          totalRequired++;
+
+          // Check if this bookmark has been launched
+          const launchBtn = container.querySelector('.launch-btn');
+          if (launchBtn && links[launchBtn.getAttribute('href')]) {
+            completedRequired++;
+          }
+        }
+      });
+
+      // Update the progress bar
+      const progressBar = document.getElementById('progress-bar');
+      const progressCounter = document.getElementById('progress-counter');
+      const progressPercentage = document.getElementById('progress-percentage');
+      const progressContainer = document.querySelector('.progress-container');
+
+      if (progressBar && progressCounter && progressPercentage && progressContainer) {
+        const percentage = totalRequired > 0 ? Math.round((completedRequired / totalRequired) * 100) : 0;
+
+        // Update the visual elements
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', percentage);
+        progressCounter.textContent = completedRequired + ' of ' + totalRequired + ' required';
+        progressPercentage.textContent = percentage + '%';
+
+        // Add color classes based on progress
+        progressBar.className = 'progress-bar';
+        if (percentage === 100) {
+          progressBar.classList.add('bg-success');
+          progressPercentage.className = 'badge bg-success';
+        } else if (percentage >= 66) {
+          progressBar.classList.add('bg-sagedark');
+          progressPercentage.className = 'badge bg-sagedark';
+        } else if (percentage >= 33) {
+          progressBar.classList.add('bg-primary');
+          progressPercentage.className = 'badge bg-primary';
+        } else {
+          progressBar.classList.add('bg-bluegreen');
+          progressPercentage.className = 'badge bg-bluegreen';
+        }
+
+        // Even in the control bar, we may want to hide the progress section
+        // if there are no required items to track
+        if (totalRequired === 0) {
+          progressContainer.style.display = 'none';
+        } else {
+          progressContainer.style.display = 'block';
+        }
+      }
+    }
+
     // Mark a link as launched
     function markAsLaunched(url) {
       const links = loadLaunchedLinks();
@@ -307,6 +429,9 @@ details.step-container .step-content {
 
       // Update UI to show this link as launched
       updateLaunchedBadges(url);
+      
+      // Update progress bar
+      updateProgressBar();
     }
 
     // Update the UI to show which links have been launched
@@ -463,14 +588,26 @@ details.step-container .step-content {
       function handleScroll() {
         if (!controlBar || !controlsSpacer || controlBarPosition === undefined) return;
 
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
         if (window.pageYOffset > controlBarPosition) {
           // If we've scrolled past the original position, make it fixed
           controlBar.classList.add('fixed-top');
           controlsSpacer.style.display = 'block';
+
+          // Show the scroll-to-top button when toolbar is stickied
+          if (scrollTopBtn) {
+            scrollTopBtn.classList.remove('d-none');
+          }
         } else {
           // Reset to normal positioning
           controlBar.classList.remove('fixed-top');
           controlsSpacer.style.display = 'none';
+
+          // Hide the scroll-to-top button when toolbar is in normal position
+          if (scrollTopBtn) {
+            scrollTopBtn.classList.add('d-none');
+          }
         }
       }
 
@@ -519,9 +656,23 @@ details.step-container .step-content {
       // Show badges for already launched links
       updateLaunchedBadges();
 
+      // Initialize the progress bar
+      setTimeout(() => {
+        // Slight delay to ensure all DOM elements are ready
+        updateProgressBar();
+      }, 200);
+
       // Initialize the scroll handler
       handleScroll();
     });
+
+    // Function to scroll back to the top of the page
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
 
     // Set up event listeners for launch buttons
     function setupLaunchTracking() {
@@ -545,15 +696,15 @@ details.step-container .step-content {
         <h1 class="h2 mb-1 mt-0">Anti-Racism in the BC Public Service</h1>
       </div>
     </div>
-    
+
     <div class="lead mb-4">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work. Publish test.</div>
-    
+
     
     <details class="mb-4 p-3 bg-warning-subtle rounded-3">
       <summary><i class="fa fa-exclamation-triangle me-2"></i> Before you proceed...</summary>
       <div class="p-3 border-top">&gt; "Not everything that is faced can be changed, but nothing can be changed until it is faced." — James Baldwin<br><br>This learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.<br><br>The content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.<br><br>Irrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.<br><br>Some learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.<br><br>As employees, you have access to <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS">Employee and Family Assistance Services</a> anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.<br><br>Canadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.<br><br>Let's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.<br><br>In the words of Maya Angelou, <strong>"Do the best you can until you know better. Then when you know better, do better."</strong> This learning pathway is designed with that learning spirit in mind.</div>
     </details>
-    
+
   </header>
 
   <!-- Control bar container -->
@@ -564,6 +715,23 @@ details.step-container .step-content {
     <!-- Control bar that will become fixed when scrolling down -->
     <div id="control-bar" class="control-bar w-100">
       <div class="container">
+        <!-- Progress Bar (compact version) -->
+        <div class="progress-container py-2 mb-2 border-bottom">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <h6 class="mb-0 me-2">Progress:</h6>
+              <div class="progress" style="width: 200px; height: 10px;">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <span id="progress-counter" class="text-muted small me-2">0 of 0 required</span>
+              <span id="progress-percentage" class="badge bg-sagedark">0%</span>
+            </div>
+          </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <div class="input-group" style="max-width: 400px;">
@@ -580,6 +748,9 @@ details.step-container .step-content {
           <div class="btn-group">
             <button onclick="expandAll()" class="btn btn-outline-secondary">Expand All</button>
             <button onclick="collapseAll()" class="btn btn-outline-secondary">Collapse All</button>
+            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none">
+              <i class="fa fa-arrow-up"></i> Top
+            </button>
           </div>
         </div>
       </div>
