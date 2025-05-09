@@ -134,39 +134,6 @@
 /* Add icon to external link, code from https://christianoliff.com/blog/styling-external-links-with-an-icon-in-css/
 CSS generated content should be ignored by screen readers - see https://developer.mozilla.org/en-US/docs/Web/CSS/content#accessibility */
 
-.moodlecurator a[target="_blank"]:not(a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"])::after {
-    content: "";
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: 0.2em;
-    /* spacing*/
-    padding-right: 0.75em;
-    /* sizing */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230f6cbf' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-
-}
-
-.moodlecurator a[target="_blank"]:not([href$=".pdf"], [href$=".doc"], [href$=".docx"]).text-white::after {
-    content: "";
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: 0.2em;
-    /* spacing*/
-    padding-right: 0.75em;
-    /* sizing */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-}
-
-.moodlecurator a[href$=".pdf"]:after {
-    content: "\00a0(PDF)";
-}
-
-.moodlecurator a[href$=".doc"]:after,
-.moodlecurator a[href$=".docx"]:after {
-    content: "\00a0(DOC)";
-}
 
 /* Custom additions for Curator extension exports */
 .activity-container {
@@ -208,31 +175,37 @@ details.step-container {
     overflow: hidden;
 }
 
+/* Summary styling with explicit visible caret */
 details.step-container summary {
     padding: 0.75rem 1rem;
     background-color: #f8f9fa;
     border-bottom: 1px solid #dee2e6;
     cursor: pointer;
-    list-style: none;
+    transition: background-color 0.2s;
     display: flex;
     align-items: center;
+    list-style: none; /* Hide the default marker since we're using our own */
 }
 
-details.step-container summary::-webkit-details-marker {
+/* Hide the default marker since we're using our own */
+details.step-container summary::-webkit-details-marker,
+details.step-container summary::marker {
     display: none;
 }
 
-details.step-container summary::before {
-    content: "0da";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    margin-right: 0.5rem;
+/* Style for the custom caret icon */
+details.step-container .caret-icon {
     transition: transform 0.2s;
 }
 
-details.step-container[open] summary::before {
-    content: "0d7";
-    transform: rotate(0deg);
+/* Rotate the caret when details is open */
+details.step-container[open] .caret-icon {
+    transform: rotate(90deg);
+}
+
+/* Main content container in summary */
+details.step-container .summary-content {
+    flex: 1;
 }
 
 details.step-container .step-content {
@@ -246,20 +219,320 @@ details.step-container .step-content {
     font-style: italic;
     margin-bottom: 1rem;
 }
+
+.step-summary {
+    font-size: 0.9rem;
+    max-width: 95%;
+    margin-top: 0.4rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Control bar styling for fixed position approach */
+.control-bar {
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    background-color: white;
+}
+
+.control-bar.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    animation: slideDown 0.3s;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Spacer for when controls become fixed */
+.controls-spacer {
+    display: none;
+    height: 80px; /* Adjust to match control bar height */
+}
+
+    /* Custom search highlight styles */
+    .search-highlight {
+      background-color: rgba(255, 193, 7, 0.3);
+      border-radius: 0.25rem;
+      padding: 0.125rem 0;
+    }
+
+    /* Launched badge styles */
+    .badge.launched-badge {
+      background-color: #6c757d;
+      color: white;
+      margin-left: 0.25rem;
+    }
+
+    /* Hide the badge initially */
+    .launched-badge.d-none {
+      display: none !important;
+    }
   </style>
   <script>
+    // Track launched links in localStorage
+    const LAUNCHED_LINKS_KEY = 'curator_launched_links_full_stack_developer';
+
+    // Load previously launched links from localStorage
+    function loadLaunchedLinks() {
+      try {
+        const stored = localStorage.getItem(LAUNCHED_LINKS_KEY);
+        return stored ? JSON.parse(stored) : {};
+      } catch (e) {
+        console.error('Error loading launched links:', e);
+        return {};
+      }
+    }
+
+    // Save launched links to localStorage
+    function saveLaunchedLinks(links) {
+      try {
+        localStorage.setItem(LAUNCHED_LINKS_KEY, JSON.stringify(links));
+      } catch (e) {
+        console.error('Error saving launched links:', e);
+      }
+    }
+
+    // Mark a link as launched
+    function markAsLaunched(url) {
+      const links = loadLaunchedLinks();
+      links[url] = Date.now();
+      saveLaunchedLinks(links);
+
+      // Update UI to show this link as launched
+      updateLaunchedBadges(url);
+    }
+
+    // Update the UI to show which links have been launched
+    function updateLaunchedBadges(justLaunchedUrl) {
+      const links = loadLaunchedLinks();
+
+      // Get all launch buttons
+      document.querySelectorAll('.launch-btn').forEach(btn => {
+        const url = btn.getAttribute('href');
+        const container = btn.closest('.activity-container');
+        const badge = container.querySelector('.launched-badge');
+
+        // Check if this link has been launched
+        if (links[url]) {
+          badge.classList.remove('d-none');
+
+          // If this is the link that was just launched, scroll to it
+          if (justLaunchedUrl && url === justLaunchedUrl) {
+            // Keep the button in view after launching
+            setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+          }
+        }
+      });
+    }
+
     function expandAll() {
       var details = document.getElementsByTagName('details');
       for (var i = 0; i < details.length; i++) {
         details[i].setAttribute('open', 'open');
       }
     }
-    
+
     function collapseAll() {
       var details = document.getElementsByTagName('details');
       for (var i = 0; i < details.length; i++) {
         details[i].removeAttribute('open');
       }
+    }
+
+    function searchPathway() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+      // If search is empty, reset view and collapse all
+      if (!searchTerm) {
+        resetSearch();
+        return;
+      }
+
+      // Expand all steps for the search
+      expandAll();
+
+      // Get all activity containers (bookmarks)
+      const activities = document.querySelectorAll('.activity');
+      let matchFound = false;
+
+      // Loop through all activities to find matches
+      activities.forEach(activity => {
+        // Get the searchable content from this activity
+        const title = activity.querySelector('h3')?.textContent.toLowerCase() || '';
+        const description = activity.querySelector('h3 + div')?.textContent.toLowerCase() || '';
+        const contextElement = activity.querySelector('.curatorcontext blockquote');
+        const context = contextElement ? contextElement.textContent.toLowerCase() : '';
+
+        // Check if any of the content contains the search term
+        const hasMatch = title.includes(searchTerm) ||
+                        description.includes(searchTerm) ||
+                        (context && context.includes(searchTerm));
+
+        // Show or hide based on match
+        if (hasMatch) {
+          activity.style.display = 'block';
+          matchFound = true;
+
+          // Highlight the matching text
+          highlightMatches(activity, searchTerm);
+        } else {
+          activity.style.display = 'none';
+        }
+      });
+
+      // Show message if no results found
+      const searchResultsMessage = document.getElementById('searchResultsMessage');
+      if (searchResultsMessage) {
+        searchResultsMessage.textContent = matchFound ? '' : 'No matching bookmarks found.';
+      }
+    }
+
+    function highlightMatches(element, searchTerm) {
+      // Helper function to highlight matches by adding a span with bg-warning class
+      // This is not a full text node replacement for simplicity and to preserve styling
+      // We only add a visual indicator
+
+      // Get all text nodes in the activity to highlight
+      const titles = element.querySelectorAll('h3');
+      const descriptions = element.querySelectorAll('h3 + div');
+      const contexts = element.querySelectorAll('.curatorcontext blockquote');
+
+      // Add highlight classes to parent elements containing the search term
+      [titles, descriptions, contexts].forEach(nodeList => {
+        if (!nodeList) return;
+
+        nodeList.forEach(node => {
+          if (node && node.textContent.toLowerCase().includes(searchTerm)) {
+            node.classList.add('search-highlight');
+          } else if (node) {
+            node.classList.remove('search-highlight');
+          }
+        });
+      });
+    }
+
+    function resetSearch() {
+      // Clear highlights
+      document.querySelectorAll('.search-highlight').forEach(el => {
+        el.classList.remove('search-highlight');
+      });
+
+      // Show all activities
+      document.querySelectorAll('.activity').forEach(activity => {
+        activity.style.display = 'block';
+      });
+
+      // Clear any "no results" message
+      const searchResultsMessage = document.getElementById('searchResultsMessage');
+      if (searchResultsMessage) {
+        searchResultsMessage.textContent = '';
+      }
+
+      // Collapse steps if search was reset deliberately (not just by viewing results)
+      if (document.getElementById('searchInput').value.trim() === '') {
+        collapseAll();
+      }
+    }
+
+    // Add event listeners when the document is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const resetButton = document.getElementById('resetSearchButton');
+      const controlBar = document.getElementById('control-bar');
+      const controlBarContainer = document.getElementById('control-bar-container');
+      const controlsSpacer = document.getElementById('controls-spacer');
+
+      // Store the original position of the control bar
+      let controlBarPosition;
+
+      // Get the initial control bar position once the DOM is fully loaded
+      setTimeout(() => {
+        if (controlBar) {
+          controlBarPosition = controlBar.offsetTop;
+        }
+      }, 100);
+
+      // Function to handle sticky control bar on scroll
+      function handleScroll() {
+        if (!controlBar || !controlsSpacer || controlBarPosition === undefined) return;
+
+        if (window.pageYOffset > controlBarPosition) {
+          // If we've scrolled past the original position, make it fixed
+          controlBar.classList.add('fixed-top');
+          controlsSpacer.style.display = 'block';
+        } else {
+          // Reset to normal positioning
+          controlBar.classList.remove('fixed-top');
+          controlsSpacer.style.display = 'none';
+        }
+      }
+
+      // Function to toggle reset button visibility
+      function toggleResetButton() {
+        if (searchInput.value.trim() === '') {
+          resetButton.style.display = 'none';
+        } else {
+          resetButton.style.display = 'block';
+        }
+      }
+
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      // Search input - search on enter key and update reset button visibility
+      searchInput.addEventListener('input', function() {
+        toggleResetButton();
+        if (this.value.trim() === '') {
+          resetSearch();
+        }
+      });
+
+      searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+          searchPathway();
+        }
+      });
+
+      // Search button
+      document.getElementById('searchButton').addEventListener('click', searchPathway);
+
+      // Reset button
+      resetButton.addEventListener('click', function() {
+        // Clear the search input
+        searchInput.value = '';
+        // Reset the search
+        resetSearch();
+        // Hide the reset button
+        toggleResetButton();
+      });
+
+      // Set up launched link tracking
+      setupLaunchTracking();
+
+      // Show badges for already launched links
+      updateLaunchedBadges();
+
+      // Initialize the scroll handler
+      handleScroll();
+    });
+
+    // Set up event listeners for launch buttons
+    function setupLaunchTracking() {
+      document.querySelectorAll('.launch-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          // Don't interrupt the normal link opening
+          // but record that this link was launched
+          const url = this.getAttribute('href');
+          markAsLaunched(url);
+        });
+      });
     }
   </script>
 </head>
@@ -268,7 +541,8 @@ details.step-container .step-content {
   <header class="mb-4">
     <div class="header mb-3 rounded-3 d-flex align-items-end">
       <div class="px-3 py-2 bg-dark bg-opacity-75 text-white rounded-bottom w-100">
-        <h1 class="h2 my-1">Full Stack Developer</h1>
+        <div class="mb-0"><small>Curated pathway</small></div>
+        <h1 class="h2 mb-1 mt-0">Full Stack Developer</h1>
       </div>
     </div>
     
@@ -282,10 +556,33 @@ details.step-container .step-content {
     
   </header>
 
-  <div class="d-flex justify-content-end mb-3">
-    <div class="btn-group">
-      <button onclick="expandAll()" class="btn btn-sm btn-outline-secondary">Expand All</button>
-      <button onclick="collapseAll()" class="btn btn-sm btn-outline-secondary">Collapse All</button>
+  <!-- Control bar container -->
+  <div id="control-bar-container" class="mb-4">
+    <!-- This spacer only becomes visible when the control bar is fixed -->
+    <div id="controls-spacer" class="controls-spacer"></div>
+
+    <!-- Control bar that will become fixed when scrolling down -->
+    <div id="control-bar" class="control-bar w-100">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <div class="input-group" style="max-width: 400px;">
+              <input type="text" id="searchInput" class="form-control" placeholder="Keyword search..." aria-label="Keyword search">
+              <button id="resetSearchButton" class="btn btn-outline-secondary" type="button" style="display: none;">
+                <i class="fa fa-times"></i> Reset
+              </button>
+              <button id="searchButton" class="btn btn-outline-secondary" type="button">
+                <i class="fa fa-search"></i> Search
+              </button>
+            </div>
+            <div id="searchResultsMessage" class="text-muted small mt-1"></div>
+          </div>
+          <div class="btn-group">
+            <button onclick="expandAll()" class="btn btn-outline-secondary">Expand All</button>
+            <button onclick="collapseAll()" class="btn btn-outline-secondary">Collapse All</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -293,14 +590,114 @@ details.step-container .step-content {
     
       <details class="step-container rounded mb-4" id="step-0">
         <summary>
-          <h2 class="h5 mb-0 flex-grow-1">Front End</h2>
-          <div>
-            <span class="badge bg-blue me-1">7 Required</span>
-            <span class="badge bg-sagegreen me-1">1 Bonus</span>
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Security</h2>
+              <div>
+                <span class="badge bg-blue me-1">3 Required</span>
+                
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">Stay safe. Put security first.</div>
           </div>
         </summary>
         <div class="step-content">
-          <div class="step-objective mb-3">All the client things. HTML, CSS, Javascript</div>
+          <!-- We display the objective in the summary, so no need to repeat it here -->
+          
+          
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton</h3>
+                  <div>Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.</div>
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://proton.me/blog/anonymity-vs-privacy" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">Diceware Passphrase Home</h3>
+                  <div>This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>Good tool.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://theworld.com/~reinhold/diceware.html" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">List of Emojis HEX/HTML Codes - DEV Community</h3>
+                  <div>Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.</div>
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          
+          
+        </div>
+      </details>
+      <details class="step-container rounded mb-4" id="step-1">
+        <summary>
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Front End</h2>
+              <div>
+                <span class="badge bg-blue me-1">7 Required</span>
+                <span class="badge bg-sagegreen me-1">1 Bonus</span>
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">All the client things. HTML, CSS, Javascript</div>
+          </div>
+        </summary>
+        <div class="step-content">
+          <!-- We display the objective in the summary, so no need to repeat it here -->
           
           
             <div class="activity mb-4">
@@ -309,14 +706,20 @@ details.step-container .step-content {
                   <i class="fa fa-play text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Tailwind Labs - YouTube</h3>
                   <div>We&#039;re a small team of developers and designers spread out all across the world, building tools that help other developers build better user interfaces. We cr...</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Watch this!</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://www.youtube.com/channel/UCOe-8z68tgw9ioqVvYM4ddQ" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -329,14 +732,20 @@ details.step-container .step-content {
                   <i class="fa fa-play text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">10 ways to speed up web font loading</h3>
                   <div>Font loading can slow page load times significantly. This article shows you how to reduce the impact.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Performance is king.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://byteofdev.com/posts/speed-up-font-loading/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -349,14 +758,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">SimplePie Documentation: Documentation</h3>
                   <div>A super-fast, easy-to-use, RSS and Atom parser written in PHP.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>More tetsing</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://www.simplepie.org/wiki/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -369,16 +784,22 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">&lt;/&gt; htmx - high power tools for html</h3>
                   <div>htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
 
     htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible &amp; has reduced code base sizes by 67% when compared with react</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Fun stuff.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://htmx.org/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -391,14 +812,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Testing dead link</h3>
                   <div>This link should be dead.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Test</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -411,14 +838,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">systemfontstack</h3>
                   <div>Webfonts were great when most computers only had a handful of good fonts pre-installed. Thanks to font creation and buying by Apple, Microsoft, Google, and other folks, most computers have good—no, great—fonts installed, and they&#039;re a great option if you want to not load a separate font.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>BC Sans is cool and all...</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://systemfontstack.com/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -431,14 +864,16 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">A Beginner&#039;s Guide to HTML, CSS, and JavaScript | HackerNoon</h3>
                   <div>Unlock Your Web Development Potential with this Beginner&#039;s Guide to HTML, CSS, and JavaScript! Learn the Fundamentals and Create Stunning Websites.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://hackernoon.com/a-beginners-guide-to-html-css-and-javascript" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -457,14 +892,20 @@ details.step-container .step-content {
                     <i class="fa fa-book text-white fa-lg"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
-                    <div class="badge bg-sagegreen">Bonus</div>
+                    <div class="d-flex align-items-center">
+                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge launched-badge d-none">
+                        <i class="fa fa-check-circle me-1"></i> Launched
+                      </div>
+                    </div>
                     <h3 class="mt-3 fw-semibold h5">What do I need to read to be a great at CSS?</h3>
                     <div>Web dev at the end of the world, from Hveragerði, Iceland</div>
+                    
                     <div class="curatorcontext">
                       <div class="mt-2 font-italic">Curator says:</div>
                       <blockquote>Good words.</blockquote>
                     </div>
-                    <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                       href="https://www.baldurbjarnason.com/2021/what-do-i-need-to-read-to-be-a-css-dev/" rel="noopener noreferrer" target="_blank">
                       Launch <i class="fa fa-external-link-alt ms-1"></i>
                     </a>
@@ -474,16 +915,23 @@ details.step-container .step-content {
           </div>
         </div>
       </details>
-      <details class="step-container rounded mb-4" id="step-1">
+      <details class="step-container rounded mb-4" id="step-2">
         <summary>
-          <h2 class="h5 mb-0 flex-grow-1">Back End</h2>
-          <div>
-            <span class="badge bg-blue me-1">6 Required</span>
-            <span class="badge bg-sagegreen me-1">1 Bonus</span>
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Back End</h2>
+              <div>
+                <span class="badge bg-blue me-1">6 Required</span>
+                <span class="badge bg-sagegreen me-1">1 Bonus</span>
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
           </div>
         </summary>
         <div class="step-content">
-          <div class="step-objective mb-3">Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
+          <!-- We display the objective in the summary, so no need to repeat it here -->
           
           
             <div class="activity mb-4">
@@ -492,14 +940,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">GitHub - bcgov/sso-keycloak</h3>
                   <div>Contribute to bcgov/sso-keycloak development by creating an account on GitHub.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>SSO DIY</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://github.com/bcgov/sso-keycloak#specifying-an-idp-to-bypass-the-keycloak-login-page" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -512,14 +966,20 @@ details.step-container .step-content {
                   <i class="fa fa-headphones text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">How to Prevent WordPress Users from Creating New Tags - PublishPress</h3>
                   <div>This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Foo mistake</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://publishpress.com/blog/permissions/stop-users-creating-new-tags/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -532,14 +992,16 @@ details.step-container .step-content {
                   <i class="fa fa-user-group text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">How to Set Up Nginx, MariaDB, and PHP with Docker Compose</h3>
                   <div>This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -552,14 +1014,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Understanding GitHub Actions - GitHub Docs</h3>
                   <div>Learn the basics of GitHub Actions, including core concepts and essential terminology.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Should be in it&#039;s own step practivally.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -572,14 +1040,16 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">REST Client - Visual Studio Marketplace</h3>
                   <div>Extension for Visual Studio Code - REST Client for Visual Studio Code</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -592,14 +1062,16 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">nginx</h3>
                   <div>nginx (&quot;engine x&quot;) is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server. Originally written by Igor Sysoev and distributed under the 2-clause BSD License. Enterprise distributions, commercial support and training are available from F5, Inc.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://nginx.org/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -618,14 +1090,20 @@ details.step-container .step-content {
                     <i class="fa fa-headphones text-white fa-lg"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
-                    <div class="badge bg-sagegreen">Bonus</div>
+                    <div class="d-flex align-items-center">
+                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge launched-badge d-none">
+                        <i class="fa fa-check-circle me-1"></i> Launched
+                      </div>
+                    </div>
                     <h3 class="mt-3 fw-semibold h5">Tutorial 0 - Get it RunningView</h3>
                     <div>Welcome to PostgREST! In this pre-tutorial we’re going to get things running so you can create your first simple API. PostgREST is a standalone web server which turns a PostgreSQL database into a RESTful API. It serves an API that is customized based on the structure of the underlying database.</div>
+                    
                     <div class="curatorcontext">
                       <div class="mt-2 font-italic">Curator says:</div>
                       <blockquote>Testing merging.</blockquote>
                     </div>
-                    <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                       href="https://postgrest.org/en/stable/tutorials/tut0.html" rel="noopener noreferrer" target="_blank">
                       Launch <i class="fa fa-external-link-alt ms-1"></i>
                     </a>
@@ -635,92 +1113,23 @@ details.step-container .step-content {
           </div>
         </div>
       </details>
-      <details class="step-container rounded mb-4" id="step-2">
-        <summary>
-          <h2 class="h5 mb-0 flex-grow-1">Security</h2>
-          <div>
-            <span class="badge bg-blue me-1">3 Required</span>
-            
-          </div>
-        </summary>
-        <div class="step-content">
-          <div class="step-objective mb-3">Stay safe.</div>
-          
-          
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
-                  <h3 class="mt-3 fw-semibold h5">Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton</h3>
-                  <div>Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
-                    href="https://proton.me/blog/anonymity-vs-privacy" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
-                  <h3 class="mt-3 fw-semibold h5">Diceware Passphrase Home</h3>
-                  <div>This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote>Good tool.</blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
-                    href="https://theworld.com/~reinhold/diceware.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
-                  <h3 class="mt-3 fw-semibold h5">List of Emojis HEX/HTML Codes - DEV Community</h3>
-                  <div>Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
-                    href="https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          
-          
-        </div>
-      </details>
       <details class="step-container rounded mb-4" id="step-3">
         <summary>
-          <h2 class="h5 mb-0 flex-grow-1">Platforms</h2>
-          <div>
-            <span class="badge bg-blue me-1">4 Required</span>
-            
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Platforms</h2>
+              <div>
+                <span class="badge bg-blue me-1">5 Required</span>
+                
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">All the different platforms where courses are hosted.</div>
           </div>
         </summary>
         <div class="step-content">
-          <div class="step-objective mb-3">All the different platforms where courses are hosted.</div>
+          <!-- We display the objective in the summary, so no need to repeat it here -->
           
           
             <div class="activity mb-4">
@@ -729,14 +1138,16 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Just Ask! for Github organization access</h3>
                   <div>Just Ask! A github app to just ask for Github organization access</div>
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote></blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -749,14 +1160,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub</h3>
                   <div>The B.C. government DevHub is a place to access common technical documentation, community knowledge bases, code samples and APIs.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Do yourself a favor and know this stuff.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -769,14 +1186,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Common Hosted Single Sign-on (CSS)</h3>
                   <div>The request process workflow tool for the RedHat SSO Dev Exchange service</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>We use this for Moodle and it should be preferred solution for SSO.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://bcgov.github.io/sso-requests/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -789,15 +1212,47 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">PSA Learning System Homepage</h3>
                   <div>Main registration platform for courses.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>It&#039;s not the only game in town.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">Permalinks — Eleventy</h3>
+                  <div>Permalinks — Eleventy</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>Permalinks are more important than you might imagine.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://www.11ty.dev/docs/permalinks/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
                 </div>
@@ -809,14 +1264,21 @@ details.step-container .step-content {
       </details>
       <details class="step-container rounded mb-4" id="step-4">
         <summary>
-          <h2 class="h5 mb-0 flex-grow-1">Misc</h2>
-          <div>
-            <span class="badge bg-blue me-1">4 Required</span>
-            
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Misc</h2>
+              <div>
+                <span class="badge bg-blue me-1">4 Required</span>
+                
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">Random links related to dev but not dev directly.</div>
           </div>
         </summary>
         <div class="step-content">
-          <div class="step-objective mb-3">Random links related to dev but not dev directly.</div>
+          <!-- We display the objective in the summary, so no need to repeat it here -->
           
           
             <div class="activity mb-4">
@@ -825,14 +1287,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools</h3>
                   <div>Principles to help you write unique and compelling UX Design case studies for your portfolio.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Because iut&#039;s good.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -845,14 +1313,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Archivematica: open-source digital preservation system</h3>
                   <div>Archivematica: open-source digital preservation system</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>It doesn&#039;t matter how good your system is for taking backups if you never try to restore from those backups.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://www.archivematica.org/en/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -865,14 +1339,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">WakaTime - Dashboards for developers</h3>
                   <div>Open source IDE plugins for programmers.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>You might be asked to track how much time you&#039;re spending on different projects.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://wakatime.com/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
@@ -885,14 +1365,20 @@ details.step-container .step-content {
                   <i class="fa fa-book text-white fa-lg"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
-                  <div class="badge activity-badge">Required</div>
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
                   <h3 class="mt-3 fw-semibold h5">Linux: An Introduction to User Management - The New Stack</h3>
                   <div>Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.</div>
+                  
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
                     <blockquote>Basics! Gotta learn it.</blockquote>
                   </div>
-                  <a class="btn btn-primary text-white my-3" title="Launch this activity"
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                     href="https://thenewstack.io/linux-an-introduction-to-user-management/" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
