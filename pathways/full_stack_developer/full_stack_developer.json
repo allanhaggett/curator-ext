@@ -9,6 +9,62 @@
       {
         "bookmarks": [
           {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746738172243,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          },
+          {
+            "added": 1746683672525,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
+            "isExemptDomain": false,
+            "lastChecked": 1746738173399,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "List of Emojis HEX/HTML Codes - DEV Community",
+            "type": "Required",
+            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
+          },
+          {
+            "added": 1746682509164,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
+            "isExemptDomain": false,
+            "lastChecked": 1746738165771,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
+            "type": "Required",
+            "url": "https://proton.me/blog/anonymity-vs-privacy"
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746161516590,
             "available": true,
             "checkError": null,
@@ -389,62 +445,6 @@
         ],
         "name": "Back End",
         "objective": "Stuff for the backend from databases to ETL processes and basic OS stuff."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746162080667,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746738172243,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
-            "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
-          },
-          {
-            "added": 1746683672525,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
-            "isExemptDomain": false,
-            "lastChecked": 1746738173399,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "List of Emojis HEX/HTML Codes - DEV Community",
-            "type": "Required",
-            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
-          },
-          {
-            "added": 1746682509164,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
-            "isExemptDomain": false,
-            "lastChecked": 1746738165771,
-            "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
-            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
-            "type": "Required",
-            "url": "https://proton.me/blog/anonymity-vs-privacy"
-          }
-        ],
-        "name": "Security",
-        "objective": "Stay safe."
       },
       {
         "bookmarks": [
