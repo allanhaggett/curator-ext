@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Full Stack Developer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -340,6 +341,157 @@ details.step-container .step-content {
     #scrollTopBtn.d-none {
       display: none !important;
     }
+
+    /* Dark mode toggle button */
+    #darkModeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1040;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--sagedark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    #darkModeToggle:hover {
+      transform: scale(1.05);
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* Dark mode container styles */
+    body.dark-mode .moodlecurator {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* Dark mode card styles */
+    body.dark-mode .card {
+      background-color: #1e1e1e;
+      border-color: #2d2d2d;
+    }
+
+    body.dark-mode .card-header {
+      background-color: #2d2d2d;
+      border-bottom-color: #3d3d3d;
+    }
+
+    /* Dark mode details/summary styles */
+    body.dark-mode .step-container {
+      border-color: #2d2d2d;
+    }
+
+    body.dark-mode .step-container summary {
+      background-color: #1e1e1e;
+      border-bottom-color: #2d2d2d;
+    }
+
+    body.dark-mode .step-objective {
+      background-color: #2a2a2a;
+    }
+
+    /* Dark mode activity container styles */
+    body.dark-mode .activity-container {
+      border-color: #2d2d2d;
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .step-summary {
+      color: #aaa;
+    }
+
+    /* Dark mode control bar styles */
+    body.dark-mode .control-bar {
+      background-color: #1e1e1e;
+      border-color: #2d2d2d;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    body.dark-mode .progress {
+      background-color: #2d2d2d;
+    }
+
+    /* Dark mode form controls */
+    body.dark-mode .form-control {
+      background-color: #2d2d2d;
+      border-color: #3d3d3d;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .form-control::placeholder {
+      color: #aaa;
+    }
+
+    body.dark-mode .btn-outline-secondary {
+      color: #ccc;
+      border-color: #3d3d3d;
+    }
+
+    body.dark-mode .btn-outline-secondary:hover {
+      background-color: #2d2d2d;
+      color: #fff;
+    }
+
+    /* Dark mode text contrast improvements */
+    body.dark-mode .text-muted,
+    body.dark-mode .text-muted small {
+      color: #adb5bd !important; /* Lighter than default for better contrast in dark mode */
+    }
+
+    /* Dark mode link styles */
+    body.dark-mode a {
+      color: #8ab4f8; /* More visible blue for dark backgrounds */
+    }
+
+    body.dark-mode a:hover {
+      color: #aecbfa;
+    }
+
+    /* Dark mode badge and button styles */
+    body.dark-mode .badge.bg-blue {
+      background-color: #3d5a99 !important; /* Darker blue for better visibility */
+    }
+
+    body.dark-mode .badge.bg-sagedark {
+      background-color: #2c8c6c !important; /* Adjusted for dark mode */
+    }
+
+    body.dark-mode .badge.bg-bluegreen {
+      background-color: #357385 !important; /* Adjusted for dark mode */
+    }
+
+    /* Dark mode for blockquotes (curator context) */
+    body.dark-mode blockquote {
+      border-left-color: #4d4d4d;
+      background-color: #252525;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    /* Search highlight in dark mode */
+    body.dark-mode .search-highlight {
+      background-color: rgba(255, 193, 7, 0.25); /* Adjusted for dark mode */
+      outline-color: #b38600;
+    }
+
+    /* Additional accessibility features for dark mode */
+    body.dark-mode :focus-visible {
+      outline-color: #8ab4f8 !important;
+      box-shadow: 0 0 0 0.2rem rgba(138, 180, 248, 0.5) !important;
+    }
   </style>
   <script>
     // Track launched links in localStorage
@@ -612,6 +764,73 @@ details.step-container .step-content {
       }
     }
 
+    // Dark mode functionality
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('curator_dark_mode', isDarkMode ? 'true' : 'false');
+      updateDarkModeToggleIcon(isDarkMode);
+    }
+
+    function updateDarkModeToggleIcon(isDarkMode) {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.innerHTML = isDarkMode ?
+          '<i class="fa fa-sun" aria-hidden="true"></i>' :
+          '<i class="fa fa-moon" aria-hidden="true"></i>';
+        darkModeToggle.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+        darkModeToggle.title = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+
+    function initDarkMode() {
+      // Check for saved preference
+      const savedDarkMode = localStorage.getItem('curator_dark_mode');
+
+      // Check for system preference if no saved preference
+      const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Apply dark mode if saved preference exists or system prefers dark mode
+      const shouldBeDark = savedDarkMode === 'true' || (savedDarkMode === null && prefersDarkMode);
+
+      if (shouldBeDark) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+
+      updateDarkModeToggleIcon(shouldBeDark);
+
+      // Add dark mode toggle button
+      const darkModeToggle = document.createElement('button');
+      darkModeToggle.id = 'darkModeToggle';
+      darkModeToggle.className = 'btn';
+      darkModeToggle.innerHTML = shouldBeDark ?
+        '<i class="fa fa-sun" aria-hidden="true"></i>' :
+        '<i class="fa fa-moon" aria-hidden="true"></i>';
+      darkModeToggle.setAttribute('aria-label', shouldBeDark ? 'Switch to light mode' : 'Switch to dark mode');
+      darkModeToggle.title = shouldBeDark ? 'Switch to light mode' : 'Switch to dark mode';
+      darkModeToggle.addEventListener('click', toggleDarkMode);
+
+      document.body.appendChild(darkModeToggle);
+
+      // Listen for system preference changes
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+          // Only apply system preference if user hasn't set a preference
+          if (localStorage.getItem('curator_dark_mode') === null) {
+            const shouldBeDark = e.matches;
+            if (shouldBeDark) {
+              document.body.classList.add('dark-mode');
+            } else {
+              document.body.classList.remove('dark-mode');
+            }
+            updateDarkModeToggleIcon(shouldBeDark);
+          }
+        });
+      }
+    }
+
     // Add event listeners when the document is loaded
     document.addEventListener('DOMContentLoaded', function() {
       const searchInput = document.getElementById('searchInput');
@@ -619,6 +838,9 @@ details.step-container .step-content {
       const controlBar = document.getElementById('control-bar');
       const controlBarContainer = document.getElementById('control-bar-container');
       const controlsSpacer = document.getElementById('controls-spacer');
+
+      // Initialize dark mode
+      initDarkMode();
 
       // Store the original position of the control bar
       let controlBarPosition;
@@ -751,10 +973,10 @@ details.step-container .step-content {
 
     <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area. Version bump?</div>
 
-    <div class="text-muted small mb-3">Last updated: 5/9/2025, 10:30:29 PM</div>
+    <div class="text-muted small mb-3">Last updated: 5/9/2025, 10:55:28 PM</div>
 
     
-    <details class="mb-4 p-3 bg-warning-subtle rounded-3">
+    <details class="mb-4 p-3 text-black bg-warning-subtle rounded-3">
       <summary role="button" aria-expanded="false" tabindex="0">
         <i class="fa fa-exclamation-triangle me-2" aria-hidden="true"></i> Before you proceed...
       </summary>
@@ -928,7 +1150,7 @@ details.step-container .step-content {
               <h3 class="h5 mb-0">Back End</h3>
               <div>
                 <span class="badge bg-blue me-1">6 Required</span>
-                <span class="badge bg-sagegreen me-1">1 Bonus</span>
+                <span class="badge bg-sagegreen text-black me-1">1 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
@@ -1095,7 +1317,7 @@ details.step-container .step-content {
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
                       <div class="badge launched-badge d-none" aria-live="polite">
                         <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
@@ -1126,7 +1348,7 @@ details.step-container .step-content {
               <h3 class="h5 mb-0">Front End</h3>
               <div>
                 <span class="badge bg-blue me-1">8 Required</span>
-                <span class="badge bg-sagegreen me-1">2 Bonus</span>
+                <span class="badge bg-sagegreen text-black me-1">2 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">All the client things. HTML, CSS, Javascript</div>
@@ -1355,7 +1577,7 @@ details.step-container .step-content {
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
                       <div class="badge launched-badge d-none" aria-live="polite">
                         <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
@@ -1381,7 +1603,7 @@ details.step-container .step-content {
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
                       <div class="badge launched-badge d-none" aria-live="polite">
                         <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
