@@ -4,7 +4,8 @@
     "contentWarning": "> \"Not everything that is faced can be changed, but nothing can be changed until it is faced.\" — James Baldwin\n\nThis learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.\n\nThe content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.\n\nIrrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.\n\nSome learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.\n\nAs employees, you have access to [Employee and Family Assistance Services](https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS) anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.\n\nCanadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.\n\nLet's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.\n\nIn the words of Maya Angelou, **\"Do the best you can until you know better. Then when you know better, do better.\"** This learning pathway is designed with that learning spirit in mind.",
     "created": 1746165855980,
     "description": "Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work. Publish test.",
-    "name": "Anti-Racism in the BC Public Service",
+    "lastUpdated": 1746845535678,
+    "name": "Anti-Racism in the BC Public Service 2",
     "steps": [
       {
         "bookmarks": [
@@ -592,6 +593,15 @@
         "name": "Existing Legislation, Policies and Strategies",
         "objective": "This module emphasizes on the relevant legislations and policies available in British Columbia."
       }
+    ],
+    "version": "21u95w-2025-05-10",
+    "versionHistory": [
+      {
+        "bookmarkCount": 33,
+        "hash": "21u95w-2025-05-10",
+        "stepCount": 5,
+        "timestamp": 1746845535678
+      }
     ]
   },
   {
@@ -599,6 +609,7 @@
     "contentWarning": "!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. ",
     "created": 1746391996332,
     "description": "Good links to all parts of the stack, even though that's a ridiculously large area.",
+    "lastUpdated": 1746845535679,
     "name": "Full Stack Developer",
     "steps": [
       {
@@ -1087,15 +1098,24 @@
             "description": "BC Gov API Directory Find an API and request an API key to get started",
             "lastChecked": null,
             "redirectUrl": null,
+            "sortOrder": 5,
             "status": null,
             "title": "API Services Portal | API Directory",
             "type": "Required",
-            "url": "https://api.gov.bc.ca/devportal/api-directory",
-            "sortOrder": 5
+            "url": "https://api.gov.bc.ca/devportal/api-directory"
           }
         ],
         "name": "Platforms",
         "objective": "All the different platforms where courses are hosted."
+      }
+    ],
+    "version": "rmc85i-2025-05-10",
+    "versionHistory": [
+      {
+        "bookmarkCount": 28,
+        "hash": "rmc85i-2025-05-10",
+        "stepCount": 5,
+        "timestamp": 1746845535679
       }
     ]
   },
@@ -1104,6 +1124,7 @@
     "contentWarning": "",
     "created": 1746843971300,
     "description": "All the good links for PSA CLB",
+    "lastUpdated": 1746845535679,
     "name": "PSA Corporate Learning Branch",
     "steps": [
       {
@@ -1333,6 +1354,15 @@
         "name": "Becoming Anti-Racist in BC Public Service",
         "objective": "This module outlines ways we can become anti-racist in our organization."
       }
+    ],
+    "version": "9pmao0-2025-05-10",
+    "versionHistory": [
+      {
+        "bookmarkCount": 11,
+        "hash": "9pmao0-2025-05-10",
+        "stepCount": 5,
+        "timestamp": 1746845535679
+      }
     ]
   },
   {
@@ -1340,6 +1370,7 @@
     "contentWarning": "Ea nemo doloribus eaque. Voluptatibus ut rem voluptatibus asperiores necessitatibus occaecati autem. Ut soluta ab est vel velit voluptatem rem eaque. Blanditiis fuga iure suscipit ab aspernatur",
     "created": 1746821830803,
     "description": "Ea nemo doloribus eaque. Voluptatibus ut rem voluptatibus asperiores necessitatibus occaecati autem. Ut soluta ab est vel velit voluptatem rem eaque. Blanditiis fuga iure suscipit ab aspernatur.",
+    "lastUpdated": 1746845535679,
     "name": "Testing 6789",
     "steps": [
       {
@@ -1362,6 +1393,15 @@
         ],
         "name": "Huzzah!",
         "objective": "Do three things:\n\n1. Do this\n2. Do that\n3. Profit"
+      }
+    ],
+    "version": "i1kokp-2025-05-10",
+    "versionHistory": [
+      {
+        "bookmarkCount": 1,
+        "hash": "i1kokp-2025-05-10",
+        "stepCount": 1,
+        "timestamp": 1746845535679
       }
     ]
   }
