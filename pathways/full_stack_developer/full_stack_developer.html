@@ -253,7 +253,57 @@ details.step-container .step-content {
 /* Spacer for when controls become fixed */
 .controls-spacer {
     display: none;
-    height: 80px; /* Adjust to match control bar height */
+    height: 120px; /* Adjusted to match control bar height with the progress bar */
+}
+
+/* Progress bar styles */
+.progress-container {
+    background-color: transparent;
+}
+
+/* When in the control bar */
+.control-bar .progress-container {
+    padding: 0;
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.progress {
+    height: 24px;
+    border-radius: 12px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+/* Compact progress bar in control bar */
+.control-bar .progress {
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+
+.progress-bar {
+    background-color: var(--sagedark);
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) inset;
+}
+
+.progress-text {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.progress-container h5 {
+    color: var(--sagedark);
+    font-weight: 600;
+}
+
+.progress-container .badge {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
 }
 
     /* Custom search highlight styles */
@@ -272,6 +322,16 @@ details.step-container .step-content {
 
     /* Hide the badge initially */
     .launched-badge.d-none {
+      display: none !important;
+    }
+
+    /* Scroll to top button styles */
+    #scrollTopBtn {
+      margin-left: 0.5rem;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #scrollTopBtn.d-none {
       display: none !important;
     }
   </style>
@@ -299,6 +359,68 @@ details.step-container .step-content {
       }
     }
 
+    // Count total required bookmarks and launched required bookmarks
+    function updateProgressBar() {
+      const links = loadLaunchedLinks();
+      let totalRequired = 0;
+      let completedRequired = 0;
+
+      // Count all required bookmarks
+      document.querySelectorAll('.activity-container').forEach(container => {
+        // Check if this is a required bookmark (not bonus)
+        const badge = container.querySelector('.activity-badge');
+        if (badge && badge.textContent.trim() === 'Required') {
+          totalRequired++;
+
+          // Check if this bookmark has been launched
+          const launchBtn = container.querySelector('.launch-btn');
+          if (launchBtn && links[launchBtn.getAttribute('href')]) {
+            completedRequired++;
+          }
+        }
+      });
+
+      // Update the progress bar
+      const progressBar = document.getElementById('progress-bar');
+      const progressCounter = document.getElementById('progress-counter');
+      const progressPercentage = document.getElementById('progress-percentage');
+      const progressContainer = document.querySelector('.progress-container');
+
+      if (progressBar && progressCounter && progressPercentage && progressContainer) {
+        const percentage = totalRequired > 0 ? Math.round((completedRequired / totalRequired) * 100) : 0;
+
+        // Update the visual elements
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', percentage);
+        progressCounter.textContent = completedRequired + ' of ' + totalRequired + ' required';
+        progressPercentage.textContent = percentage + '%';
+
+        // Add color classes based on progress
+        progressBar.className = 'progress-bar';
+        if (percentage === 100) {
+          progressBar.classList.add('bg-success');
+          progressPercentage.className = 'badge bg-success';
+        } else if (percentage >= 66) {
+          progressBar.classList.add('bg-sagedark');
+          progressPercentage.className = 'badge bg-sagedark';
+        } else if (percentage >= 33) {
+          progressBar.classList.add('bg-primary');
+          progressPercentage.className = 'badge bg-primary';
+        } else {
+          progressBar.classList.add('bg-bluegreen');
+          progressPercentage.className = 'badge bg-bluegreen';
+        }
+
+        // Even in the control bar, we may want to hide the progress section
+        // if there are no required items to track
+        if (totalRequired === 0) {
+          progressContainer.style.display = 'none';
+        } else {
+          progressContainer.style.display = 'block';
+        }
+      }
+    }
+
     // Mark a link as launched
     function markAsLaunched(url) {
       const links = loadLaunchedLinks();
@@ -307,6 +429,9 @@ details.step-container .step-content {
 
       // Update UI to show this link as launched
       updateLaunchedBadges(url);
+      
+      // Update progress bar
+      updateProgressBar();
     }
 
     // Update the UI to show which links have been launched
@@ -463,14 +588,26 @@ details.step-container .step-content {
       function handleScroll() {
         if (!controlBar || !controlsSpacer || controlBarPosition === undefined) return;
 
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
         if (window.pageYOffset > controlBarPosition) {
           // If we've scrolled past the original position, make it fixed
           controlBar.classList.add('fixed-top');
           controlsSpacer.style.display = 'block';
+
+          // Show the scroll-to-top button when toolbar is stickied
+          if (scrollTopBtn) {
+            scrollTopBtn.classList.remove('d-none');
+          }
         } else {
           // Reset to normal positioning
           controlBar.classList.remove('fixed-top');
           controlsSpacer.style.display = 'none';
+
+          // Hide the scroll-to-top button when toolbar is in normal position
+          if (scrollTopBtn) {
+            scrollTopBtn.classList.add('d-none');
+          }
         }
       }
 
@@ -519,9 +656,23 @@ details.step-container .step-content {
       // Show badges for already launched links
       updateLaunchedBadges();
 
+      // Initialize the progress bar
+      setTimeout(() => {
+        // Slight delay to ensure all DOM elements are ready
+        updateProgressBar();
+      }, 200);
+
       // Initialize the scroll handler
       handleScroll();
     });
+
+    // Function to scroll back to the top of the page
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
 
     // Set up event listeners for launch buttons
     function setupLaunchTracking() {
@@ -545,15 +696,15 @@ details.step-container .step-content {
         <h1 class="h2 mb-1 mt-0">Full Stack Developer</h1>
       </div>
     </div>
-    
+
     <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area.</div>
-    
+
     
     <details class="mb-4 p-3 bg-warning-subtle rounded-3">
       <summary><i class="fa fa-exclamation-triangle me-2"></i> Before you proceed...</summary>
       <div class="p-3 border-top">!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the "curator context" is comedically incomplete or wrong. </div>
     </details>
-    
+
   </header>
 
   <!-- Control bar container -->
@@ -564,6 +715,23 @@ details.step-container .step-content {
     <!-- Control bar that will become fixed when scrolling down -->
     <div id="control-bar" class="control-bar w-100">
       <div class="container">
+        <!-- Progress Bar (compact version) -->
+        <div class="progress-container py-2 mb-2 border-bottom">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <h6 class="mb-0 me-2">Progress:</h6>
+              <div class="progress" style="width: 200px; height: 10px;">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <span id="progress-counter" class="text-muted small me-2">0 of 0 required</span>
+              <span id="progress-percentage" class="badge bg-sagedark">0%</span>
+            </div>
+          </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <div class="input-group" style="max-width: 400px;">
@@ -580,6 +748,9 @@ details.step-container .step-content {
           <div class="btn-group">
             <button onclick="expandAll()" class="btn btn-outline-secondary">Expand All</button>
             <button onclick="collapseAll()" class="btn btn-outline-secondary">Collapse All</button>
+            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none">
+              <i class="fa fa-arrow-up"></i> Top
+            </button>
           </div>
         </div>
       </div>
@@ -1119,9 +1290,136 @@ details.step-container .step-content {
           <i class="fa fa-caret-right caret-icon me-2"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
+              <h2 class="h5 mb-0">Misc</h2>
+              <div>
+                <span class="badge bg-blue me-1">4 Required</span>
+                
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1">Random links related to dev but not dev directly.</div>
+          </div>
+        </summary>
+        <div class="step-content">
+          <!-- We display the objective in the summary, so no need to repeat it here -->
+          
+          
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools</h3>
+                  <div>Principles to help you write unique and compelling UX Design case studies for your portfolio.</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>Because iut&#039;s good.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">Archivematica: open-source digital preservation system</h3>
+                  <div>Archivematica: open-source digital preservation system</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>It doesn&#039;t matter how good your system is for taking backups if you never try to restore from those backups.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://www.archivematica.org/en/" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">WakaTime - Dashboards for developers</h3>
+                  <div>Open source IDE plugins for programmers.</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>You might be asked to track how much time you&#039;re spending on different projects.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://wakatime.com/" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark">
+                  <i class="fa fa-book text-white fa-lg"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge">Required</div>
+                    <div class="badge launched-badge d-none">
+                      <i class="fa fa-check-circle me-1"></i> Launched
+                    </div>
+                  </div>
+                  <h3 class="mt-3 fw-semibold h5">Linux: An Introduction to User Management - The New Stack</h3>
+                  <div>Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.</div>
+                  
+                  <div class="curatorcontext">
+                    <div class="mt-2 font-italic">Curator says:</div>
+                    <blockquote>Basics! Gotta learn it.</blockquote>
+                  </div>
+                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                    href="https://thenewstack.io/linux-an-introduction-to-user-management/" rel="noopener noreferrer" target="_blank">
+                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          
+          
+        </div>
+      </details>
+      <details class="step-container rounded mb-4" id="step-4">
+        <summary>
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Platforms</h2>
               <div>
-                <span class="badge bg-blue me-1">5 Required</span>
+                <span class="badge bg-blue me-1">6 Required</span>
                 
               </div>
             </div>
@@ -1258,29 +1556,6 @@ details.step-container .step-content {
                 </div>
               </div>
             </div>
-          
-          
-        </div>
-      </details>
-      <details class="step-container rounded mb-4" id="step-4">
-        <summary>
-          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
-          <div class="summary-content">
-            <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">Misc</h2>
-              <div>
-                <span class="badge bg-blue me-1">4 Required</span>
-                
-              </div>
-            </div>
-            <div class="step-summary text-muted mt-1">Random links related to dev but not dev directly.</div>
-          </div>
-        </summary>
-        <div class="step-content">
-          <!-- We display the objective in the summary, so no need to repeat it here -->
-          
-          
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
                 <div class="activity-icon-container bg-sagedark">
@@ -1293,93 +1568,15 @@ details.step-container .step-content {
                       <i class="fa fa-check-circle me-1"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools</h3>
-                  <div>Principles to help you write unique and compelling UX Design case studies for your portfolio.</div>
+                  <h3 class="mt-3 fw-semibold h5">API Services Portal | API Directory</h3>
+                  <div>BC Gov API Directory Find an API and request an API key to get started</div>
                   
                   <div class="curatorcontext">
                     <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote>Because iut&#039;s good.</blockquote>
+                    <blockquote>Use these where you can.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="d-flex align-items-center">
-                    <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
-                    </div>
-                  </div>
-                  <h3 class="mt-3 fw-semibold h5">Archivematica: open-source digital preservation system</h3>
-                  <div>Archivematica: open-source digital preservation system</div>
-                  
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote>It doesn&#039;t matter how good your system is for taking backups if you never try to restore from those backups.</blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.archivematica.org/en/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="d-flex align-items-center">
-                    <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
-                    </div>
-                  </div>
-                  <h3 class="mt-3 fw-semibold h5">WakaTime - Dashboards for developers</h3>
-                  <div>Open source IDE plugins for programmers.</div>
-                  
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote>You might be asked to track how much time you&#039;re spending on different projects.</blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://wakatime.com/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="d-flex align-items-center">
-                    <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
-                    </div>
-                  </div>
-                  <h3 class="mt-3 fw-semibold h5">Linux: An Introduction to User Management - The New Stack</h3>
-                  <div>Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.</div>
-                  
-                  <div class="curatorcontext">
-                    <div class="mt-2 font-italic">Curator says:</div>
-                    <blockquote>Basics! Gotta learn it.</blockquote>
-                  </div>
-                  <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://thenewstack.io/linux-an-introduction-to-user-management/" rel="noopener noreferrer" target="_blank">
+                    href="https://api.gov.bc.ca/devportal/api-directory" rel="noopener noreferrer" target="_blank">
                     Launch <i class="fa fa-external-link-alt ms-1"></i>
                   </a>
                 </div>
