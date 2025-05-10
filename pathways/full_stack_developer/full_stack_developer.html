@@ -439,7 +439,7 @@ details.step-container .step-content {
       const links = loadLaunchedLinks();
 
       // Get all launch buttons
-      document.querySelectorAll('.launch-btn').forEach(btn => {
+      document.querySelectorAll('.launch-btn').forEach(function(btn) {
         const url = btn.getAttribute('href');
         const container = btn.closest('.activity-container');
         const badge = container.querySelector('.launched-badge');
@@ -451,7 +451,7 @@ details.step-container .step-content {
           // If this is the link that was just launched, scroll to it
           if (justLaunchedUrl && url === justLaunchedUrl) {
             // Keep the button in view after launching
-            setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            setTimeout(function() { btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
           }
         }
       });
@@ -486,36 +486,63 @@ details.step-container .step-content {
       // Get all activity containers (bookmarks)
       const activities = document.querySelectorAll('.activity');
       let matchFound = false;
+      let matchCount = 0;
 
       // Loop through all activities to find matches
-      activities.forEach(activity => {
+      activities.forEach(function(activity) {
         // Get the searchable content from this activity
-        const title = activity.querySelector('h3')?.textContent.toLowerCase() || '';
-        const description = activity.querySelector('h3 + div')?.textContent.toLowerCase() || '';
+        const h3Element = activity.querySelector('h3');
+        const title = h3Element && h3Element.textContent ? h3Element.textContent.toLowerCase() : '';
+        const descElement = activity.querySelector('h3 + div');
+        const description = descElement && descElement.textContent ? descElement.textContent.toLowerCase() : '';
         const contextElement = activity.querySelector('.curatorcontext blockquote');
         const context = contextElement ? contextElement.textContent.toLowerCase() : '';
 
         // Check if any of the content contains the search term
-        const hasMatch = title.includes(searchTerm) ||
-                        description.includes(searchTerm) ||
-                        (context && context.includes(searchTerm));
+        const hasMatch = title.indexOf(searchTerm) !== -1 ||
+                        description.indexOf(searchTerm) !== -1 ||
+                        (context && context.indexOf(searchTerm) !== -1);
 
         // Show or hide based on match
         if (hasMatch) {
           activity.style.display = 'block';
           matchFound = true;
+          matchCount++;
+
+          // Add an accessible label for screen readers to identify this as a search result
+          activity.setAttribute('role', 'region');
+          activity.setAttribute('aria-label', 'Search result ' + matchCount + ' for "' + searchTerm + '"');
 
           // Highlight the matching text
           highlightMatches(activity, searchTerm);
         } else {
           activity.style.display = 'none';
+          // Remove the search result attributes if previously set
+          activity.removeAttribute('role');
+          activity.removeAttribute('aria-label');
         }
       });
 
       // Show message if no results found
       const searchResultsMessage = document.getElementById('searchResultsMessage');
       if (searchResultsMessage) {
-        searchResultsMessage.textContent = matchFound ? '' : 'No matching bookmarks found.';
+        if (!matchFound) {
+          searchResultsMessage.textContent = 'No matching bookmarks found.';
+        } else {
+          searchResultsMessage.textContent = 'Found ' + matchCount + ' matching bookmark' + (matchCount !== 1 ? 's' : '') + '.';
+        }
+      }
+
+      // Focus on the first result if found, otherwise back to the search field
+      if (matchFound) {
+        const firstResult = document.querySelector('.activity[role="region"]');
+        if (firstResult) {
+          // Add a tabindex to make it focusable
+          firstResult.tabIndex = -1;
+          // Scroll to the first result and focus it
+          firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(function() { firstResult.focus(); }, 300);
+        }
       }
     }
 
@@ -530,11 +557,11 @@ details.step-container .step-content {
       const contexts = element.querySelectorAll('.curatorcontext blockquote');
 
       // Add highlight classes to parent elements containing the search term
-      [titles, descriptions, contexts].forEach(nodeList => {
+      [titles, descriptions, contexts].forEach(function(nodeList) {
         if (!nodeList) return;
 
-        nodeList.forEach(node => {
-          if (node && node.textContent.toLowerCase().includes(searchTerm)) {
+        nodeList.forEach(function(node) {
+          if (node && node.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
             node.classList.add('search-highlight');
           } else if (node) {
             node.classList.remove('search-highlight');
@@ -545,24 +572,37 @@ details.step-container .step-content {
 
     function resetSearch() {
       // Clear highlights
-      document.querySelectorAll('.search-highlight').forEach(el => {
+      document.querySelectorAll('.search-highlight').forEach(function(el) {
         el.classList.remove('search-highlight');
       });
 
-      // Show all activities
-      document.querySelectorAll('.activity').forEach(activity => {
+      // Show all activities and remove accessibility attributes
+      document.querySelectorAll('.activity').forEach(function(activity) {
         activity.style.display = 'block';
+        // Remove accessible search result attributes
+        activity.removeAttribute('role');
+        activity.removeAttribute('aria-label');
+        activity.removeAttribute('tabindex');
       });
 
       // Clear any "no results" message
       const searchResultsMessage = document.getElementById('searchResultsMessage');
       if (searchResultsMessage) {
         searchResultsMessage.textContent = '';
+        // Announce to screen readers that search has been reset
+        searchResultsMessage.setAttribute('aria-live', 'polite');
+        setTimeout(function() {
+          searchResultsMessage.textContent = 'Search reset. All items are now visible.';
+          // Clear the message after announcing
+          setTimeout(function() { searchResultsMessage.textContent = ''; }, 2000);
+        }, 100);
       }
 
       // Collapse steps if search was reset deliberately (not just by viewing results)
       if (document.getElementById('searchInput').value.trim() === '') {
         collapseAll();
+        // Return focus to search input
+        document.getElementById('searchInput').focus();
       }
     }
 
@@ -657,7 +697,7 @@ details.step-container .step-content {
       updateLaunchedBadges();
 
       // Initialize the progress bar
-      setTimeout(() => {
+      setTimeout(function() {
         // Slight delay to ensure all DOM elements are ready
         updateProgressBar();
       }, 200);
@@ -676,7 +716,7 @@ details.step-container .step-content {
 
     // Set up event listeners for launch buttons
     function setupLaunchTracking() {
-      document.querySelectorAll('.launch-btn').forEach(btn => {
+      document.querySelectorAll('.launch-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           // Don't interrupt the normal link opening
           // but record that this link was launched
@@ -690,24 +730,29 @@ details.step-container .step-content {
 <body>
 <div class="moodlecurator container py-4">
   <header class="mb-4">
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
     <div class="header mb-3 rounded-3 d-flex align-items-end">
       <div class="px-3 py-2 bg-dark bg-opacity-75 text-white rounded-bottom w-100">
         <div class="mb-0 d-flex justify-content-between">
           <small>Curated pathway</small>
-          <small class="text-white-50">Version: rmc85i-2025-05-10</small>
+          <small class="text-white-50">Version: 9zemsu-2025-05-10</small>
         </div>
         <h1 class="h2 mb-1 mt-0">Full Stack Developer</h1>
       </div>
     </div>
 
-    <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area.</div>
+    <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area. Version bump?</div>
 
-    <div class="text-muted small mb-3">Last updated: 5/9/2025, 7:52:15 PM</div>
+    <div class="text-muted small mb-3">Last updated: 5/9/2025, 9:34:04 PM</div>
 
     
     <details class="mb-4 p-3 bg-warning-subtle rounded-3">
-      <summary><i class="fa fa-exclamation-triangle me-2"></i> Before you proceed...</summary>
-      <div class="p-3 border-top">!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the "curator context" is comedically incomplete or wrong. </div>
+      <summary role="button" aria-expanded="false" tabindex="0">
+        <i class="fa fa-exclamation-triangle me-2" aria-hidden="true"></i> Before you proceed...
+      </summary>
+      <div class="p-3 border-top" role="region" aria-label="Content warning">!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the "curator context" is comedically incomplete or wrong. </div>
     </details>
 
   </header>
@@ -724,37 +769,45 @@ details.step-container .step-content {
         <div class="progress-container py-2 mb-2 border-bottom">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <h6 class="mb-0 me-2">Progress:</h6>
-              <div class="progress" style="width: 200px; height: 10px;">
+              <h6 id="progress-heading" class="mb-0 me-2">Progress:</h6>
+              <div class="progress" style="width: 200px; height: 10px;" aria-labelledby="progress-heading progress-counter">
                 <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"
                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="d-flex align-items-center">
               <span id="progress-counter" class="text-muted small me-2">0 of 0 required</span>
-              <span id="progress-percentage" class="badge bg-sagedark">0%</span>
+              <span id="progress-percentage" class="badge bg-sagedark" aria-live="polite">0%</span>
             </div>
           </div>
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <div class="input-group" style="max-width: 400px;">
-              <input type="text" id="searchInput" class="form-control" placeholder="Keyword search..." aria-label="Keyword search">
-              <button id="resetSearchButton" class="btn btn-outline-secondary" type="button" style="display: none;">
-                <i class="fa fa-times"></i> Reset
+            <div class="input-group" style="max-width: 400px;" role="search">
+              <label for="searchInput" class="visually-hidden">Search pathway content</label>
+              <input type="text" id="searchInput" class="form-control" placeholder="Keyword search..."
+                aria-label="Search pathway content" aria-describedby="searchResultsMessage">
+              <button id="resetSearchButton" class="btn btn-outline-secondary" type="button" style="display: none;"
+                aria-label="Clear search">
+                <i class="fa fa-times" aria-hidden="true"></i> Reset
               </button>
-              <button id="searchButton" class="btn btn-outline-secondary" type="button">
-                <i class="fa fa-search"></i> Search
+              <button id="searchButton" class="btn btn-outline-secondary" type="button"
+                aria-label="Search pathway">
+                <i class="fa fa-search" aria-hidden="true"></i> Search
               </button>
             </div>
-            <div id="searchResultsMessage" class="text-muted small mt-1"></div>
+            <div id="searchResultsMessage" class="text-muted small mt-1" aria-live="polite"></div>
           </div>
-          <div class="btn-group">
-            <button onclick="expandAll()" class="btn btn-outline-secondary">Expand All</button>
-            <button onclick="collapseAll()" class="btn btn-outline-secondary">Collapse All</button>
-            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none">
-              <i class="fa fa-arrow-up"></i> Top
+          <div class="btn-group" role="group" aria-label="Pathway navigation controls">
+            <button onclick="expandAll()" class="btn btn-outline-secondary" aria-label="Expand all steps">
+              Expand All
+            </button>
+            <button onclick="collapseAll()" class="btn btn-outline-secondary" aria-label="Collapse all steps">
+              Collapse All
+            </button>
+            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none" aria-label="Scroll to top">
+              <i class="fa fa-arrow-up" aria-hidden="true"></i> Top
             </button>
           </div>
         </div>
@@ -762,12 +815,12 @@ details.step-container .step-content {
     </div>
   </div>
 
-  <main>
+  <main id="main-content">
     
       <details class="step-container rounded mb-4" id="step-0">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Security</h2>
@@ -785,36 +838,36 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton</h3>
                   <div>Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://proton.me/blog/anonymity-vs-privacy" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://proton.me/blog/anonymity-vs-privacy" rel="noopener noreferrer" target="_blank" aria-label="Launch Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Diceware Passphrase Home</h3>
@@ -825,30 +878,30 @@ details.step-container .step-content {
                     <blockquote>Good tool.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://theworld.com/~reinhold/diceware.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://theworld.com/~reinhold/diceware.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Diceware Passphrase Home (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">List of Emojis HEX/HTML Codes - DEV Community</h3>
                   <div>Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma" rel="noopener noreferrer" target="_blank" aria-label="Launch List of Emojis HEX/HTML Codes - DEV Community (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -858,9 +911,9 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-1">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Back End</h2>
@@ -878,14 +931,14 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">GitHub - bcgov/sso-keycloak</h3>
@@ -896,22 +949,22 @@ details.step-container .step-content {
                     <blockquote>SSO DIY</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://github.com/bcgov/sso-keycloak#specifying-an-idp-to-bypass-the-keycloak-login-page" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://github.com/bcgov/sso-keycloak#specifying-an-idp-to-bypass-the-keycloak-login-page" rel="noopener noreferrer" target="_blank" aria-label="Launch GitHub - bcgov/sso-keycloak (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-blue">
-                  <i class="fa fa-headphones text-white fa-lg"></i>
+                <div class="activity-icon-container bg-blue" aria-hidden="true" role="presentation">
+                  <i class="fa fa-headphones text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">How to Prevent WordPress Users from Creating New Tags - PublishPress</h3>
@@ -922,44 +975,44 @@ details.step-container .step-content {
                     <blockquote>Foo mistake</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://publishpress.com/blog/permissions/stop-users-creating-new-tags/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://publishpress.com/blog/permissions/stop-users-creating-new-tags/" rel="noopener noreferrer" target="_blank" aria-label="Launch How to Prevent WordPress Users from Creating New Tags - PublishPress (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-blue">
-                  <i class="fa fa-user-group text-white fa-lg"></i>
+                <div class="activity-icon-container bg-blue" aria-hidden="true" role="presentation">
+                  <i class="fa fa-user-group text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">How to Set Up Nginx, MariaDB, and PHP with Docker Compose</h3>
                   <div>This guide shows you how to set up your LEMP (Nginx, MariaDB, PHP) stack easily and quickly using Docker Compose.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/" rel="noopener noreferrer" target="_blank" aria-label="Launch How to Set Up Nginx, MariaDB, and PHP with Docker Compose (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Understanding GitHub Actions - GitHub Docs</h3>
@@ -970,52 +1023,52 @@ details.step-container .step-content {
                     <blockquote>Should be in it&#039;s own step practivally.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions" rel="noopener noreferrer" target="_blank" aria-label="Launch Understanding GitHub Actions - GitHub Docs (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">REST Client - Visual Studio Marketplace</h3>
                   <div>Extension for Visual Studio Code - REST Client for Visual Studio Code</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" rel="noopener noreferrer" target="_blank" aria-label="Launch REST Client - Visual Studio Marketplace (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">nginx</h3>
                   <div>nginx (&quot;engine x&quot;) is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server. Originally written by Igor Sysoev and distributed under the 2-clause BSD License. Enterprise distributions, commercial support and training are available from F5, Inc.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://nginx.org/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://nginx.org/" rel="noopener noreferrer" target="_blank" aria-label="Launch nginx (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1028,14 +1081,14 @@ details.step-container .step-content {
             
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-blue">
-                    <i class="fa fa-headphones text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-blue" aria-hidden="true" role="presentation">
+                    <i class="fa fa-headphones text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
                       <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
                     <h3 class="mt-3 fw-semibold h5">Tutorial 0 - Get it RunningView</h3>
@@ -1046,8 +1099,8 @@ details.step-container .step-content {
                       <blockquote>Testing merging.</blockquote>
                     </div>
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://postgrest.org/en/stable/tutorials/tut0.html" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://postgrest.org/en/stable/tutorials/tut0.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Tutorial 0 - Get it RunningView (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -1056,15 +1109,15 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-2">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Front End</h2>
               <div>
                 <span class="badge bg-blue me-1">7 Required</span>
-                <span class="badge bg-sagegreen me-1">1 Bonus</span>
+                <span class="badge bg-sagegreen me-1">2 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">All the client things. HTML, CSS, Javascript</div>
@@ -1076,14 +1129,14 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-bluegreen">
-                  <i class="fa fa-play text-white fa-lg"></i>
+                <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                  <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Tailwind Labs - YouTube</h3>
@@ -1094,22 +1147,22 @@ details.step-container .step-content {
                     <blockquote>Watch this!</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.youtube.com/channel/UCOe-8z68tgw9ioqVvYM4ddQ" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.youtube.com/channel/UCOe-8z68tgw9ioqVvYM4ddQ" rel="noopener noreferrer" target="_blank" aria-label="Launch Tailwind Labs - YouTube (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-bluegreen">
-                  <i class="fa fa-play text-white fa-lg"></i>
+                <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                  <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">10 ways to speed up web font loading</h3>
@@ -1120,22 +1173,22 @@ details.step-container .step-content {
                     <blockquote>Performance is king.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://byteofdev.com/posts/speed-up-font-loading/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://byteofdev.com/posts/speed-up-font-loading/" rel="noopener noreferrer" target="_blank" aria-label="Launch 10 ways to speed up web font loading (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">SimplePie Documentation: Documentation</h3>
@@ -1146,22 +1199,22 @@ details.step-container .step-content {
                     <blockquote>More tetsing</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.simplepie.org/wiki/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.simplepie.org/wiki/" rel="noopener noreferrer" target="_blank" aria-label="Launch SimplePie Documentation: Documentation (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">&lt;/&gt; htmx - high power tools for html</h3>
@@ -1174,22 +1227,22 @@ details.step-container .step-content {
                     <blockquote>Fun stuff.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://htmx.org/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://htmx.org/" rel="noopener noreferrer" target="_blank" aria-label="Launch &lt;/&gt; htmx - high power tools for html (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Testing dead link</h3>
@@ -1200,22 +1253,22 @@ details.step-container .step-content {
                     <blockquote>Test</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank" aria-label="Launch Testing dead link (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">systemfontstack</h3>
@@ -1226,30 +1279,30 @@ details.step-container .step-content {
                     <blockquote>BC Sans is cool and all...</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://systemfontstack.com/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://systemfontstack.com/" rel="noopener noreferrer" target="_blank" aria-label="Launch systemfontstack (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">A Beginner&#039;s Guide to HTML, CSS, and JavaScript | HackerNoon</h3>
                   <div>Unlock Your Web Development Potential with this Beginner&#039;s Guide to HTML, CSS, and JavaScript! Learn the Fundamentals and Create Stunning Websites.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://hackernoon.com/a-beginners-guide-to-html-css-and-javascript" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://hackernoon.com/a-beginners-guide-to-html-css-and-javascript" rel="noopener noreferrer" target="_blank" aria-label="Launch A Beginner&#039;s Guide to HTML, CSS, and JavaScript | HackerNoon (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1262,14 +1315,14 @@ details.step-container .step-content {
             
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
                       <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
                     <h3 class="mt-3 fw-semibold h5">What do I need to read to be a great at CSS?</h3>
@@ -1280,8 +1333,30 @@ details.step-container .step-content {
                       <blockquote>Good words.</blockquote>
                     </div>
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://www.baldurbjarnason.com/2021/what-do-i-need-to-read-to-be-a-css-dev/" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://www.baldurbjarnason.com/2021/what-do-i-need-to-read-to-be-a-css-dev/" rel="noopener noreferrer" target="_blank" aria-label="Launch What do I need to read to be a great at CSS? (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="activity mb-4">
+                <div class="activity-container d-flex rounded border-sagegreen">
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 px-3 pt-2">
+                    <div class="d-flex align-items-center">
+                      <div class="badge bg-sagegreen">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
+                      </div>
+                    </div>
+                    <h3 class="mt-3 fw-semibold h5">JavaScript click event listener on class - Stack Overflow</h3>
+                    <div></div>
+                    
+                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                      href="https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class" rel="noopener noreferrer" target="_blank" aria-label="Launch JavaScript click event listener on class - Stack Overflow (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -1290,9 +1365,9 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-3">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Misc</h2>
@@ -1310,14 +1385,14 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools</h3>
@@ -1328,22 +1403,22 @@ details.step-container .step-content {
                     <blockquote>Because iut&#039;s good.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/" rel="noopener noreferrer" target="_blank" aria-label="Launch 5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Archivematica: open-source digital preservation system</h3>
@@ -1354,22 +1429,22 @@ details.step-container .step-content {
                     <blockquote>It doesn&#039;t matter how good your system is for taking backups if you never try to restore from those backups.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.archivematica.org/en/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.archivematica.org/en/" rel="noopener noreferrer" target="_blank" aria-label="Launch Archivematica: open-source digital preservation system (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">WakaTime - Dashboards for developers</h3>
@@ -1380,22 +1455,22 @@ details.step-container .step-content {
                     <blockquote>You might be asked to track how much time you&#039;re spending on different projects.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://wakatime.com/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://wakatime.com/" rel="noopener noreferrer" target="_blank" aria-label="Launch WakaTime - Dashboards for developers (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Linux: An Introduction to User Management - The New Stack</h3>
@@ -1406,8 +1481,8 @@ details.step-container .step-content {
                     <blockquote>Basics! Gotta learn it.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://thenewstack.io/linux-an-introduction-to-user-management/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://thenewstack.io/linux-an-introduction-to-user-management/" rel="noopener noreferrer" target="_blank" aria-label="Launch Linux: An Introduction to User Management - The New Stack (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1417,9 +1492,9 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-4">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
               <h2 class="h5 mb-0">Platforms</h2>
@@ -1437,36 +1512,36 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Just Ask! for Github organization access</h3>
                   <div>Just Ask! A github app to just ask for Github organization access</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://just-ask-web-bdec76-prod.apps.silver.devops.gov.bc.ca/" rel="noopener noreferrer" target="_blank" aria-label="Launch Just Ask! for Github organization access (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub</h3>
@@ -1477,22 +1552,22 @@ details.step-container .step-content {
                     <blockquote>Do yourself a favor and know this stuff.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/#ministry-specific-private-organizations-in-github-enterprise" rel="noopener noreferrer" target="_blank" aria-label="Launch BC Developer Guide | A guide to application development for the B.C. government. | B.C. government DevHub (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Common Hosted Single Sign-on (CSS)</h3>
@@ -1503,22 +1578,22 @@ details.step-container .step-content {
                     <blockquote>We use this for Moodle and it should be preferred solution for SSO.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://bcgov.github.io/sso-requests/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://bcgov.github.io/sso-requests/" rel="noopener noreferrer" target="_blank" aria-label="Launch Common Hosted Single Sign-on (CSS) (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">PSA Learning System Homepage</h3>
@@ -1529,22 +1604,22 @@ details.step-container .step-content {
                     <blockquote>It&#039;s not the only game in town.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://learning.gov.bc.ca/psc/CHIPSPLM/EMPLOYEE/ELM/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?" rel="noopener noreferrer" target="_blank" aria-label="Launch PSA Learning System Homepage (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">Permalinks — Eleventy</h3>
@@ -1555,22 +1630,22 @@ details.step-container .step-content {
                     <blockquote>Permalinks are more important than you might imagine.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.11ty.dev/docs/permalinks/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.11ty.dev/docs/permalinks/" rel="noopener noreferrer" target="_blank" aria-label="Launch Permalinks — Eleventy (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
                   <h3 class="mt-3 fw-semibold h5">API Services Portal | API Directory</h3>
@@ -1581,8 +1656,8 @@ details.step-container .step-content {
                     <blockquote>Use these where you can.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://api.gov.bc.ca/devportal/api-directory" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://api.gov.bc.ca/devportal/api-directory" rel="noopener noreferrer" target="_blank" aria-label="Launch API Services Portal | API Directory (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1594,12 +1669,12 @@ details.step-container .step-content {
   </main>
 
   
-  <footer class="mt-5">
+  <footer class="mt-5" role="contentinfo">
     <div class="card mb-4 border-blue">
       <div class="card-header bg-blue text-white">
-        <h2 class="h5 mb-0"><i class="fa fa-award me-2"></i>Acknowledgments</h2>
+        <h2 class="h5 mb-0" id="acknowledgments-heading"><i class="fa fa-award me-2" aria-hidden="true"></i>Acknowledgments</h2>
       </div>
-      <div class="card-body">
+      <div class="card-body" aria-labelledby="acknowledgments-heading">
         The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.<br><br>In particular, our sincere thanks go out to colleagues and partners at the following entities:<br><br>* Policy &amp; Legislation, BC Data Service, CITZ<br>* Multiculturalism &amp; Anti-Racism Branch, AG<br>* PSA REDI, Policy and Employee Relations<br>* SDPR Inclusion, Diversity and Cultural Safety (IDCS) &amp; Anti-Racism 101 course<br>* BIPOC Employee Resource Group<br>* Indigenous Employees Network
       </div>
     </div>
