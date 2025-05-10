@@ -3,66 +3,10 @@
     "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
     "contentWarning": "!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. ",
     "created": 1746391996332,
-    "description": "Good links to all parts of the stack, even though that's a ridiculously large area. ",
-    "lastUpdated": 1746899243920,
+    "description": "Good links to all parts of the stack, even though that's a ridiculously large area. Bump.",
+    "lastUpdated": 1746901687817,
     "name": "Full Stack Developer",
     "steps": [
-      {
-        "bookmarks": [
-          {
-            "added": 1746162080667,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851158861,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
-            "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
-          },
-          {
-            "added": 1746683672525,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851160078,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "List of Emojis HEX/HTML Codes - DEV Community",
-            "type": "Required",
-            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
-          },
-          {
-            "added": 1746682509164,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851157357,
-            "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
-            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
-            "type": "Required",
-            "url": "https://proton.me/blog/anonymity-vs-privacy"
-          }
-        ],
-        "name": "Security",
-        "objective": "Stay safe. Put security first."
-      },
       {
         "bookmarks": [
           {
@@ -83,23 +27,6 @@
             "url": "https://github.com/bcgov/sso-keycloak#specifying-an-idp-to-bypass-the-keycloak-login-page"
           },
           {
-            "added": 1746159900862,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Listen",
-            "context": "Foo mistake",
-            "description": "This tutorial shows how to block users in some roles from creating new Tags. Users such as Authors can normally create Tags.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851163874,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "How to Prevent WordPress Users from Creating New Tags - PublishPress",
-            "type": "Required",
-            "url": "https://publishpress.com/blog/permissions/stop-users-creating-new-tags/"
-          },
-          {
             "added": 1746161431955,
             "available": true,
             "checkError": null,
@@ -110,7 +37,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851165188,
             "redirectUrl": null,
-            "sortOrder": 2,
+            "sortOrder": 1,
             "status": 200,
             "title": "How to Set Up Nginx, MariaDB, and PHP with Docker Compose",
             "type": "Required",
@@ -127,7 +54,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851166619,
             "redirectUrl": null,
-            "sortOrder": 3,
+            "sortOrder": 2,
             "status": 200,
             "title": "Tutorial 0 - Get it RunningView",
             "type": "Bonus",
@@ -144,7 +71,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851168721,
             "redirectUrl": null,
-            "sortOrder": 4,
+            "sortOrder": 3,
             "status": 200,
             "title": "Understanding GitHub Actions - GitHub Docs",
             "type": "Required",
@@ -162,7 +89,7 @@
             "lastChecked": 1746851452854,
             "redirectUrl": null,
             "requiresAuth": false,
-            "sortOrder": 5,
+            "sortOrder": 4,
             "status": 404,
             "title": "REST Client - Visual Studio Marketplace",
             "type": "Required",
@@ -179,7 +106,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851171615,
             "redirectUrl": null,
-            "sortOrder": 6,
+            "sortOrder": 5,
             "status": 200,
             "title": "nginx",
             "type": "Required",
@@ -198,7 +125,7 @@
             "title": "Azure AI Search-Retrieval-Augmented Generation | Microsoft Azure",
             "type": "Required",
             "url": "https://azure.microsoft.com/en-us/products/ai-services/ai-search/",
-            "sortOrder": 7
+            "sortOrder": 6
           }
         ],
         "name": "Back End",
@@ -364,6 +291,62 @@
       {
         "bookmarks": [
           {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851158861,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          },
+          {
+            "added": 1746683672525,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851160078,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "List of Emojis HEX/HTML Codes - DEV Community",
+            "type": "Required",
+            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
+          },
+          {
+            "added": 1746682509164,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851157357,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
+            "type": "Required",
+            "url": "https://proton.me/blog/anonymity-vs-privacy"
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe. Put security first."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746387326104,
             "available": true,
             "checkError": null,
@@ -397,19 +380,18 @@
           },
           {
             "added": 1746386026764,
-            "available": true,
+            "available": null,
             "checkError": null,
-            "checkMethod": "fetch-direct",
+            "contentType": "Read",
             "context": "You might be asked to track how much time you're spending on different projects.",
             "description": "Open source IDE plugins for programmers.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851185555,
+            "lastChecked": null,
             "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
+            "status": null,
             "title": "WakaTime - Dashboards for developers",
-            "type": "Required",
-            "url": "https://wakatime.com/"
+            "type": "Bonus",
+            "url": "https://wakatime.com/",
+            "sortOrder": 2
           },
           {
             "added": 1746419388430,
@@ -442,6 +424,21 @@
             "type": "Bonus",
             "url": "https://www.zotero.org/",
             "sortOrder": 4
+          },
+          {
+            "added": 1746901721190,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "You're gonna need these.",
+            "description": "Download provincial government marks (logos)",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Download Government Marks - Province of British Columbia",
+            "type": "Required",
+            "url": "https://www2.gov.bc.ca/gov/content/governments/services-for-government/policies-procedures/bc-visual-identity/download-marks",
+            "sortOrder": 5
           }
         ],
         "name": "Misc",
@@ -554,8 +551,14 @@
         "objective": "All the different platforms where courses are hosted."
       }
     ],
-    "version": "9zemsu-2025-05-10",
+    "version": "6e9hs9-2025-05-10",
     "versionHistory": [
+      {
+        "bookmarkCount": 30,
+        "hash": "6e9hs9-2025-05-10",
+        "stepCount": 5,
+        "timestamp": 1746901687817
+      },
       {
         "bookmarkCount": 28,
         "hash": "9zemsu-2025-05-10",
