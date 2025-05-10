@@ -639,11 +639,11 @@
             "description": "Permalinks — Eleventy",
             "lastChecked": null,
             "redirectUrl": null,
+            "sortOrder": 4,
             "status": null,
             "title": "Permalinks — Eleventy",
             "type": "Required",
-            "url": "https://www.11ty.dev/docs/permalinks/",
-            "sortOrder": 4
+            "url": "https://www.11ty.dev/docs/permalinks/"
           }
         ],
         "name": "Platforms",
@@ -1335,11 +1335,11 @@
             "description": "In this post, you'll be introduced to the MediaRecorder API and learn how it's not so different from operating a video camera IRL.",
             "lastChecked": null,
             "redirectUrl": null,
+            "sortOrder": 0,
             "status": null,
             "title": "The skater punk’s guide to MediaRecorder | Mux",
             "type": "Required",
-            "url": "https://www.mux.com/blog/how-to-use-mediarecorder",
-            "sortOrder": 0
+            "url": "https://www.mux.com/blog/how-to-use-mediarecorder"
           }
         ],
         "name": "Huzzah!",
