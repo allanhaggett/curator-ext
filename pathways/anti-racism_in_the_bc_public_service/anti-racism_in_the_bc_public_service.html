@@ -341,6 +341,118 @@ details.step-container .step-content {
       display: none !important;
     }
 
+    /* Enhanced Markdown Styles */
+
+    /* Code blocks */
+    pre {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 0.375rem;
+      border: 1px solid #dee2e6;
+      overflow-x: auto;
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      max-width: 100%;
+    }
+
+    /* Inline code */
+    code {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.875em;
+      color: #d63384;
+      background-color: #f8f9fa;
+      padding: 0.2em 0.4em;
+      border-radius: 0.25rem;
+      word-wrap: break-word;
+    }
+
+    pre code {
+      color: inherit;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    /* Tables */
+    .moodlecurator table {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: block;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+      .moodlecurator table {
+        display: table;
+      }
+    }
+
+    .moodlecurator table th,
+    .moodlecurator table td {
+      padding: 0.5rem;
+      vertical-align: top;
+      border: 1px solid #dee2e6;
+    }
+
+    .moodlecurator table th {
+      font-weight: 600;
+      background-color: #f8f9fa;
+      text-align: left;
+      border-bottom-width: 2px;
+    }
+
+    .moodlecurator table tr:nth-of-type(odd) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    /* Lists */
+    .moodlecurator ul,
+    .moodlecurator ol {
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .moodlecurator ul {
+      list-style-type: disc;
+    }
+
+    .moodlecurator ol {
+      list-style-type: decimal;
+    }
+
+    .moodlecurator li {
+      margin-bottom: 0.25rem;
+    }
+
+    .moodlecurator li > ul,
+    .moodlecurator li > ol {
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Horizontal rule */
+    .moodlecurator hr {
+      margin: 1.5rem 0;
+      border: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Images */
+    .moodlecurator img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.375rem;
+      margin: 1rem 0;
+    }
+
+    /* Make images responsive in dark mode */
+    body.dark-mode .moodlecurator img:not([src*=".svg"]) {
+      filter: brightness(0.9) contrast(1.1);
+    }
+
     /* Dark mode toggle button */
     #darkModeToggle {
       position: fixed;
@@ -566,6 +678,36 @@ details.step-container .step-content {
       color: #ffda6a;
       background-color: #332701;
       border-color: #664d03;
+    }
+
+    /* Dark mode styles for markdown elements */
+    body.dark-mode .moodlecurator pre {
+      background-color: #2a2a2a;
+      border-color: #444;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .moodlecurator code {
+      background-color: #2a2a2a;
+      color: #ff77aa;
+    }
+
+    body.dark-mode .moodlecurator table th {
+      background-color: #2a2a2a;
+      border-color: #444;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .moodlecurator table td {
+      border-color: #444;
+    }
+
+    body.dark-mode .moodlecurator table tr:nth-of-type(odd) {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode .moodlecurator hr {
+      border-color: rgba(255, 255, 255, 0.1);
     }
   </style>
   <script>
@@ -1043,11 +1185,11 @@ details.step-container .step-content {
       </div>
     </div>
     <div>
-      <div class="lead mb-4 fs-4 prose prose-lg">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.</div>
+      <div class="lead mb-4 fs-4 prose prose-lg">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work. Publishing version check.</div>
     </div>
     <div class="text-muted small mb-3">
-      Last updated: May 10, 2025 at 12:21 PM | 
-      Version: f757t3-2025-05-10
+      Last updated: May 10, 2025 at 12:37 PM | 
+      Version: 8gows8-2025-05-10
     </div>
     
     <details class="mb-4 p-3 bg-warning-subtle rounded-3">
@@ -1056,7 +1198,7 @@ details.step-container .step-content {
       </summary>
       <div class="p-3 prose-lg" id="content-warning-text">
         <h3 id="content-warning-heading" class="h6 mb-2">Content Warning</h3>
-        <div class="prose">&gt; "Not everything that is faced can be changed, but nothing can be changed until it is faced." — James Baldwin<br><br>This learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.<br><br>The content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.<br><br>Irrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.<br><br>Some learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.<br><br>As employees, you have access to <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS">Employee and Family Assistance Services</a> anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.<br><br>Canadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.<br><br>Let's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.<br><br>In the words of Maya Angelou, <strong>"Do the best you can until you know better. Then when you know better, do better."</strong> This learning pathway is designed with that learning spirit in mind.</div>
+        <div class="prose">&gt; "Not everything that is faced can be changed, but nothing can be changed until it is faced." — James Baldwin<br><br>This learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.<br><br>The content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.<br><br>Irrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.<br><br>Some learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.<br><br>As employees, you have access to <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS" rel="noopener noreferrer" target="_blank">Employee and Family Assistance Services</a> anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.<br><br>Canadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.<br><br>Let's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.<br><br>In the words of Maya Angelou, <strong>"Do the best you can until you know better. Then when you know better, do better."</strong> This learning pathway is designed with that learning spirit in mind.</div>
       </div>
     </details>
 
@@ -1123,6 +1265,110 @@ details.step-container .step-content {
   <main id="main-content">
     
       <details class="step-container rounded mb-4" id="step-0">
+        <summary role="button" aria-expanded="false" tabindex="0">
+          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
+          <div class="summary-content">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <h3 class="h5 mb-0">History of Racism in Canada</h3>
+              <div>
+                <span class="badge bg-sagedark me-1">2 Required</span>
+                <span class="badge bg-sagegreen text-black me-1">1 Bonus</span>
+              </div>
+            </div>
+            <div class="step-summary text-muted mt-1 prose-lg"><strong>Objective:</strong> Learn about the history of racism in Canada to better understand the current context. &quot;Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias &amp; Feagin, 2020, p. 21).</div>
+          </div>
+        </summary>
+        <div class="step-content">
+          <!-- We display the objective in the summary, so no need to repeat it here -->
+          
+          
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge bg-sagedark">Required</div>
+                    <div class="badge launched-badge bg-blue d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
+                    </div>
+                  </div>
+                  <h4 class="mt-3 fw-semibold h5">Challenging Racist British Columbia</h4>
+                  <div class="prose-lg">A history of racism in British Columbia.</div>
+                  
+                  <div class="d-flex align-items-center flex-wrap">
+                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                      href="https://www.challengeracistbc.ca/video-series.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Challenging Racist British Columbia (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
+                    </a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="activity mb-4">
+              <div class="activity-container d-flex rounded">
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
+                </div>
+                <div class="flex-grow-1 px-3 pt-2">
+                  <div class="d-flex align-items-center">
+                    <div class="badge activity-badge bg-sagedark">Required</div>
+                    <div class="badge launched-badge bg-blue d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
+                    </div>
+                  </div>
+                  <h4 class="mt-3 fw-semibold h5">British Columbia: An Untold History | Knowledge.ca</h4>
+                  <div class="prose-lg">Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.</div>
+                  
+                  <div class="d-flex align-items-center flex-wrap">
+                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                      href="https://www.knowledge.ca/program/british-columbia-untold-history" rel="noopener noreferrer" target="_blank" aria-label="Launch British Columbia: An Untold History | Knowledge.ca (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
+                    </a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          
+          <div class="bonus-section mt-4">
+            <h4 class="h5 border-bottom pb-2">Bonus Resources</h4>
+            <p>Bonus resources don't count towards your launch progress for this step.</p>
+            
+            
+              <div class="activity mb-4">
+                <div class="activity-container d-flex rounded border-sagegreen">
+                  <div class="activity-icon-container bg-sagegreen" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-black fa-lg" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 px-3 pt-2">
+                    <div class="d-flex align-items-center">
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
+                      </div>
+                    </div>
+                    <h4 class="mt-3 fw-semibold h5">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</h4>
+                    <div class="prose-lg">Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.</div>
+                    
+                    <div class="d-flex align-items-center flex-wrap">
+                      <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
+                        href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" rel="noopener noreferrer" target="_blank" aria-label="Launch Racism in Canada: Words to tell wrongs | Radio-Canada.ca (opens in new tab)">
+                        Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </details>
+      <details class="step-container rounded mb-4" id="step-1">
         <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
           <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
@@ -1395,110 +1641,6 @@ details.step-container .step-content {
                     <div class="d-flex align-items-center flex-wrap">
                       <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
                         href="https://crrf-fcrr.ca/glossary-of-terms/" rel="noopener noreferrer" target="_blank" aria-label="Launch Glossary of Terms – Canadian Race Relations Foundation (opens in new tab)">
-                        Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
-                      </a>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </details>
-      <details class="step-container rounded mb-4" id="step-1">
-        <summary role="button" aria-expanded="false" tabindex="0">
-          <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
-          <div class="summary-content">
-            <div class="d-flex justify-content-between align-items-center w-100">
-              <h3 class="h5 mb-0">History of Racism in Canada</h3>
-              <div>
-                <span class="badge bg-sagedark me-1">2 Required</span>
-                <span class="badge bg-sagegreen text-black me-1">1 Bonus</span>
-              </div>
-            </div>
-            <div class="step-summary text-muted mt-1 prose-lg"><strong>Objective:</strong> Learn about the history of racism in Canada to better understand the current context. &quot;Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias &amp; Feagin, 2020, p. 21).</div>
-          </div>
-        </summary>
-        <div class="step-content">
-          <!-- We display the objective in the summary, so no need to repeat it here -->
-          
-          
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
-                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="d-flex align-items-center">
-                    <div class="badge activity-badge bg-sagedark">Required</div>
-                    <div class="badge launched-badge bg-blue d-none" aria-live="polite">
-                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
-                    </div>
-                  </div>
-                  <h4 class="mt-3 fw-semibold h5">Challenging Racist British Columbia</h4>
-                  <div class="prose-lg">A history of racism in British Columbia.</div>
-                  
-                  <div class="d-flex align-items-center flex-wrap">
-                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://www.challengeracistbc.ca/video-series.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Challenging Racist British Columbia (opens in new tab)">
-                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
-                    </a>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="activity mb-4">
-              <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
-                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
-                </div>
-                <div class="flex-grow-1 px-3 pt-2">
-                  <div class="d-flex align-items-center">
-                    <div class="badge activity-badge bg-sagedark">Required</div>
-                    <div class="badge launched-badge bg-blue d-none" aria-live="polite">
-                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
-                    </div>
-                  </div>
-                  <h4 class="mt-3 fw-semibold h5">British Columbia: An Untold History | Knowledge.ca</h4>
-                  <div class="prose-lg">Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.</div>
-                  
-                  <div class="d-flex align-items-center flex-wrap">
-                    <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://www.knowledge.ca/program/british-columbia-untold-history" rel="noopener noreferrer" target="_blank" aria-label="Launch British Columbia: An Untold History | Knowledge.ca (opens in new tab)">
-                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
-                    </a>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          
-          <div class="bonus-section mt-4">
-            <h4 class="h5 border-bottom pb-2">Bonus Resources</h4>
-            <p>Bonus resources don't count towards your launch progress for this step.</p>
-            
-            
-              <div class="activity mb-4">
-                <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagegreen" aria-hidden="true" role="presentation">
-                    <i class="fa fa-book text-black fa-lg" aria-hidden="true"></i>
-                  </div>
-                  <div class="flex-grow-1 px-3 pt-2">
-                    <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen text-black">Bonus</div>
-                      <div class="badge launched-badge d-none" aria-live="polite">
-                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
-                      </div>
-                    </div>
-                    <h4 class="mt-3 fw-semibold h5">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</h4>
-                    <div class="prose-lg">Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.</div>
-                    
-                    <div class="d-flex align-items-center flex-wrap">
-                      <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                        href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" rel="noopener noreferrer" target="_blank" aria-label="Launch Racism in Canada: Words to tell wrongs | Radio-Canada.ca (opens in new tab)">
                         Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                       </a>
                       
@@ -2105,7 +2247,7 @@ Illustrations by Paige Jung</div>
         <h3 class="h5 mb-0" id="acknowledgments-heading"><i class="fa fa-award me-2" aria-hidden="true"></i>Acknowledgments</h3>
       </div>
       <div class="card-body prose-lg" aria-labelledby="acknowledgments-heading">
-        <div class="prose-lg">The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.<br><br>In particular, our sincere thanks go out to colleagues and partners at the following entities:<br><br>* Policy &amp; Legislation, BC Data Service, CITZ<br>* Multiculturalism &amp; Anti-Racism Branch, AG<br>* PSA REDI, Policy and Employee Relations<br>* SDPR Inclusion, Diversity and Cultural Safety (IDCS) &amp; Anti-Racism 101 course<br>* BIPOC Employee Resource Group<br>* Indigenous Employees Network</div>
+        <div class="prose-lg">The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.<br><br>In particular, our sincere thanks go out to colleagues and partners at the following entities:<br><br><ul><li>Policy &amp; Legislation, BC Data Service, CITZ</li><li>Multiculturalism &amp; Anti-Racism Branch, AG</li><li>PSA REDI, Policy and Employee Relations</li><li>SDPR Inclusion, Diversity and Cultural Safety (IDCS) &amp; Anti-Racism 101 course</li><li>BIPOC Employee Resource Group</li><li>Indigenous Employees Network</li></ul></div>
       </div>
     </div>
   </footer>
