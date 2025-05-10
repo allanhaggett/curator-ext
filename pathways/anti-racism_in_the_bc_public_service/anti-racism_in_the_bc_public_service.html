@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Anti-Racism in the BC Public Service</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -308,14 +309,20 @@ details.step-container .step-content {
 
     /* Custom search highlight styles */
     .search-highlight {
-      background-color: rgba(255, 193, 7, 0.3);
+      background-color: rgba(255, 193, 7, 0.45); /* Increased opacity for better contrast */
       border-radius: 0.25rem;
       padding: 0.125rem 0;
+      outline: 1px solid #d39e00; /* Add border for better visibility */
+    }
+
+    /* Improved contrast for text-muted */
+    .text-muted, .text-muted small {
+      color: #5a6268 !important; /* Darker than Bootstrap default for better contrast */
     }
 
     /* Launched badge styles */
     .badge.launched-badge {
-      background-color: #6c757d;
+      background-color: #495057; /* Darker than default for better contrast */
       color: white;
       margin-left: 0.25rem;
     }
@@ -333,6 +340,157 @@ details.step-container .step-content {
 
     #scrollTopBtn.d-none {
       display: none !important;
+    }
+
+    /* Dark mode toggle button */
+    #darkModeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1040;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--sagedark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    #darkModeToggle:hover {
+      transform: scale(1.05);
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* Dark mode container styles */
+    body.dark-mode .moodlecurator {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    /* Dark mode card styles */
+    body.dark-mode .card {
+      background-color: #1e1e1e;
+      border-color: #2d2d2d;
+    }
+
+    body.dark-mode .card-header {
+      background-color: #2d2d2d;
+      border-bottom-color: #3d3d3d;
+    }
+
+    /* Dark mode details/summary styles */
+    body.dark-mode .step-container {
+      border-color: #2d2d2d;
+    }
+
+    body.dark-mode .step-container summary {
+      background-color: #1e1e1e;
+      border-bottom-color: #2d2d2d;
+    }
+
+    body.dark-mode .step-objective {
+      background-color: #2a2a2a;
+    }
+
+    /* Dark mode activity container styles */
+    body.dark-mode .activity-container {
+      border-color: #2d2d2d;
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .step-summary {
+      color: #aaa;
+    }
+
+    /* Dark mode control bar styles */
+    body.dark-mode .control-bar {
+      background-color: #1e1e1e;
+      border-color: #2d2d2d;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    body.dark-mode .progress {
+      background-color: #2d2d2d;
+    }
+
+    /* Dark mode form controls */
+    body.dark-mode .form-control {
+      background-color: #2d2d2d;
+      border-color: #3d3d3d;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .form-control::placeholder {
+      color: #aaa;
+    }
+
+    body.dark-mode .btn-outline-secondary {
+      color: #ccc;
+      border-color: #3d3d3d;
+    }
+
+    body.dark-mode .btn-outline-secondary:hover {
+      background-color: #2d2d2d;
+      color: #fff;
+    }
+
+    /* Dark mode text contrast improvements */
+    body.dark-mode .text-muted,
+    body.dark-mode .text-muted small {
+      color: #adb5bd !important; /* Lighter than default for better contrast in dark mode */
+    }
+
+    /* Dark mode link styles */
+    body.dark-mode a {
+      color: #8ab4f8; /* More visible blue for dark backgrounds */
+    }
+
+    body.dark-mode a:hover {
+      color: #aecbfa;
+    }
+
+    /* Dark mode badge and button styles */
+    body.dark-mode .badge.bg-blue {
+      background-color: #3d5a99 !important; /* Darker blue for better visibility */
+    }
+
+    body.dark-mode .badge.bg-sagedark {
+      background-color: #2c8c6c !important; /* Adjusted for dark mode */
+    }
+
+    body.dark-mode .badge.bg-bluegreen {
+      background-color: #357385 !important; /* Adjusted for dark mode */
+    }
+
+    /* Dark mode for blockquotes (curator context) */
+    body.dark-mode blockquote {
+      border-left-color: #4d4d4d;
+      background-color: #252525;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    /* Search highlight in dark mode */
+    body.dark-mode .search-highlight {
+      background-color: rgba(255, 193, 7, 0.25); /* Adjusted for dark mode */
+      outline-color: #b38600;
+    }
+
+    /* Additional accessibility features for dark mode */
+    body.dark-mode :focus-visible {
+      outline-color: #8ab4f8 !important;
+      box-shadow: 0 0 0 0.2rem rgba(138, 180, 248, 0.5) !important;
     }
   </style>
   <script>
@@ -439,7 +597,7 @@ details.step-container .step-content {
       const links = loadLaunchedLinks();
 
       // Get all launch buttons
-      document.querySelectorAll('.launch-btn').forEach(btn => {
+      document.querySelectorAll('.launch-btn').forEach(function(btn) {
         const url = btn.getAttribute('href');
         const container = btn.closest('.activity-container');
         const badge = container.querySelector('.launched-badge');
@@ -451,7 +609,7 @@ details.step-container .step-content {
           // If this is the link that was just launched, scroll to it
           if (justLaunchedUrl && url === justLaunchedUrl) {
             // Keep the button in view after launching
-            setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            setTimeout(function() { btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
           }
         }
       });
@@ -486,36 +644,63 @@ details.step-container .step-content {
       // Get all activity containers (bookmarks)
       const activities = document.querySelectorAll('.activity');
       let matchFound = false;
+      let matchCount = 0;
 
       // Loop through all activities to find matches
-      activities.forEach(activity => {
+      activities.forEach(function(activity) {
         // Get the searchable content from this activity
-        const title = activity.querySelector('h3')?.textContent.toLowerCase() || '';
-        const description = activity.querySelector('h3 + div')?.textContent.toLowerCase() || '';
+        const titleElement = activity.querySelector('h4') || activity.querySelector('h3'); // Support both h4 (new) and h3 (legacy)
+        const title = titleElement && titleElement.textContent ? titleElement.textContent.toLowerCase() : '';
+        const descElement = activity.querySelector('h4 + div') || activity.querySelector('h3 + div');
+        const description = descElement && descElement.textContent ? descElement.textContent.toLowerCase() : '';
         const contextElement = activity.querySelector('.curatorcontext blockquote');
         const context = contextElement ? contextElement.textContent.toLowerCase() : '';
 
         // Check if any of the content contains the search term
-        const hasMatch = title.includes(searchTerm) ||
-                        description.includes(searchTerm) ||
-                        (context && context.includes(searchTerm));
+        const hasMatch = title.indexOf(searchTerm) !== -1 ||
+                        description.indexOf(searchTerm) !== -1 ||
+                        (context && context.indexOf(searchTerm) !== -1);
 
         // Show or hide based on match
         if (hasMatch) {
           activity.style.display = 'block';
           matchFound = true;
+          matchCount++;
+
+          // Add an accessible label for screen readers to identify this as a search result
+          activity.setAttribute('data-search-result', 'true');
+          activity.setAttribute('aria-label', 'Search result ' + matchCount + ' for "' + searchTerm + '"');
 
           // Highlight the matching text
           highlightMatches(activity, searchTerm);
         } else {
           activity.style.display = 'none';
+          // Remove the search result attributes if previously set
+          activity.removeAttribute('data-search-result');
+          activity.removeAttribute('aria-label');
         }
       });
 
       // Show message if no results found
       const searchResultsMessage = document.getElementById('searchResultsMessage');
       if (searchResultsMessage) {
-        searchResultsMessage.textContent = matchFound ? '' : 'No matching bookmarks found.';
+        if (!matchFound) {
+          searchResultsMessage.textContent = 'No matching bookmarks found.';
+        } else {
+          searchResultsMessage.textContent = 'Found ' + matchCount + ' matching bookmark' + (matchCount !== 1 ? 's' : '') + '.';
+        }
+      }
+
+      // Focus on the first result if found, otherwise back to the search field
+      if (matchFound) {
+        const firstResult = document.querySelector('.activity[data-search-result="true"]');
+        if (firstResult) {
+          // Add a tabindex to make it focusable
+          firstResult.tabIndex = -1;
+          // Scroll to the first result and focus it
+          firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(function() { firstResult.focus(); }, 300);
+        }
       }
     }
 
@@ -525,16 +710,16 @@ details.step-container .step-content {
       // We only add a visual indicator
 
       // Get all text nodes in the activity to highlight
-      const titles = element.querySelectorAll('h3');
-      const descriptions = element.querySelectorAll('h3 + div');
+      const titles = element.querySelectorAll('h4, h3'); // Support both new and legacy heading elements
+      const descriptions = element.querySelectorAll('h4 + div, h3 + div');
       const contexts = element.querySelectorAll('.curatorcontext blockquote');
 
       // Add highlight classes to parent elements containing the search term
-      [titles, descriptions, contexts].forEach(nodeList => {
+      [titles, descriptions, contexts].forEach(function(nodeList) {
         if (!nodeList) return;
 
-        nodeList.forEach(node => {
-          if (node && node.textContent.toLowerCase().includes(searchTerm)) {
+        nodeList.forEach(function(node) {
+          if (node && node.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
             node.classList.add('search-highlight');
           } else if (node) {
             node.classList.remove('search-highlight');
@@ -545,24 +730,104 @@ details.step-container .step-content {
 
     function resetSearch() {
       // Clear highlights
-      document.querySelectorAll('.search-highlight').forEach(el => {
+      document.querySelectorAll('.search-highlight').forEach(function(el) {
         el.classList.remove('search-highlight');
       });
 
-      // Show all activities
-      document.querySelectorAll('.activity').forEach(activity => {
+      // Show all activities and remove accessibility attributes
+      document.querySelectorAll('.activity').forEach(function(activity) {
         activity.style.display = 'block';
+        // Remove accessible search result attributes
+        activity.removeAttribute('data-search-result');
+        activity.removeAttribute('aria-label');
+        activity.removeAttribute('tabindex');
       });
 
       // Clear any "no results" message
       const searchResultsMessage = document.getElementById('searchResultsMessage');
       if (searchResultsMessage) {
         searchResultsMessage.textContent = '';
+        // Announce to screen readers that search has been reset
+        searchResultsMessage.setAttribute('aria-live', 'polite');
+        setTimeout(function() {
+          searchResultsMessage.textContent = 'Search reset. All items are now visible.';
+          // Clear the message after announcing
+          setTimeout(function() { searchResultsMessage.textContent = ''; }, 2000);
+        }, 100);
       }
 
       // Collapse steps if search was reset deliberately (not just by viewing results)
       if (document.getElementById('searchInput').value.trim() === '') {
         collapseAll();
+        // Return focus to search input
+        document.getElementById('searchInput').focus();
+      }
+    }
+
+    // Dark mode functionality
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('curator_dark_mode', isDarkMode ? 'true' : 'false');
+      updateDarkModeToggleIcon(isDarkMode);
+    }
+
+    function updateDarkModeToggleIcon(isDarkMode) {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.innerHTML = isDarkMode ?
+          '<i class="fa fa-sun" aria-hidden="true"></i>' :
+          '<i class="fa fa-moon" aria-hidden="true"></i>';
+        darkModeToggle.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+        darkModeToggle.title = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+
+    function initDarkMode() {
+      // Check for saved preference
+      const savedDarkMode = localStorage.getItem('curator_dark_mode');
+
+      // Check for system preference if no saved preference
+      const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Apply dark mode if saved preference exists or system prefers dark mode
+      const shouldBeDark = savedDarkMode === 'true' || (savedDarkMode === null && prefersDarkMode);
+
+      if (shouldBeDark) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+
+      updateDarkModeToggleIcon(shouldBeDark);
+
+      // Add dark mode toggle button
+      const darkModeToggle = document.createElement('button');
+      darkModeToggle.id = 'darkModeToggle';
+      darkModeToggle.className = 'btn';
+      darkModeToggle.innerHTML = shouldBeDark ?
+        '<i class="fa fa-sun" aria-hidden="true"></i>' :
+        '<i class="fa fa-moon" aria-hidden="true"></i>';
+      darkModeToggle.setAttribute('aria-label', shouldBeDark ? 'Switch to light mode' : 'Switch to dark mode');
+      darkModeToggle.title = shouldBeDark ? 'Switch to light mode' : 'Switch to dark mode';
+      darkModeToggle.addEventListener('click', toggleDarkMode);
+
+      document.body.appendChild(darkModeToggle);
+
+      // Listen for system preference changes
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+          // Only apply system preference if user hasn't set a preference
+          if (localStorage.getItem('curator_dark_mode') === null) {
+            const shouldBeDark = e.matches;
+            if (shouldBeDark) {
+              document.body.classList.add('dark-mode');
+            } else {
+              document.body.classList.remove('dark-mode');
+            }
+            updateDarkModeToggleIcon(shouldBeDark);
+          }
+        });
       }
     }
 
@@ -573,6 +838,9 @@ details.step-container .step-content {
       const controlBar = document.getElementById('control-bar');
       const controlBarContainer = document.getElementById('control-bar-container');
       const controlsSpacer = document.getElementById('controls-spacer');
+
+      // Initialize dark mode
+      initDarkMode();
 
       // Store the original position of the control bar
       let controlBarPosition;
@@ -657,7 +925,7 @@ details.step-container .step-content {
       updateLaunchedBadges();
 
       // Initialize the progress bar
-      setTimeout(() => {
+      setTimeout(function() {
         // Slight delay to ensure all DOM elements are ready
         updateProgressBar();
       }, 200);
@@ -676,7 +944,7 @@ details.step-container .step-content {
 
     // Set up event listeners for launch buttons
     function setupLaunchTracking() {
-      document.querySelectorAll('.launch-btn').forEach(btn => {
+      document.querySelectorAll('.launch-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           // Don't interrupt the normal link opening
           // but record that this link was launched
@@ -690,11 +958,14 @@ details.step-container .step-content {
 <body>
 <div class="moodlecurator container py-4">
   <header class="mb-4">
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
     <div class="header mb-3 rounded-3 d-flex align-items-end">
       <div class="px-3 py-2 bg-dark bg-opacity-75 text-white rounded-bottom w-100">
         <div class="mb-0 d-flex justify-content-between">
           <small>Curated pathway</small>
-          <small class="text-white-50">Version: 21u95w-2025-05-10</small>
+          <small class="text-white-50">Version: f3zwch-2025-05-10</small>
         </div>
         <h1 class="h2 mb-1 mt-0">Anti-Racism in the BC Public Service</h1>
       </div>
@@ -702,12 +973,17 @@ details.step-container .step-content {
 
     <div class="lead mb-4">Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.</div>
 
-    <div class="text-muted small mb-3">Last updated: 5/9/2025, 7:52:15 PM</div>
+    <div class="text-muted small mb-3">Last updated: 5/9/2025, 10:55:21 PM</div>
 
     
-    <details class="mb-4 p-3 bg-warning-subtle rounded-3">
-      <summary><i class="fa fa-exclamation-triangle me-2"></i> Before you proceed...</summary>
-      <div class="p-3 border-top">&gt; "Not everything that is faced can be changed, but nothing can be changed until it is faced." — James Baldwin<br><br>This learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.<br><br>The content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.<br><br>Irrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.<br><br>Some learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.<br><br>As employees, you have access to <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS">Employee and Family Assistance Services</a> anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.<br><br>Canadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.<br><br>Let's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.<br><br>In the words of Maya Angelou, <strong>"Do the best you can until you know better. Then when you know better, do better."</strong> This learning pathway is designed with that learning spirit in mind.</div>
+    <details class="mb-4 p-3 text-black bg-warning-subtle rounded-3">
+      <summary role="button" aria-expanded="false" tabindex="0">
+        <i class="fa fa-exclamation-triangle me-2" aria-hidden="true"></i> Before you proceed...
+      </summary>
+      <div class="p-3 border-top" id="content-warning-text">
+        <h3 id="content-warning-heading" class="h6 mb-2">Content Warning</h3>
+        &gt; "Not everything that is faced can be changed, but nothing can be changed until it is faced." — James Baldwin<br><br>This learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.<br><br>The content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.<br><br>Irrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.<br><br>Some learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.<br><br>As employees, you have access to <a href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS">Employee and Family Assistance Services</a> anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.<br><br>Canadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.<br><br>Let's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.<br><br>In the words of Maya Angelou, <strong>"Do the best you can until you know better. Then when you know better, do better."</strong> This learning pathway is designed with that learning spirit in mind.
+      </div>
     </details>
 
   </header>
@@ -724,37 +1000,45 @@ details.step-container .step-content {
         <div class="progress-container py-2 mb-2 border-bottom">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <h6 class="mb-0 me-2">Progress:</h6>
+              <h6 id="progress-heading" class="mb-0 me-2">Progress:</h6>
               <div class="progress" style="width: 200px; height: 10px;">
                 <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"
-                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Pathway completion progress"></div>
               </div>
             </div>
             <div class="d-flex align-items-center">
               <span id="progress-counter" class="text-muted small me-2">0 of 0 required</span>
-              <span id="progress-percentage" class="badge bg-sagedark">0%</span>
+              <span id="progress-percentage" class="badge bg-sagedark" aria-live="polite">0%</span>
             </div>
           </div>
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            <div class="input-group" style="max-width: 400px;">
-              <input type="text" id="searchInput" class="form-control" placeholder="Keyword search..." aria-label="Keyword search">
-              <button id="resetSearchButton" class="btn btn-outline-secondary" type="button" style="display: none;">
-                <i class="fa fa-times"></i> Reset
+            <div class="input-group" style="max-width: 400px;" role="search">
+              <label for="searchInput" class="visually-hidden">Search pathway content</label>
+              <input type="text" id="searchInput" class="form-control" placeholder="Keyword search..."
+                aria-label="Search pathway content" aria-describedby="searchResultsMessage">
+              <button id="resetSearchButton" class="btn btn-outline-secondary" type="button" style="display: none;"
+                aria-label="Clear search">
+                <i class="fa fa-times" aria-hidden="true"></i> Reset
               </button>
-              <button id="searchButton" class="btn btn-outline-secondary" type="button">
-                <i class="fa fa-search"></i> Search
+              <button id="searchButton" class="btn btn-outline-secondary" type="button"
+                aria-label="Search pathway">
+                <i class="fa fa-search" aria-hidden="true"></i> Search
               </button>
             </div>
-            <div id="searchResultsMessage" class="text-muted small mt-1"></div>
+            <div id="searchResultsMessage" class="text-muted small mt-1" aria-live="polite"></div>
           </div>
-          <div class="btn-group">
-            <button onclick="expandAll()" class="btn btn-outline-secondary">Expand All</button>
-            <button onclick="collapseAll()" class="btn btn-outline-secondary">Collapse All</button>
-            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none">
-              <i class="fa fa-arrow-up"></i> Top
+          <div class="btn-group" role="group" aria-label="Pathway navigation controls">
+            <button onclick="expandAll()" class="btn btn-outline-secondary" aria-label="Expand all steps">
+              Expand All
+            </button>
+            <button onclick="collapseAll()" class="btn btn-outline-secondary" aria-label="Collapse all steps">
+              Collapse All
+            </button>
+            <button id="scrollTopBtn" onclick="scrollToTop()" class="btn btn-outline-secondary d-none" aria-label="Scroll to top">
+              <i class="fa fa-arrow-up" aria-hidden="true"></i> Top
             </button>
           </div>
         </div>
@@ -762,18 +1046,18 @@ details.step-container .step-content {
     </div>
   </div>
 
-  <main>
+  <main id="main-content">
     
       <details class="step-container rounded mb-4" id="step-0">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">Contextualize Racism and Anti-Racism</h2>
+              <h3 class="h5 mb-0">Contextualize Racism and Anti-Racism</h3>
               <div>
                 <span class="badge bg-blue me-1">7 Required</span>
-                <span class="badge bg-sagegreen me-1">3 Bonus</span>
+                <span class="badge bg-sagegreen text-black me-1">3 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">Understand the context in which racism exists. Learn about anti-racism and why simply being “not racist” isn&#039;t enough.</div>
@@ -785,154 +1069,154 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid</h3>
+                  <h4 class="mt-3 fw-semibold h5">Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid</h4>
                   <div>Key Definitions for Anti-Racism in the BCPS</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/key-definitions.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/key-definitions.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Key Definitions | Anti-Racism in the BCPS - Learning Curator Pathway Aid (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Ibram X. Kendi defines what it means to be an antiracist</h3>
+                  <h4 class="mt-3 fw-semibold h5">Ibram X. Kendi defines what it means to be an antiracist</h4>
                   <div>In this extract from his 2019 book How To Be an Antiracist, historian Ibram X. Kendi breaks down exactly what the term means – and why clear language is a vital first step in the battle against prejudice.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.penguin.co.uk/discover/articles/ibram-x-kendi-definition-of-antiracist" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.penguin.co.uk/discover/articles/ibram-x-kendi-definition-of-antiracist" rel="noopener noreferrer" target="_blank" aria-label="Launch Ibram X. Kendi defines what it means to be an antiracist (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia</h3>
+                  <h4 class="mt-3 fw-semibold h5">Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia</h4>
                   <div>Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project" rel="noopener noreferrer" target="_blank" aria-label="Launch Introduction to Unlearning &amp; Undoing White Supremacy and Racism in the Office of the Provincial Health Officer - Province of British Columbia (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee</h3>
+                  <h4 class="mt-3 fw-semibold h5">White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee</h4>
                   <div>Anti-China sentiments — and political posturing — have led to racism against Asian Canadians.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://thetyee.ca/Opinion/2020/06/10/White-Supremacy-BC-China-Syndrome/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://thetyee.ca/Opinion/2020/06/10/White-Supremacy-BC-China-Syndrome/" rel="noopener noreferrer" target="_blank" aria-label="Launch White Supremacy in ‘British’ Columbia, and the China Syndrome | The Tyee (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-bluegreen">
-                  <i class="fa fa-play text-white fa-lg"></i>
+                <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                  <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">What is White Supremacy Culture?</h3>
+                  <h4 class="mt-3 fw-semibold h5">What is White Supremacy Culture?</h4>
                   <div>This website describes white supremacy culture as a framework for understanding racism. It allows us to explore the power structure and its imbalances in society.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.whitesupremacyculture.info/what-is-it.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.whitesupremacyculture.info/what-is-it.html" rel="noopener noreferrer" target="_blank" aria-label="Launch What is White Supremacy Culture? (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-bluegreen">
-                  <i class="fa fa-play text-white fa-lg"></i>
+                <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                  <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Nice Racism &amp; White Fragility with Robin DiAngelo - YouTube</h3>
+                  <h4 class="mt-3 fw-semibold h5">Nice Racism &amp; White Fragility with Robin DiAngelo - YouTube</h4>
                   <div>In this talk, Robin DiAngelo explains how racism is at play in white people and how to bring awareness to our condition and own racism to make a change and stop living a segregated life.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.youtube.com/watch?v=ydJDNcQOcbA" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.youtube.com/watch?v=ydJDNcQOcbA" rel="noopener noreferrer" target="_blank" aria-label="Launch Nice Racism &amp; White Fragility with Robin DiAngelo - YouTube (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">What Is Critical Race Theory? A Brief History Explained - The New York Times</h3>
+                  <h4 class="mt-3 fw-semibold h5">What Is Critical Race Theory? A Brief History Explained - The New York Times</h4>
                   <div>This New York times article introduces readers to the history of critical race theory in conceptualizing a framework needed in anti-racism studies.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://web.archive.org/web/20240302075842/https://www.nytimes.com/article/what-is-critical-race-theory.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://web.archive.org/web/20240302075842/https://www.nytimes.com/article/what-is-critical-race-theory.html" rel="noopener noreferrer" target="_blank" aria-label="Launch What Is Critical Race Theory? A Brief History Explained - The New York Times (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -940,71 +1224,71 @@ details.step-container .step-content {
           
           
           <div class="bonus-section mt-4">
-            <h3 class="h5 border-bottom pb-2">Bonus Resources</h3>
+            <h4 class="h5 border-bottom pb-2">Bonus Resources</h4>
             
             
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">Canadian Centre for Diversity and Inclusion (CCDI) Glossary of Terms</h3>
+                    <h4 class="mt-3 fw-semibold h5">Canadian Centre for Diversity and Inclusion (CCDI) Glossary of Terms</h4>
                     <div>This CCDI-developed comprehensive glossary of terms provides a reference for terminology used within the Equity, Diversity, and Inclusion (EDI) and Accessibility learning space.</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://ccdi.ca/media/4005/20230509-glossary-of-idea-terms-en.pdf" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://ccdi.ca/media/4005/20230509-glossary-of-idea-terms-en.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch Canadian Centre for Diversity and Inclusion (CCDI) Glossary of Terms (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-bluegreen">
-                    <i class="fa fa-play text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                    <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">The difference between being &quot;not racist&quot; and antiracist | Ibram X. Kendi - YouTube</h3>
+                    <h4 class="mt-3 fw-semibold h5">The difference between being &quot;not racist&quot; and antiracist | Ibram X. Kendi - YouTube</h4>
                     <div>In this interview, Professor Ibram X. Kendi discusses how being “anti-racist” differs from being “not racist.”</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://www.youtube.com/watch?v=KCxbl5QgFZw" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://www.youtube.com/watch?v=KCxbl5QgFZw" rel="noopener noreferrer" target="_blank" aria-label="Launch The difference between being &quot;not racist&quot; and antiracist | Ibram X. Kendi - YouTube (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">Glossary of Terms – Canadian Race Relations Foundation</h3>
+                    <h4 class="mt-3 fw-semibold h5">Glossary of Terms – Canadian Race Relations Foundation</h4>
                     <div>Glossary of Terms The Canadian Race Relations Foundation maintains a glossary with definitions of key concepts relevant to race relations, the promotion of Canadian identity, belonging and the mutuality of citizenship rights and responsibilities. About the glossary This list includes many of the terms commonly used in anti-racism and equity discourse today. They are gleaned […]</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://crrf-fcrr.ca/glossary-of-terms/" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://crrf-fcrr.ca/glossary-of-terms/" rel="noopener noreferrer" target="_blank" aria-label="Launch Glossary of Terms – Canadian Race Relations Foundation (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -1013,15 +1297,15 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-1">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">History of Racism in Canada</h2>
+              <h3 class="h5 mb-0">History of Racism in Canada</h3>
               <div>
                 <span class="badge bg-blue me-1">2 Required</span>
-                <span class="badge bg-sagegreen me-1">1 Bonus</span>
+                <span class="badge bg-sagegreen text-black me-1">1 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">Learn about the history of racism in Canada to better understand the current context. &quot;Contemporary racial oppression still has deeply connected roots in past racial oppression” and our societies operate within a racial frame that centers whiteness (Elias &amp; Feagin, 2020, p. 21).</div>
@@ -1033,44 +1317,44 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Challenging Racist British Columbia</h3>
+                  <h4 class="mt-3 fw-semibold h5">Challenging Racist British Columbia</h4>
                   <div>A history of racism in British Columbia.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.challengeracistbc.ca/video-series.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.challengeracistbc.ca/video-series.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Challenging Racist British Columbia (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">British Columbia: An Untold History | Knowledge.ca</h3>
+                  <h4 class="mt-3 fw-semibold h5">British Columbia: An Untold History | Knowledge.ca</h4>
                   <div>Indigenous, Chinese, Japanese, Punjabi, Black, and European stories are woven together to present an astute look at the complicated histories that shaped BC as we know it today.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.knowledge.ca/program/british-columbia-untold-history" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.knowledge.ca/program/british-columbia-untold-history" rel="noopener noreferrer" target="_blank" aria-label="Launch British Columbia: An Untold History | Knowledge.ca (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1078,27 +1362,27 @@ details.step-container .step-content {
           
           
           <div class="bonus-section mt-4">
-            <h3 class="h5 border-bottom pb-2">Bonus Resources</h3>
+            <h4 class="h5 border-bottom pb-2">Bonus Resources</h4>
             
             
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</h3>
+                    <h4 class="mt-3 fw-semibold h5">Racism in Canada: Words to tell wrongs | Radio-Canada.ca</h4>
                     <div>Canada is usually referred to as a country of immigration, a country open to difference, a country that embraces multiculturalism. But more and more voices are rising to denounce ordinary or systemic racism and racist incidents, some of them tragic.</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://ici.radio-canada.ca/rci/en/news/1882127/racism-in-canada-words-to-tell-wrongs" rel="noopener noreferrer" target="_blank" aria-label="Launch Racism in Canada: Words to tell wrongs | Radio-Canada.ca (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -1107,12 +1391,12 @@ details.step-container .step-content {
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-2">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">Colours of Racism in Canada</h2>
+              <h3 class="h5 mb-0">Colours of Racism in Canada</h3>
               <div>
                 <span class="badge bg-blue me-1">5 Required</span>
                 
@@ -1127,39 +1411,39 @@ details.step-container .step-content {
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Yes—Canada has anti-Black racism, too - YouTube</h3>
+                  <h4 class="mt-3 fw-semibold h5">Yes—Canada has anti-Black racism, too - YouTube</h4>
                   <div>To the uninitiated, Canada may have a reputation for friendly and folksy charm. For Black and Indigenous peoples of the &#039;Great White North,&#039; this veneer beli...</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.youtube.com/watch?v=fNk633ujvWk" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.youtube.com/watch?v=fNk633ujvWk" rel="noopener noreferrer" target="_blank" aria-label="Launch Yes—Canada has anti-Black racism, too - YouTube (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">From hate to hope | BC&#039;s Office of the Human Rights Commissioner</h3>
+                  <h4 class="mt-3 fw-semibold h5">From hate to hope | BC&#039;s Office of the Human Rights Commissioner</h4>
                   <div>From hate to hope
 Inquiry into hate in the COVID-19 pandemic
 In August 2021, B.C.’s Human Rights Commissioner launched an inquiry into the rise of hate in B.C. during the COVID-19 pandemic. In March 2023, the Commissioner released her findings and recommendations.
@@ -1167,74 +1451,74 @@ In August 2021, B.C.’s Human Rights Commissioner launched an inquiry into the 
 Illustrations by Paige Jung</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://bchumanrights.ca/inquiries-and-cases/inquiries/inquiry/inquiry-into-hate/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://bchumanrights.ca/inquiries-and-cases/inquiries/inquiry/inquiry-into-hate/" rel="noopener noreferrer" target="_blank" aria-label="Launch From hate to hope | BC&#039;s Office of the Human Rights Commissioner (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Combatting Hate: Islamophobia and its impact on Muslims in Canada</h3>
+                  <h4 class="mt-3 fw-semibold h5">Combatting Hate: Islamophobia and its impact on Muslims in Canada</h4>
                   <div>Rampant Islamophobia is costing Canadian Muslims their peace of mind, their physical well-being and even their lives.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://sencanada.ca/en/info-page/parl-44-1/ridr-islamophobia/" rel="noopener noreferrer" target="_blank" aria-label="Launch Combatting Hate: Islamophobia and its impact on Muslims in Canada (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Addressing Racism in BC Health Care</h3>
+                  <h4 class="mt-3 fw-semibold h5">Addressing Racism in BC Health Care</h4>
                   <div>Participate in the investigation into Indigenous-specific discrimination in the health system in BC.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://engage.gov.bc.ca/addressingracism/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://engage.gov.bc.ca/addressingracism/" rel="noopener noreferrer" target="_blank" aria-label="Launch Addressing Racism in BC Health Care (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Brief History of Antisemitism in Canada</h3>
+                  <h4 class="mt-3 fw-semibold h5">Brief History of Antisemitism in Canada</h4>
                   <div>This Montreal Holocaust Museum report uncovers the history of Antisemitism that greatly affects the Jewish community in Canada.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://museeholocauste.ca/app/uploads/2018/10/brief_history_antisemitism_canada.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch Brief History of Antisemitism in Canada (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1244,15 +1528,15 @@ Illustrations by Paige Jung</div>
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-3">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">Existing Legislation, Policies and Strategies</h2>
+              <h3 class="h5 mb-0">Existing Legislation, Policies and Strategies</h3>
               <div>
                 <span class="badge bg-blue me-1">8 Required</span>
-                <span class="badge bg-sagegreen me-1">2 Bonus</span>
+                <span class="badge bg-sagegreen text-black me-1">2 Bonus</span>
               </div>
             </div>
             <div class="step-summary text-muted mt-1">This module emphasizes on the relevant legislations and policies available in British Columbia.</div>
@@ -1264,176 +1548,176 @@ Illustrations by Paige Jung</div>
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-bluegreen">
-                  <i class="fa fa-play text-white fa-lg"></i>
+                <div class="activity-icon-container bg-bluegreen" aria-hidden="true" role="presentation">
+                  <i class="fa fa-play text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Human rights in B.C. | BC&#039;s Office of the Human Rights Commissioner</h3>
+                  <h4 class="mt-3 fw-semibold h5">Human rights in B.C. | BC&#039;s Office of the Human Rights Commissioner</h4>
                   <div>The Human Rights Code helps protect people against discrimination in B.C. based on parts of their identity.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://bchumanrights.ca/human-rights/human-rights-in-bc/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://bchumanrights.ca/human-rights/human-rights-in-bc/" rel="noopener noreferrer" target="_blank" aria-label="Launch Human rights in B.C. | BC&#039;s Office of the Human Rights Commissioner (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">The Anti-Racism Data Act -</h3>
+                  <h4 class="mt-3 fw-semibold h5">The Anti-Racism Data Act -</h4>
                   <div>On May 2, 2022, we introduced the Anti-Racism Data Act. Its one of the first pieces of legislation to be co-developed with Indigenous Peoples under the Declaration on the Rights of Indigenous Peoples Act.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://antiracism.gov.bc.ca/data-act/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://antiracism.gov.bc.ca/data-act/" rel="noopener noreferrer" target="_blank" aria-label="Launch The Anti-Racism Data Act - (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Declaration on the Rights of Indigenous Peoples Act Action Plan</h3>
+                  <h4 class="mt-3 fw-semibold h5">Declaration on the Rights of Indigenous Peoples Act Action Plan</h4>
                   <div>The Action Plan outlines goals and outcomes for ending Indigenous-specific racism and discrimination in British Columbia.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch Declaration on the Rights of Indigenous Peoples Act Action Plan (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">HR Policy 11 – Discrimination, Bullying and Harassment in the Workplace</h3>
+                  <h4 class="mt-3 fw-semibold h5">HR Policy 11 – Discrimination, Bullying and Harassment in the Workplace</h4>
                   <div>The purpose of this policy is to promote safe, healthy BC Public Service workplaces, free from discrimination, bullying and harassment. This policy covers individual behaviours and accountability. The BC Public Service, in cooperation with its unions and associations, is committed to promoting respectful behaviour. Respectful behaviour reflects BC Public Service corporate ethics and values, supports diversity and inclusion and promotes positive communication and collaborative working relationships – all essential to fostering public trust and confidence in the BC Public Service.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/hr_policy_11_discrimination_bullying_and_harassment_in_the_workplace.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/hr_policy_11_discrimination_bullying_and_harassment_in_the_workplace.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch HR Policy 11 – Discrimination, Bullying and Harassment in the Workplace (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">HR Policy 09 – Standards of Conduct for BC Public Service Employees</h3>
+                  <h4 class="mt-3 fw-semibold h5">HR Policy 09 – Standards of Conduct for BC Public Service Employees</h4>
                   <div>This policy statement applies to all persons and organizations covered by the Public Service Act. The policy statement supports the core policy objective that “public service employees exhibit the highest standards of conduct.”</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/09_standards_conduct_policy.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/assets/gov/careers/managers-supervisors/managing-employee-labour-relations/hr-policy-pdf-documents/09_standards_conduct_policy.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch HR Policy 09 – Standards of Conduct for BC Public Service Employees (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Equity, Diversity &amp; Inclusion Strategy for the BC Public Service - Province of British Columbia</h3>
+                  <h4 class="mt-3 fw-semibold h5">Equity, Diversity &amp; Inclusion Strategy for the BC Public Service - Province of British Columbia</h4>
                   <div>The BC Public Service is an inclusive employer representative of the people of British Columbia. Everyone belongs. This page outlines Where We All Belong, the three-year diversity and inclusion strategy for the BC Public Service.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/gov/content/careers-myhr/about-the-bc-public-service/diversity-inclusion/diversity-inclusion-strategy#di_strategy" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/gov/content/careers-myhr/about-the-bc-public-service/diversity-inclusion/diversity-inclusion-strategy#di_strategy" rel="noopener noreferrer" target="_blank" aria-label="Launch Equity, Diversity &amp; Inclusion Strategy for the BC Public Service - Province of British Columbia (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">2023 Corporate HR Plan</h3>
+                  <h4 class="mt-3 fw-semibold h5">2023 Corporate HR Plan</h4>
                   <div>The corporate HR plan sets the strategic vision and guiding direction for the BC Public Service.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/assets/gov/careers/about-the-bc-public-service/corporate-digital/corporateplan_2023.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/assets/gov/careers/about-the-bc-public-service/corporate-digital/corporateplan_2023.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch 2023 Corporate HR Plan (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Address a respectful workplace issue - Province of British Columbia</h3>
+                  <h4 class="mt-3 fw-semibold h5">Address a respectful workplace issue - Province of British Columbia</h4>
                   <div>How to address a workplace conflict</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/working-with-others/address-a-respectful-workplace-issue" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/working-with-others/address-a-respectful-workplace-issue" rel="noopener noreferrer" target="_blank" aria-label="Launch Address a respectful workplace issue - Province of British Columbia (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1441,49 +1725,49 @@ Illustrations by Paige Jung</div>
           
           
           <div class="bonus-section mt-4">
-            <h3 class="h5 border-bottom pb-2">Bonus Resources</h3>
+            <h4 class="h5 border-bottom pb-2">Bonus Resources</h4>
             
             
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">Charter of Rights and Freedoms</h3>
+                    <h4 class="mt-3 fw-semibold h5">Charter of Rights and Freedoms</h4>
                     <div>Among others, section 15 of the Charter of Rights addresses our right to be free from discrimination based on race, national or ethnic origin, colour, religion, sex, age and mental or physical disability.</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://laws.justice.gc.ca/eng/Const/page-12.html" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://laws.justice.gc.ca/eng/Const/page-12.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Charter of Rights and Freedoms (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="activity mb-4">
                 <div class="activity-container d-flex rounded border-sagegreen">
-                  <div class="activity-icon-container bg-sagedark">
-                    <i class="fa fa-book text-white fa-lg"></i>
+                  <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                    <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                   </div>
                   <div class="flex-grow-1 px-3 pt-2">
                     <div class="d-flex align-items-center">
-                      <div class="badge bg-sagegreen">Bonus</div>
-                      <div class="badge launched-badge d-none">
-                        <i class="fa fa-check-circle me-1"></i> Launched
+                      <div class="badge bg-sagegreen text-black">Bonus</div>
+                      <div class="badge launched-badge d-none" aria-live="polite">
+                        <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                       </div>
                     </div>
-                    <h3 class="mt-3 fw-semibold h5">A Progress Report on Anti-Racism Policy Across Canada</h3>
+                    <h4 class="mt-3 fw-semibold h5">A Progress Report on Anti-Racism Policy Across Canada</h4>
                     <div>This Report examines the development of anti-racism legislation in three Canadian provinces and underscores the existing Pan-Canadian gaps.</div>
                     
                     <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                      href="https://peopleforeducation.ca/wp-content/uploads/2023/01/PFE-AntiRacismReport-EN-2023-v1d.pdf" rel="noopener noreferrer" target="_blank">
-                      Launch <i class="fa fa-external-link-alt ms-1"></i>
+                      href="https://peopleforeducation.ca/wp-content/uploads/2023/01/PFE-AntiRacismReport-EN-2023-v1d.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch A Progress Report on Anti-Racism Policy Across Canada (opens in new tab)">
+                      Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -1492,12 +1776,12 @@ Illustrations by Paige Jung</div>
         </div>
       </details>
       <details class="step-container rounded mb-4" id="step-4">
-        <summary>
+        <summary role="button" aria-expanded="false" tabindex="0">
           <!-- Add an explicit caret icon for browsers that might hide the native marker -->
-          <i class="fa fa-caret-right caret-icon me-2"></i>
+          <i class="fa fa-caret-right caret-icon me-2" aria-hidden="true"></i>
           <div class="summary-content">
             <div class="d-flex justify-content-between align-items-center w-100">
-              <h2 class="h5 mb-0">Becoming Anti-Racist in BC Public Service</h2>
+              <h3 class="h5 mb-0">Becoming Anti-Racist in BC Public Service</h3>
               <div>
                 <span class="badge bg-blue me-1">5 Required</span>
                 
@@ -1512,39 +1796,39 @@ Illustrations by Paige Jung</div>
           
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">BCGEU Anti-Racism Resources</h3>
+                  <h4 class="mt-3 fw-semibold h5">BCGEU Anti-Racism Resources</h4>
                   <div>The BC General Employees Union (BCGEU) webpage also has various resources on anti-racism for membership.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.bcgeu.ca/antiracismresources" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.bcgeu.ca/antiracismresources" rel="noopener noreferrer" target="_blank" aria-label="Launch BCGEU Anti-Racism Resources (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Anti-Racist &quot;Zones&quot; Infographic</h3>
+                  <h4 class="mt-3 fw-semibold h5">Anti-Racist &quot;Zones&quot; Infographic</h4>
                   <div>Becoming Anti-Racist Infographic describes the different zones an individual progresses through on their journey to being Anti-Racist.</div>
                   
                   <div class="curatorcontext">
@@ -1552,74 +1836,74 @@ Illustrations by Paige Jung</div>
                     <blockquote>A picture is worth 1000 words.</blockquote>
                   </div>
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/becoming-anti-racist-infographic.html" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://gww.bcpublicservice.gov.bc.ca/learning/curator/anti-racism-in-bcps/becoming-anti-racist-infographic.html" rel="noopener noreferrer" target="_blank" aria-label="Launch Anti-Racist &quot;Zones&quot; Infographic (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">What You Can Do to Create an Anti-Racist Organization</h3>
+                  <h4 class="mt-3 fw-semibold h5">What You Can Do to Create an Anti-Racist Organization</h4>
                   <div>This opinion piece presents three critical elements for creating a roadmap that helps individuals learn how to be actively anti-racist.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.hbs.edu/recruiting/insights-and-advice/blog/post/building-organizations-cultures-awareness-accountability" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.hbs.edu/recruiting/insights-and-advice/blog/post/building-organizations-cultures-awareness-accountability" rel="noopener noreferrer" target="_blank" aria-label="Launch What You Can Do to Create an Anti-Racist Organization (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Resilience BC</h3>
+                  <h4 class="mt-3 fw-semibold h5">Resilience BC</h4>
                   <div>Resilience BCs Anti-Racism Network provides tools to help you make a future free of racism and hate a reality.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://www.resiliencebc.ca/learn-more-about-racism/anti-racism-tools/" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://www.resiliencebc.ca/learn-more-about-racism/anti-racism-tools/" rel="noopener noreferrer" target="_blank" aria-label="Launch Resilience BC (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
             <div class="activity mb-4">
               <div class="activity-container d-flex rounded">
-                <div class="activity-icon-container bg-sagedark">
-                  <i class="fa fa-book text-white fa-lg"></i>
+                <div class="activity-icon-container bg-sagedark" aria-hidden="true" role="presentation">
+                  <i class="fa fa-book text-white fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow-1 px-3 pt-2">
                   <div class="d-flex align-items-center">
                     <div class="badge activity-badge">Required</div>
-                    <div class="badge launched-badge d-none">
-                      <i class="fa fa-check-circle me-1"></i> Launched
+                    <div class="badge launched-badge d-none" aria-live="polite">
+                      <i class="fa fa-check-circle me-1" aria-hidden="true"></i> Launched
                     </div>
                   </div>
-                  <h3 class="mt-3 fw-semibold h5">Anti-discrimination policies and addressing complaints</h3>
+                  <h4 class="mt-3 fw-semibold h5">Anti-discrimination policies and addressing complaints</h4>
                   <div>The toolkit was created by BCs Office of the Human Rights Commissioner (BCOHRC) to help employers learn how to improve employment equity within their businesses and organizations.</div>
                   
                   <a class="btn btn-primary text-white my-3 launch-btn" title="Launch this activity"
-                    href="https://bchumanrights.ca/wp-content/uploads/Infosheet_discrimination-and-complaint-resolution.pdf" rel="noopener noreferrer" target="_blank">
-                    Launch <i class="fa fa-external-link-alt ms-1"></i>
+                    href="https://bchumanrights.ca/wp-content/uploads/Infosheet_discrimination-and-complaint-resolution.pdf" rel="noopener noreferrer" target="_blank" aria-label="Launch Anti-discrimination policies and addressing complaints (opens in new tab)">
+                    Launch <i class="fa fa-external-link-alt ms-1" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -1631,12 +1915,12 @@ Illustrations by Paige Jung</div>
   </main>
 
   
-  <footer class="mt-5">
+  <footer class="mt-5" role="contentinfo">
     <div class="card mb-4 border-blue">
       <div class="card-header bg-blue text-white">
-        <h2 class="h5 mb-0"><i class="fa fa-award me-2"></i>Acknowledgments</h2>
+        <h3 class="h5 mb-0" id="acknowledgments-heading"><i class="fa fa-award me-2" aria-hidden="true"></i>Acknowledgments</h3>
       </div>
-      <div class="card-body">
+      <div class="card-body" aria-labelledby="acknowledgments-heading">
         The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.<br><br>In particular, our sincere thanks go out to colleagues and partners at the following entities:<br><br>* Policy &amp; Legislation, BC Data Service, CITZ<br>* Multiculturalism &amp; Anti-Racism Branch, AG<br>* PSA REDI, Policy and Employee Relations<br>* SDPR Inclusion, Diversity and Cultural Safety (IDCS) &amp; Anti-Racism 101 course<br>* BIPOC Employee Resource Group<br>* Indigenous Employees Network
       </div>
     </div>
