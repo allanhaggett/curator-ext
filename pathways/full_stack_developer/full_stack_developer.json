@@ -207,6 +207,21 @@
       {
         "bookmarks": [
           {
+            "added": 1746900276832,
+            "available": null,
+            "checkError": null,
+            "contentType": "Participate",
+            "context": "Get good at understanding this and the world is your oyster.",
+            "description": "Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing CSS code! Guide this frog to the lilypad on the right by using the justify-content property, which aligns items horizontally.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Flexbox Froggy - A game for learning CSS flexbox",
+            "type": "Required",
+            "url": "https://flexboxfroggy.com/",
+            "sortOrder": 0
+          },
+          {
             "added": 1746463075670,
             "available": true,
             "checkError": null,
@@ -217,7 +232,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851172890,
             "redirectUrl": null,
-            "sortOrder": 0,
+            "sortOrder": 1,
             "status": 200,
             "title": "Tailwind Labs - YouTube",
             "type": "Required",
@@ -234,7 +249,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851174171,
             "redirectUrl": null,
-            "sortOrder": 1,
+            "sortOrder": 2,
             "status": 200,
             "title": "10 ways to speed up web font loading",
             "type": "Required",
@@ -251,7 +266,7 @@
             "isExemptDomain": false,
             "lastChecked": 1746851175581,
             "redirectUrl": null,
-            "sortOrder": 2,
+            "sortOrder": 3,
             "status": 200,
             "title": "SimplePie Documentation: Documentation",
             "type": "Required",
@@ -267,28 +282,11 @@
             "isExemptDomain": false,
             "lastChecked": 1746851176775,
             "redirectUrl": null,
-            "sortOrder": 3,
+            "sortOrder": 4,
             "status": 200,
             "title": "</> htmx - high power tools for html",
             "type": "Required",
             "url": "https://htmx.org/"
-          },
-          {
-            "added": 1746675196588,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "Good words.",
-            "description": "Web dev at the end of the world, from Hveragerði, Iceland",
-            "isExemptDomain": false,
-            "lastChecked": 1746851178044,
-            "redirectUrl": null,
-            "sortOrder": 4,
-            "status": 200,
-            "title": "What do I need to read to be a great at CSS?",
-            "type": "Bonus",
-            "url": "https://www.baldurbjarnason.com/2021/what-do-i-need-to-read-to-be-a-css-dev/"
           },
           {
             "added": 1746484614034,
@@ -343,23 +341,6 @@
             "url": "https://hackernoon.com/a-beginners-guide-to-html-css-and-javascript"
           },
           {
-            "added": 1746852583743,
-            "available": true,
-            "checkError": "Requires authentication (403)",
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "",
-            "lastChecked": 1746855440881,
-            "redirectUrl": null,
-            "requiresAuth": true,
-            "status": 403,
-            "title": "JavaScript click event listener on class - Stack Overflow",
-            "type": "Bonus",
-            "url": "https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class",
-            "sortOrder": 8
-          },
-          {
             "added": 1746854005241,
             "available": true,
             "checkError": null,
@@ -374,7 +355,7 @@
             "title": "Semantics - MDN Web Docs Glossary: Definitions of Web-related terms | MDN",
             "type": "Required",
             "url": "https://developer.mozilla.org/en-US/docs/Glossary/Semantics",
-            "sortOrder": 9
+            "sortOrder": 8
           }
         ],
         "name": "Front End",
