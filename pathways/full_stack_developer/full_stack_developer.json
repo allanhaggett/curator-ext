@@ -3,10 +3,66 @@
     "acknowledgments": "The Corporate Learning Branch would like to acknowledge the support we received from many of our colleagues and partners in multiple branches/ministries during the development of this learning resource. We also appreciate the invaluable comments we received during our engagement sessions.\n\nIn particular, our sincere thanks go out to colleagues and partners at the following entities:\n\n* Policy & Legislation, BC Data Service, CITZ\n* Multiculturalism & Anti-Racism Branch, AG\n* PSA REDI, Policy and Employee Relations\n* SDPR Inclusion, Diversity and Cultural Safety (IDCS) & Anti-Racism 101 course\n* BIPOC Employee Resource Group\n* Indigenous Employees Network",
     "contentWarning": "!!!WARNING: Please basically ignore this pathway. This is an ad hoc development pathway that I've been using to quickly test this system. The links contained within work but many times the \"curator context\" is comedically incomplete or wrong. ",
     "created": 1746391996332,
-    "description": "Good links to all parts of the stack, even though that's a ridiculously large area. Version bump?",
-    "lastUpdated": 1746851644790,
+    "description": "Good links to all parts of the stack, even though that's a ridiculously large area. ",
+    "lastUpdated": 1746899243920,
     "name": "Full Stack Developer",
     "steps": [
+      {
+        "bookmarks": [
+          {
+            "added": 1746162080667,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Good tool.",
+            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851158861,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "Diceware Passphrase Home",
+            "type": "Required",
+            "url": "https://theworld.com/~reinhold/diceware.html"
+          },
+          {
+            "added": 1746683672525,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851160078,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "List of Emojis HEX/HTML Codes - DEV Community",
+            "type": "Required",
+            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
+          },
+          {
+            "added": 1746682509164,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851157357,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
+            "type": "Required",
+            "url": "https://proton.me/blog/anonymity-vs-privacy"
+          }
+        ],
+        "name": "Security",
+        "objective": "Stay safe. Put security first."
+      },
       {
         "bookmarks": [
           {
@@ -327,62 +383,6 @@
       {
         "bookmarks": [
           {
-            "added": 1746682509164,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Anonymity is not the same thing as privacy, and confusing these two concepts can weaken your online security.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851157357,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Privacy Decrypted #4: Understanding anonymity vs. privacy | Proton",
-            "type": "Required",
-            "url": "https://proton.me/blog/anonymity-vs-privacy"
-          },
-          {
-            "added": 1746162080667,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Good tool.",
-            "description": "This page offers a better way to create a strong, yet easy to remember, passphrase for use with encryption and security programs. Weak passwords and passphrases are one of the most common flaws in computer security. Take a few minutes and learn how to do it right. The information presented here can be used by anyone. No background in cryptography or mathematics is required. Just follow the simple steps below.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851158861,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "Diceware Passphrase Home",
-            "type": "Required",
-            "url": "https://theworld.com/~reinhold/diceware.html"
-          },
-          {
-            "added": 1746683672525,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "Animal Emoji             Animal Type             Unicode Hex            ... Tagged with webdev, emoji, hexcodes, html.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851160078,
-            "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
-            "title": "List of Emojis HEX/HTML Codes - DEV Community",
-            "type": "Required",
-            "url": "https://dev.to/rodrigoodhin/list-of-emojis-hex-codes-35ma"
-          }
-        ],
-        "name": "Security",
-        "objective": "Stay safe. Put security first."
-      },
-      {
-        "bookmarks": [
-          {
             "added": 1746387326104,
             "available": true,
             "checkError": null,
@@ -446,6 +446,21 @@
             "title": "Linux: An Introduction to User Management - The New Stack",
             "type": "Required",
             "url": "https://thenewstack.io/linux-an-introduction-to-user-management/"
+          },
+          {
+            "added": 1746899871868,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "Might be cool I dunno 🤷",
+            "description": "Zotero is a free, easy-to-use tool to help you collect, organize, cite, and share research.",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "Zotero | Your personal research assistant",
+            "type": "Bonus",
+            "url": "https://www.zotero.org/",
+            "sortOrder": 4
           }
         ],
         "name": "Misc",
