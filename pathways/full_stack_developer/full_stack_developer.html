@@ -351,19 +351,30 @@ details.step-container .step-content {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: var(--sagedark);
+      background-color: #343a40; /* Darker color that works in both modes */
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      border: none;
+      border: 2px solid #dee2e6; /* Light border for visibility in both modes */
       transition: all 0.3s ease;
     }
 
     #darkModeToggle:hover {
       transform: scale(1.05);
+      background-color: #495057; /* Lighter color on hover */
+      border-color: #ced4da;
+    }
+
+    body.dark-mode #darkModeToggle {
+      border-color: #495057; /* Darker border in dark mode */
+    }
+
+    body.dark-mode #darkModeToggle:hover {
+      background-color: #212529; /* Darker color on hover in dark mode */
+      border-color: #adb5bd;
     }
 
     /* Dark mode styles */
@@ -382,11 +393,16 @@ details.step-container .step-content {
     body.dark-mode .card {
       background-color: #1e1e1e;
       border-color: #2d2d2d;
+      color: #e0e0e0; /* Ensure text is white in all cards */
     }
 
     body.dark-mode .card-header {
       background-color: #2d2d2d;
       border-bottom-color: #3d3d3d;
+    }
+
+    body.dark-mode .card-body {
+      color: #e0e0e0; /* Explicitly set card body text to light color */
     }
 
     /* Dark mode details/summary styles */
@@ -479,6 +495,21 @@ details.step-container .step-content {
       background-color: #252525;
       padding: 0.5rem;
       border-radius: 0.25rem;
+    }
+
+    /* Dark mode for content warning */
+    body.dark-mode .bg-warning-subtle {
+      background-color: #332701 !important; /* Darker amber color for warning in dark mode */
+      color: #e0e0e0;
+    }
+
+    /* Keep the summary visible in dark mode */
+    body.dark-mode details summary {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode details summary.text-black {
+      color: #ffc107 !important; /* Amber color for warning text in dark mode */
     }
 
     /* Search highlight in dark mode */
@@ -973,11 +1004,11 @@ details.step-container .step-content {
 
     <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area. Version bump?</div>
 
-    <div class="text-muted small mb-3">Last updated: 5/9/2025, 10:55:28 PM</div>
+    <div class="text-muted small mb-3">Last updated: 5/9/2025, 11:08:51 PM</div>
 
     
-    <details class="mb-4 p-3 text-black bg-warning-subtle rounded-3">
-      <summary role="button" aria-expanded="false" tabindex="0">
+    <details class="mb-4 p-3 bg-warning-subtle rounded-3">
+      <summary role="button" aria-expanded="false" tabindex="0" class="text-black">
         <i class="fa fa-exclamation-triangle me-2" aria-hidden="true"></i> Before you proceed...
       </summary>
       <div class="p-3 border-top" id="content-warning-text">
@@ -1060,7 +1091,7 @@ details.step-container .step-content {
                 
               </div>
             </div>
-            <div class="step-summary text-muted mt-1">Stay safe. Put security first.</div>
+            <div class="step-summary text-muted mt-1"><strong>Objective:</strong> Stay safe. Put security first.</div>
           </div>
         </summary>
         <div class="step-content">
@@ -1153,7 +1184,7 @@ details.step-container .step-content {
                 <span class="badge bg-sagegreen text-black me-1">1 Bonus</span>
               </div>
             </div>
-            <div class="step-summary text-muted mt-1">Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
+            <div class="step-summary text-muted mt-1"><strong>Objective:</strong> Stuff for the backend from databases to ETL processes and basic OS stuff.</div>
           </div>
         </summary>
         <div class="step-content">
@@ -1351,7 +1382,7 @@ details.step-container .step-content {
                 <span class="badge bg-sagegreen text-black me-1">2 Bonus</span>
               </div>
             </div>
-            <div class="step-summary text-muted mt-1">All the client things. HTML, CSS, Javascript</div>
+            <div class="step-summary text-muted mt-1"><strong>Objective:</strong> All the client things. HTML, CSS, Javascript</div>
           </div>
         </summary>
         <div class="step-content">
@@ -1633,7 +1664,7 @@ details.step-container .step-content {
                 
               </div>
             </div>
-            <div class="step-summary text-muted mt-1">Random links related to dev but not dev directly.</div>
+            <div class="step-summary text-muted mt-1"><strong>Objective:</strong> Random links related to dev but not dev directly.</div>
           </div>
         </summary>
         <div class="step-content">
@@ -1760,7 +1791,7 @@ details.step-container .step-content {
                 
               </div>
             </div>
-            <div class="step-summary text-muted mt-1">All the different platforms where courses are hosted.</div>
+            <div class="step-summary text-muted mt-1"><strong>Objective:</strong> All the different platforms where courses are hosted.</div>
           </div>
         </summary>
         <div class="step-content">
