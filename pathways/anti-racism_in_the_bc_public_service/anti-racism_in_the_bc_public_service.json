@@ -4,7 +4,7 @@
     "contentWarning": "> \"Not everything that is faced can be changed, but nothing can be changed until it is faced.\" — James Baldwin\n\nThis learning pathway deals with sensitive topics. It touches on racism, inequity, power structures and the inherent imbalances that exist in our society, culture, and organizations.\n\nThe content of this pathway is primarily tailored for those new to the subject area. We, however, recognize that thousands of BC Public Service employees who represent the Black, Indigenous, and People of Color (BIPOC) and other marginalized communities are also completing this learning and may have a different baseline of knowledge and lived experience.\n\nIrrespective of your life experiences, be prepared for moments when you will feel uncomfortable. Know that discomfort is normal and is often a prerequisite for positive change and growth. When you feel discomfort, it's not a sign that something is wrong — it's a sign that you are doing something right.\n\nSome learners may find the training overwhelming due to personal experiences with racism and other forms of discrimination. In such circumstances, we encourage you to step back, prioritize emotional health, and return to the content.\n\nAs employees, you have access to [Employee and Family Assistance Services](https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/health-safety-and-sick-leave-resources/health/efas?keyword=EFAS) anytime you need. You will also find resources and other workplace support mechanisms related to anti-racism within module four and five of these pathways.\n\nCanadians in crisis can also call or text 9-8-8 24/7 to access bilingual, trauma-informed, and culturally appropriate mental health, and suicide prevention support.\n\nLet's dive into the learning journey with open minds and hearts as we strive to make BC Public Service an equitable, inclusive, and anti-racist organization.\n\nIn the words of Maya Angelou, **\"Do the best you can until you know better. Then when you know better, do better.\"** This learning pathway is designed with that learning spirit in mind.",
     "created": 1746165855980,
     "description": "Learners have a better understanding of what it means to be “anti-racist” and what role they have within the BC Public Service in improving their capacities to respond to discrimination and racism at work.",
-    "lastUpdated": 1746901888146,
+    "lastUpdated": 1746904859706,
     "name": "Anti-Racism in the BC Public Service",
     "steps": [
       {
@@ -415,24 +415,6 @@
       {
         "bookmarks": [
           {
-            "added": 1746584052882,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "",
-            "description": "The Action Plan outlines goals and outcomes for ending Indigenous-specific racism and discrimination in British Columbia.",
-            "isExemptDomain": false,
-            "lastChecked": 1746851137037,
-            "redirectUrl": null,
-            "requiresAuth": false,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "Declaration on the Rights of Indigenous Peoples Act Action Plan",
-            "type": "Required",
-            "url": "https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf"
-          },
-          {
             "added": 1746583988965,
             "available": true,
             "checkError": null,
@@ -444,7 +426,7 @@
             "lastChecked": 1746851134617,
             "redirectUrl": null,
             "requiresAuth": false,
-            "sortOrder": 1,
+            "sortOrder": 0,
             "status": 200,
             "title": "Human rights in B.C. | BC's Office of the Human Rights Commissioner",
             "type": "Required",
@@ -462,11 +444,29 @@
             "lastChecked": 1746851135938,
             "redirectUrl": null,
             "requiresAuth": false,
-            "sortOrder": 2,
+            "sortOrder": 1,
             "status": 200,
             "title": "The Anti-Racism Data Act -",
             "type": "Required",
             "url": "https://antiracism.gov.bc.ca/data-act/"
+          },
+          {
+            "added": 1746584052882,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "The Action Plan outlines goals and outcomes for ending Indigenous-specific racism and discrimination in British Columbia.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851137037,
+            "redirectUrl": null,
+            "requiresAuth": false,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "Declaration on the Rights of Indigenous Peoples Act Action Plan",
+            "type": "Required",
+            "url": "https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/indigenous-relations-reconciliation/declaration_act_action_plan.pdf"
           },
           {
             "added": 1746584099582,
@@ -513,7 +513,7 @@
             "context": "",
             "description": "The BC Public Service is an inclusive employer representative of the people of British Columbia. Everyone belongs. This page outlines Where We All Belong, the three-year diversity and inclusion strategy for the BC Public Service.",
             "isExemptDomain": false,
-            "lastChecked": 1746857984558,
+            "lastChecked": 1746851140473,
             "redirectUrl": "https://www2.gov.bc.ca/gov/content/careers-myhr/about-the-bc-public-service/diversity-inclusion/diversity-inclusion-strategy",
             "requiresAuth": false,
             "sortOrder": 5,
@@ -557,25 +557,53 @@
             "title": "Address a respectful workplace issue - Province of British Columbia",
             "type": "Required",
             "url": "https://www2.gov.bc.ca/gov/content/careers-myhr/all-employees/working-with-others/address-a-respectful-workplace-issue"
+          },
+          {
+            "added": 1746584243288,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "Among others, section 15 of the Charter of Rights addresses our right to be free from discrimination based on race, national or ethnic origin, colour, religion, sex, age and mental or physical disability.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851145523,
+            "redirectUrl": null,
+            "sortOrder": 8,
+            "status": 200,
+            "title": "Charter of Rights and Freedoms",
+            "type": "Bonus",
+            "url": "https://laws.justice.gc.ca/eng/Const/page-12.html"
+          },
+          {
+            "added": 1746584305893,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "",
+            "description": "This Report examines the development of anti-racism legislation in three Canadian provinces and underscores the existing Pan-Canadian gaps.",
+            "isExemptDomain": false,
+            "lastChecked": 1746851146807,
+            "redirectUrl": null,
+            "sortOrder": 9,
+            "status": 200,
+            "title": "A Progress Report on Anti-Racism Policy Across Canada",
+            "type": "Bonus",
+            "url": "https://peopleforeducation.ca/wp-content/uploads/2023/01/PFE-AntiRacismReport-EN-2023-v1d.pdf"
           }
         ],
         "name": "Existing Legislation, Policies and Strategies",
         "objective": "This module emphasizes on the relevant legislations and policies available in British Columbia."
       }
     ],
-    "version": "z8tmjj-2025-05-10",
+    "version": "f757t3-2025-05-10",
     "versionHistory": [
-      {
-        "bookmarkCount": 31,
-        "hash": "z8tmjj-2025-05-10",
-        "stepCount": 5,
-        "timestamp": 1746901888146
-      },
       {
         "bookmarkCount": 33,
         "hash": "f757t3-2025-05-10",
         "stepCount": 5,
-        "timestamp": 1746901868823
+        "timestamp": 1746904859706
       },
       {
         "bookmarkCount": 33,
