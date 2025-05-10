@@ -333,6 +333,77 @@
       {
         "bookmarks": [
           {
+            "added": 1746387326104,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "Because iut's good.",
+            "description": "Principles to help you write unique and compelling UX Design case studies for your portfolio.",
+            "isExemptDomain": false,
+            "lastChecked": 1746819696483,
+            "redirectUrl": null,
+            "sortOrder": 0,
+            "status": 200,
+            "title": "5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools",
+            "type": "Required",
+            "url": "https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/"
+          },
+          {
+            "added": 1746386963340,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "It doesn't matter how good your system is for taking backups if you never try to restore from those backups.",
+            "description": "Archivematica: open-source digital preservation system",
+            "isExemptDomain": false,
+            "lastChecked": 1746819697766,
+            "redirectUrl": null,
+            "sortOrder": 1,
+            "status": 200,
+            "title": "Archivematica: open-source digital preservation system",
+            "type": "Required",
+            "url": "https://www.archivematica.org/en/"
+          },
+          {
+            "added": 1746386026764,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "context": "You might be asked to track how much time you're spending on different projects.",
+            "description": "Open source IDE plugins for programmers.",
+            "isExemptDomain": false,
+            "lastChecked": 1746819699017,
+            "redirectUrl": null,
+            "sortOrder": 2,
+            "status": 200,
+            "title": "WakaTime - Dashboards for developers",
+            "type": "Required",
+            "url": "https://wakatime.com/"
+          },
+          {
+            "added": 1746419388430,
+            "available": true,
+            "checkError": null,
+            "checkMethod": "fetch-direct",
+            "contentType": "Read",
+            "context": "Basics! Gotta learn it.",
+            "description": "Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.",
+            "isExemptDomain": false,
+            "lastChecked": 1746819700412,
+            "redirectUrl": null,
+            "sortOrder": 3,
+            "status": 200,
+            "title": "Linux: An Introduction to User Management - The New Stack",
+            "type": "Required",
+            "url": "https://thenewstack.io/linux-an-introduction-to-user-management/"
+          }
+        ],
+        "name": "Misc",
+        "objective": "Random links related to dev but not dev directly."
+      },
+      {
+        "bookmarks": [
+          {
             "added": 1746676699633,
             "available": true,
             "checkError": null,
@@ -406,86 +477,30 @@
             "description": "Permalinks — Eleventy",
             "lastChecked": null,
             "redirectUrl": null,
+            "sortOrder": 4,
             "status": null,
             "title": "Permalinks — Eleventy",
             "type": "Required",
-            "url": "https://www.11ty.dev/docs/permalinks/",
-            "sortOrder": 4
+            "url": "https://www.11ty.dev/docs/permalinks/"
+          },
+          {
+            "added": 1746844102330,
+            "available": null,
+            "checkError": null,
+            "contentType": "Read",
+            "context": "Use these where you can.",
+            "description": "BC Gov API Directory Find an API and request an API key to get started",
+            "lastChecked": null,
+            "redirectUrl": null,
+            "status": null,
+            "title": "API Services Portal | API Directory",
+            "type": "Required",
+            "url": "https://api.gov.bc.ca/devportal/api-directory",
+            "sortOrder": 5
           }
         ],
         "name": "Platforms",
         "objective": "All the different platforms where courses are hosted."
-      },
-      {
-        "bookmarks": [
-          {
-            "added": 1746387326104,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "Because iut's good.",
-            "description": "Principles to help you write unique and compelling UX Design case studies for your portfolio.",
-            "isExemptDomain": false,
-            "lastChecked": 1746819696483,
-            "redirectUrl": null,
-            "sortOrder": 0,
-            "status": 200,
-            "title": "5 Principles of Exceptional Case Studies in UX Portfolios | UX Tools",
-            "type": "Required",
-            "url": "https://uxtools.co/blog/5-principles-of-exceptional-case-studies-in-ux-portfolios/"
-          },
-          {
-            "added": 1746386963340,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "It doesn't matter how good your system is for taking backups if you never try to restore from those backups.",
-            "description": "Archivematica: open-source digital preservation system",
-            "isExemptDomain": false,
-            "lastChecked": 1746819697766,
-            "redirectUrl": null,
-            "sortOrder": 1,
-            "status": 200,
-            "title": "Archivematica: open-source digital preservation system",
-            "type": "Required",
-            "url": "https://www.archivematica.org/en/"
-          },
-          {
-            "added": 1746386026764,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "context": "You might be asked to track how much time you're spending on different projects.",
-            "description": "Open source IDE plugins for programmers.",
-            "isExemptDomain": false,
-            "lastChecked": 1746819699017,
-            "redirectUrl": null,
-            "sortOrder": 2,
-            "status": 200,
-            "title": "WakaTime - Dashboards for developers",
-            "type": "Required",
-            "url": "https://wakatime.com/"
-          },
-          {
-            "added": 1746419388430,
-            "available": true,
-            "checkError": null,
-            "checkMethod": "fetch-direct",
-            "contentType": "Read",
-            "context": "Basics! Gotta learn it.",
-            "description": "Should you use useradd or adduser? This tutorial will teach you how to manage other users on your Linux machine.",
-            "isExemptDomain": false,
-            "lastChecked": 1746819700412,
-            "redirectUrl": null,
-            "sortOrder": 3,
-            "status": 200,
-            "title": "Linux: An Introduction to User Management - The New Stack",
-            "type": "Required",
-            "url": "https://thenewstack.io/linux-an-introduction-to-user-management/"
-          }
-        ],
-        "name": "Misc",
-        "objective": "Random links related to dev but not dev directly."
       }
     ]
   }
