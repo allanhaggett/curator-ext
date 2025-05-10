@@ -497,9 +497,9 @@ details.step-container .step-content {
       // Loop through all activities to find matches
       activities.forEach(function(activity) {
         // Get the searchable content from this activity
-        const h3Element = activity.querySelector('h3');
-        const title = h3Element && h3Element.textContent ? h3Element.textContent.toLowerCase() : '';
-        const descElement = activity.querySelector('h3 + div');
+        const titleElement = activity.querySelector('h4') || activity.querySelector('h3'); // Support both h4 (new) and h3 (legacy)
+        const title = titleElement && titleElement.textContent ? titleElement.textContent.toLowerCase() : '';
+        const descElement = activity.querySelector('h4 + div') || activity.querySelector('h3 + div');
         const description = descElement && descElement.textContent ? descElement.textContent.toLowerCase() : '';
         const contextElement = activity.querySelector('.curatorcontext blockquote');
         const context = contextElement ? contextElement.textContent.toLowerCase() : '';
@@ -558,8 +558,8 @@ details.step-container .step-content {
       // We only add a visual indicator
 
       // Get all text nodes in the activity to highlight
-      const titles = element.querySelectorAll('h3');
-      const descriptions = element.querySelectorAll('h3 + div');
+      const titles = element.querySelectorAll('h4, h3'); // Support both new and legacy heading elements
+      const descriptions = element.querySelectorAll('h4 + div, h3 + div');
       const contexts = element.querySelectorAll('.curatorcontext blockquote');
 
       // Add highlight classes to parent elements containing the search term
@@ -743,7 +743,7 @@ details.step-container .step-content {
       <div class="px-3 py-2 bg-dark bg-opacity-75 text-white rounded-bottom w-100">
         <div class="mb-0 d-flex justify-content-between">
           <small>Curated pathway</small>
-          <small class="text-white-50">Version: 9zemsu-2025-05-10</small>
+          <small class="text-white-50">Version: iosbel-2025-05-10</small>
         </div>
         <h1 class="h2 mb-1 mt-0">Full Stack Developer</h1>
       </div>
@@ -751,7 +751,7 @@ details.step-container .step-content {
 
     <div class="lead mb-4">Good links to all parts of the stack, even though that&#039;s a ridiculously large area. Version bump?</div>
 
-    <div class="text-muted small mb-3">Last updated: 5/9/2025, 9:34:04 PM</div>
+    <div class="text-muted small mb-3">Last updated: 5/9/2025, 10:30:29 PM</div>
 
     
     <details class="mb-4 p-3 bg-warning-subtle rounded-3">
